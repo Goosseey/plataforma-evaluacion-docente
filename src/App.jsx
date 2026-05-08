@@ -327,7 +327,6 @@ const Introduccion = ({ setActiveTab }) => {
         </Card>
       </div>
 
-      {/* NUEVA TABLA DINÁMICA DE NAVEGACIÓN */}
       <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mt-10">
         <div className="bg-slate-50 border-b border-slate-200 p-6 md:px-8 flex items-center">
           <Menu className="w-6 h-6 mr-3 text-blue-600 flex-shrink-0" />
@@ -417,7 +416,7 @@ const MarcoTeorico = () => (
       </p>
     </div>
 
-    <Accordion title="1. El Pilar del Alineamiento Constructivo" icon={BookOpen} defaultOpen={true}>
+    <Accordion title="1. El Pilar del Alineamiento Constructivo" icon={BookOpen} defaultOpen={false}>
       <div className="space-y-3">
         <p className="text-justify text-slate-700">
           La evaluación de tu clase no es un evento aislado, sino la verificación de un "contrato pedagógico". Entendemos que el aprendizaje profundo ocurre cuando hay coherencia total entre lo que esperamos, lo que hacemos y lo que evaluamos. Según John Biggs, debe existir un vínculo indisoluble entre:
@@ -528,7 +527,7 @@ const MarcoTeorico = () => (
             Conclusión: Hacia la Excelencia Docente
           </p>
           <p className="text-justify">
-            Al final del día, se intenta utilizar instrumentos de evaluación precisos y objetivos para evitar ambigüedades y apoyarte, a través de la autorreflexión basada en datos, ajustes tu práctica continuamente para beneficio de nuestros estudiantes.
+            Al final del día, utilizamos rúbricas quirúrgicamente precisas para eliminar el misterio de la calificación y empoderarte para que, a través de la autorreflexión basada en datos, ajustes tu práctica continuamente para beneficio de nuestros estudiantes.
           </p>
         </div>
       </div>
@@ -707,7 +706,7 @@ const FaqContacto = () => (
           </a>
           <div className="flex items-center text-slate-600 bg-white border border-slate-200 p-4 rounded-xl shadow-sm col-span-1 md:col-span-2">
             <Phone className="w-5 h-5 mr-3 text-blue-500 flex-shrink-0" />
-            <span className="text-sm font-medium">449 786 1786 <strong className="ml-1 text-slate-800">EXT 1127</strong> <span className="text-xs text-slate-400 ml-2 italic hidden md:inline">(Aunque la mayoría del tiempo estoy observando jaja 😉)</span></span>
+            <span className="text-sm font-medium">449 786 1786 <strong className="ml-1 text-slate-800">EXT 1127</strong> <span className="text-xs text-slate-400 ml-2 italic hidden md:inline">(Aunque la mayoría del tiempo estoy observando 😉)</span></span>
           </div>
         </div>
       </div>
@@ -727,7 +726,7 @@ const ContenidoAula = () => (
       colorTheme="blue"
     />
 
-    <Accordion title="1. GOOGLE CLASSROOM" icon={FileText}>
+    <Accordion title="1. GOOGLE CLASSROOM" icon={FileText} defaultOpen={false}>
       <CriterionTable 
         number="1.1" 
         title="Estructura base de Classroom"
@@ -753,7 +752,7 @@ const ContenidoAula = () => (
       />
     </Accordion>
 
-    <Accordion title="2. CONTENIDO DE LA MATERIA" icon={BookOpen} defaultOpen={true}>
+    <Accordion title="2. CONTENIDO DE LA MATERIA" icon={BookOpen} defaultOpen={false}>
       <CriterionTable 
         number="2.1" 
         title="Dominio y Explicación de Contenidos"
@@ -842,7 +841,7 @@ const ContenidoAula = () => (
       />
     </Accordion>
 
-    <Accordion title="3. USO DE VOCABULARIO ESPECIALIZADO EN INGLÉS" icon={Languages}>
+    <Accordion title="3. USO DE VOCABULARIO ESPECIALIZADO EN INGLÉS" icon={Languages} defaultOpen={false}>
       <CriterionTable 
         number="3.1" 
         title="Vocabulario Especializado en Inglés"
@@ -917,7 +916,7 @@ const ContenidoAula = () => (
       />
     </Accordion>
 
-    <Accordion title="4. DESARROLLO DE LA CLASE" icon={PlayCircle}>
+    <Accordion title="4. DESARROLLO DE LA CLASE" icon={PlayCircle} defaultOpen={false}>
       <div className="mb-8">
         <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center border-b pb-2">
           <Clock className="w-5 h-5 mr-2 text-blue-600" /> Momentos Iniciales
@@ -971,7 +970,7 @@ const ContenidoAula = () => (
           title="Nivel Cognitivo de las Actividades"
           note="Evalúa actividades observables; no determina nivel de pensamiento crítico final."
           levels={[
-            {score: 5, text: "Utiliza actividades que requieren análisis o resolución de problemas, explicación o argumentación y trabajo colaborativo."},
+            {score: 5, text: "Utiliza actividades que requieren análisis o resolución de problemas, explanation o argumentación y trabajo colaborativo."},
             {score: 4, text: "Utiliza actividades que requieren análisis o resolución de problemas y explicación o argumentación relacionada."},
             {score: 3, text: "Utiliza actividades que requieren explicación, análisis o resolución de problemas."},
             {score: 2, text: "Actividades centradas únicamente en repetición o seguimiento de instrucciones."},
@@ -1096,7 +1095,7 @@ const ContenidoIdiomas = () => (
       colorTheme="indigo"
     />
 
-    <Accordion title="1. PREPARATION" icon={BookOpen} defaultOpen={true}>
+    <Accordion title="1. PREPARATION" icon={BookOpen} defaultOpen={false}>
       <CriterionTable 
         number="1.1" 
         title="The teacher uses both: structured language activities, and activities that require student interaction or language production during the session."
@@ -1151,7 +1150,7 @@ const ContenidoIdiomas = () => (
       />
     </Accordion>
 
-    <Accordion title="2. LANGUAGE USE" icon={MessageSquare}>
+    <Accordion title="2. LANGUAGE USE" icon={MessageSquare} defaultOpen={false}>
       <CriterionTable 
         number="2.1" 
         title="The teacher uses the target language during explanations, instructions, or classroom interaction."
@@ -1193,7 +1192,7 @@ const ContenidoIdiomas = () => (
       />
     </Accordion>
 
-    <Accordion title="3. CLASS PRESENTATION" icon={PlayCircle}>
+    <Accordion title="3. CLASS PRESENTATION" icon={PlayCircle} defaultOpen={false}>
       
       <CriterionTable 
         number="3.1" 
@@ -1289,7 +1288,7 @@ const ContenidoIdiomas = () => (
 
     </Accordion>
 
-    <Accordion title="4. CLASSROOM MANAGEMENT" icon={Users}>
+    <Accordion title="4. CLASSROOM MANAGEMENT" icon={Users} defaultOpen={false}>
       
       <CriterionTable 
         number="4.1" 
@@ -1397,7 +1396,7 @@ const ContenidoIdiomas = () => (
       />
     </Accordion>
 
-    <Accordion title="5. CLASSROOM ATMOSPHERE" icon={ThumbsUp}>
+    <Accordion title="5. CLASSROOM ATMOSPHERE" icon={ThumbsUp} defaultOpen={false}>
       
       <CriterionTable 
         number="5.1" 
@@ -1454,7 +1453,7 @@ const ContenidoIdiomas = () => (
 
     </Accordion>
 
-    <Accordion title="6. CLOSING" icon={CheckSquare}>
+    <Accordion title="6. CLOSING" icon={CheckSquare} defaultOpen={false}>
       
       <CriterionTable 
         number="6.1" 
@@ -1497,19 +1496,12 @@ const Rubricas = () => {
   };
 
   return (
-    <div className="space-y-6 animate-fade-in max-w-5xl">
+    <div className="space-y-6 animate-fade-in max-w-5xl relative pb-20">
       <div className="mb-6 flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-slate-200 pb-4 print:border-none print:pb-0">
         <div>
           <h2 className="text-3xl font-bold text-slate-800 mb-2">Rúbricas de Evaluación</h2>
           <p className="text-slate-600 no-print">Seleccione el tipo de rúbrica a consultar.</p>
         </div>
-        <button 
-          onClick={handlePrint}
-          className="no-print flex items-center justify-center space-x-2 bg-slate-800 hover:bg-slate-700 text-white px-5 py-2.5 rounded-lg transition-colors shadow-sm font-semibold text-sm"
-        >
-          <Download className="w-4 h-4" />
-          <span>Descargar PDF</span>
-        </button>
       </div>
 
       <LineamientosGenerales />
@@ -1541,6 +1533,23 @@ const Rubricas = () => {
       <div className="print:block">
         {tipoRubrica === 'contenido' ? <ContenidoAula /> : <ContenidoIdiomas />}
       </div>
+
+      {/* BOTÓN DE DESCARGA REUBICADO AL FINAL */}
+      <div className="mt-12 pt-8 border-t border-slate-200 flex justify-center no-print">
+        <button 
+          onClick={handlePrint}
+          className={`flex items-center justify-center space-x-3 px-8 py-4 rounded-xl transition-all shadow-md hover:shadow-lg font-bold text-white transform hover:-translate-y-1 ${
+            tipoRubrica === 'contenido' ? 'bg-blue-700 hover:bg-blue-800' : 'bg-indigo-700 hover:bg-indigo-800'
+          }`}
+        >
+          <Download className="w-5 h-5" />
+          <span>
+            {tipoRubrica === 'contenido' 
+              ? 'Descargar Rúbrica de Materias de Contenido' 
+              : 'Descargar Rúbrica de Idiomas'}
+          </span>
+        </button>
+      </div>
     </div>
   );
 };
@@ -1550,18 +1559,49 @@ const Rubricas = () => {
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('introduccion');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Logo institucional de la Universidad Tecnológica El Retoño
-  const logoUrl = "https://drive.google.com/uc?export=view&id=1LMA_nxa5iMa-7FOZ2w3TbW4Bc-CTs08p";
+  // Inicializar la pestaña activa basándose en el hash de la URL o por defecto en 'introduccion'
+  const [activeTab, setActiveTab] = useState(() => {
+    const hash = window.location.hash.replace('#', '');
+    const validTabs = ['introduccion', 'inicio', 'calendario', 'rubricas', 'marco', 'faq'];
+    return validTabs.includes(hash) ? hash : 'introduccion';
+  });
 
+  // Logo con ruta directa de Google (lh3.googleusercontent.com)
+  const logoUrl = "https://lh3.googleusercontent.com/d/1LMA_nxa5iMa-7FOZ2w3TbW4Bc-CTs08p";
+
+  // Efecto de carga inicial
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
+
+  // Efecto para escuchar el botón "Atrás" del navegador
+  useEffect(() => {
+    const handlePopState = () => {
+      const hash = window.location.hash.replace('#', '');
+      const validTabs = ['introduccion', 'inicio', 'calendario', 'rubricas', 'marco', 'faq'];
+      if (validTabs.includes(hash)) {
+        setActiveTab(hash);
+      } else {
+        setActiveTab('introduccion');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Función unificada para cambiar de pestaña y agregar historial
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    window.history.pushState(null, '', `#${tabId}`);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const menuItems = [
     { id: 'introduccion', label: 'Introducción', icon: Info },
@@ -1574,13 +1614,13 @@ export default function App() {
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'introduccion': return <Introduccion setActiveTab={setActiveTab} />;
+      case 'introduccion': return <Introduccion setActiveTab={handleTabChange} />;
       case 'inicio': return <Dashboard />;
       case 'marco': return <MarcoTeorico />;
       case 'rubricas': return <Rubricas />;
       case 'faq': return <FaqContacto />;
       case 'calendario': return <Calendario />;
-      default: return <Introduccion setActiveTab={setActiveTab} />;
+      default: return <Introduccion setActiveTab={handleTabChange} />;
     }
   };
 
@@ -1655,10 +1695,7 @@ export default function App() {
               return (
                 <li key={item.id}>
                   <button
-                    onClick={() => {
-                      setActiveTab(item.id);
-                      setIsMobileMenuOpen(false);
-                    }}
+                    onClick={() => handleTabChange(item.id)}
                     className={`
                       w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all duration-200 text-sm font-semibold
                       ${isActive 
