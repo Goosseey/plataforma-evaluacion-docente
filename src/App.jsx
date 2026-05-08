@@ -527,7 +527,7 @@ const MarcoTeorico = () => (
             Conclusión: Hacia la Excelencia Docente
           </p>
           <p className="text-justify">
-            Al final del día, utilizamos rúbricas quirúrgicamente precisas para eliminar el misterio de la calificación y empoderarte para que, a través de la autorreflexión basada en datos, ajustes tu práctica continuamente para beneficio de nuestros estudiantes.
+            Aunque ninguna evaluación es completamente perfecta, las rúbricas nos permiten contar con criterios más claros y consistentes para acompañar la mejora continua de la práctica docente.
           </p>
         </div>
       </div>
