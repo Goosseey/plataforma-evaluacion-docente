@@ -145,7 +145,7 @@ const CriterionTable = ({ number, title, levels, naLabel, note }) => {
 
 const EscalaObjetiva = () => (
   <div className="bg-white rounded-lg p-5 border border-blue-100 text-sm mb-6 shadow-sm print:shadow-none print:border-slate-300">
-    <h4 className="font-bold text-slate-800 mb-3 tracking-wider">ESCALA OBJETIVA</h4>
+    <h4 className="font-bold text-slate-800 mb-3 tracking-wider">ESCALA DE EVALUACIÓN</h4>
     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
       <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-green-100 text-green-700 font-bold rounded mr-2">5</span> Sobresaliente</div>
       <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-lime-100 text-lime-600 font-bold rounded mr-2">4</span> Destacado</div>
