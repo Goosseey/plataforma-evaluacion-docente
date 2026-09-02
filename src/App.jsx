@@ -908,10 +908,10 @@ const ContentObservationGuide = () => (
           <h2 className="text-2xl font-bold">Guía de Observación: Materias de Contenido</h2>
         </div>
         <p className="text-blue-50 leading-relaxed print:text-slate-700">
-          Una referencia rápida para conocer qué aspectos se consideran durante la observación. No es una lista de acciones obligatorias ni establece una única forma de impartir clase.
+          Esta guía ofrece una referencia rápida sobre los aspectos que pueden considerarse durante la observación de clase. No es una lista de acciones obligatorias ni establece una única forma correcta de impartir una sesión.
         </p>
         <p className="text-sm text-blue-100 mt-3 font-medium no-print">
-          Explora cada apartado para revisar las preguntas de reflexión.
+          Explora cada apartado para revisar algunas preguntas que pueden ayudarte a reflexionar sobre tu clase.
         </p>
       </div>
     </div>
@@ -928,14 +928,17 @@ const ContentObservationGuide = () => (
         </p>
         <p className="font-bold text-slate-800 mb-2">Elementos institucionales requeridos:</p>
         <ul className="list-disc pl-5 space-y-1.5 mb-4">
-          <li><strong>Presentación de la asignatura:</strong> información general que permite identificar y contextualizar el curso.</li>
-          <li><strong>Resultados de Aprendizaje (RA):</strong> resultados correspondientes a la asignatura.</li>
-          <li><strong>Organización de contenidos:</strong> temas, unidades, bloques o estructura equivalente del curso.</li>
-          <li><strong>Cronograma o información temporal:</strong> horario, calendario, fechas relevantes o información equivalente para ubicar el desarrollo del curso.</li>
-          <li><strong>Criterios generales de evaluación:</strong> información sobre cómo se integra la evaluación de la asignatura.</li>
+          <li><strong>Presentación de la asignatura:</strong> información general que permite identificar la asignatura y conocer de qué trata.</li>
+          <li><strong>Resultados de Aprendizaje (RA):</strong> resultados establecidos para la asignatura.</li>
+          <li><strong>Organización de contenidos:</strong> temas, unidades, bloques o alguna estructura equivalente que permita ubicar los contenidos del curso.</li>
+          <li><strong>Cronograma o información temporal:</strong> horario, calendario, fechas relevantes u otra información que permita ubicar el desarrollo del curso.</li>
+          <li><strong>Criterios generales de evaluación:</strong> información sobre cómo se obtiene la calificación de la asignatura.</li>
         </ul>
         <div className="bg-blue-50 border border-blue-100 rounded-lg p-3 mb-4 text-blue-950">
-          <strong>Importante:</strong> los criterios generales de evaluación del curso son distintos de los criterios específicos con los que se valora una evidencia o actividad particular.
+          <strong>Importante:</strong> Los criterios generales de evaluación del curso son diferentes de los criterios utilizados para evaluar una actividad específica.
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 mb-4 text-slate-700">
+          <strong>Ejemplo:</strong> Los criterios generales pueden indicar qué porcentaje corresponde a proyectos, exámenes o actividades. Los criterios de una actividad indican qué se tomará en cuenta para evaluar ese trabajo en particular.
         </div>
         <p className="font-bold text-slate-800 mb-2">Preguntas para revisar mi curso:</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -951,27 +954,27 @@ const ContentObservationGuide = () => (
         icon={BookOpen}
       >
         <p className="mb-4">
-          Se observará cómo se explica el contenido de la materia, cómo se utilizan ejemplos o aplicaciones, su relación con el contexto profesional y la manera en que el docente obtiene información sobre el trabajo de los estudiantes y responde a ella.
+          Se observará cómo se desarrolla el contenido de la materia, cómo se utilizan ejemplos o aplicaciones, su relación con el ámbito profesional cuando corresponda y cómo el docente obtiene información sobre el trabajo de los estudiantes y responde a ella.
         </p>
         <p className="font-bold text-slate-800 mb-2">Preguntas para reflexionar:</p>
         <ul className="list-disc pl-5 space-y-2">
-          <li>¿Estoy desarrollando el significado, funcionamiento o procedimiento del contenido, además de presentar información?</li>
-          <li>¿Cuando utilizo un ejemplo, queda identificable su relación con el contenido que estoy trabajando?</li>
-          <li>Cuando corresponde, ¿puedo mostrar dónde o cómo aparece este contenido en el ámbito profesional?</li>
+          <li>¿Además de presentar información, explico qué significa, cómo funciona o cómo se realiza lo que estamos trabajando?</li>
+          <li>Cuando utilizo un ejemplo, ¿queda clara su relación con el contenido de la sesión?</li>
+          <li>Cuando corresponde, ¿muestro dónde o cómo se utiliza este contenido en el ámbito profesional?</li>
           <li>¿Tengo alguna forma de saber qué están haciendo, respondiendo o produciendo los estudiantes?</li>
-          <li>Cuando obtengo información sobre una respuesta, procedimiento o producto, ¿mi intervención responde a lo que observé?</li>
-          <li>Después de intervenir, ¿hay oportunidad de comprobar qué ocurrió con el trabajo o respuesta del estudiante?</li>
+          <li>Cuando observo una dificultad o una respuesta que requiere atención, ¿la aclaración, corrección o retroalimentación que doy responde a esa situación?</li>
+          <li>Después de una aclaración o retroalimentación, ¿vuelvo a revisar, observar o preguntar para saber qué ocurrió con el trabajo o la respuesta del estudiante?</li>
         </ul>
       </GuideAccordion>
 
       <GuideAccordion
         number="3"
         title="Vocabulario especializado en inglés"
-        subtitle="Inglés técnico de acuerdo con la progresión institucional."
+        subtitle="Inglés técnico de acuerdo con la incorporación establecida para la asignatura."
         icon={Languages}
       >
         <p className="mb-4">
-          Cuando corresponda de acuerdo con la progresión institucional de la asignatura, se observará la incorporación de vocabulario técnico en inglés tanto por parte del docente como en las oportunidades que se ofrecen para que los estudiantes trabajen con éste.
+          Cuando corresponda de acuerdo con la incorporación de inglés establecida para la asignatura, se observará el uso de vocabulario técnico en inglés y las oportunidades que tienen los estudiantes para trabajar con él.
         </p>
         <p className="font-bold text-slate-800 mb-2">Preguntas para reflexionar:</p>
         <ul className="list-disc pl-5 space-y-2">
@@ -993,9 +996,9 @@ const ContentObservationGuide = () => (
         <p className="font-bold text-slate-800 mb-2">Preguntas para reflexionar:</p>
         <ul className="list-disc pl-5 space-y-2">
           <li>¿Mis instrucciones permiten identificar qué debe hacerse?</li>
-          <li>Cuando la actividad lo requiere, ¿existe suficiente orientación para saber cómo proceder?</li>
+          <li>Cuando la actividad lo requiere, ¿doy suficiente orientación para saber cómo proceder?</li>
           <li>¿El estudiante puede identificar qué resultado, respuesta o producto se espera de la actividad?</li>
-          <li>Cuando existen requisitos, condiciones o criterios específicos, ¿puede el estudiante identificarlos?</li>
+          <li>Cuando existen requisitos, condiciones o criterios específicos, ¿el estudiante puede identificarlos?</li>
         </ul>
       </GuideAccordion>
     </div>
@@ -1011,7 +1014,7 @@ const ContentObservationGuide = () => (
             <li>¿Qué quiero trabajar en esta sesión?</li>
             <li>¿Qué espero que los estudiantes hagan durante ella?</li>
             <li>¿Cómo sabré qué está ocurriendo con su trabajo o sus respuestas?</li>
-            <li>Si surge una dificultad, ¿qué posibilidades tengo para responder a ella?</li>
+            <li>Si surge una dificultad, ¿qué posibilidades tengo para responder?</li>
             <li className="md:col-span-2">¿Hay algo de esta sesión que quisiera que el observador considere especialmente?</li>
           </ul>
         </div>
@@ -1021,7 +1024,7 @@ const ContentObservationGuide = () => (
     <div className="flex items-start bg-blue-50 border-l-4 border-blue-600 rounded-r-lg p-4 text-sm text-blue-950 print:border print:border-blue-200 print:rounded-lg">
       <Info className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
       <p>
-        <strong>Importante:</strong> Estas preguntas tienen un propósito reflexivo. No constituyen una lista de acciones obligatorias que deban aparecer en todas las sesiones ni implican que exista una única forma correcta de impartir clase. No todos los elementos de la guía necesariamente serán observables o aplicables en todas las sesiones. La valoración se realizará a partir de las evidencias que puedan observarse de acuerdo con la naturaleza de cada sesión.
+        <strong>Importante:</strong> Estas preguntas tienen un propósito reflexivo. No constituyen una lista de acciones obligatorias ni implican que exista una única forma correcta de impartir clase. Es posible que algunos aspectos de la guía no correspondan a todas las sesiones. La valoración se realizará únicamente con base en las evidencias que puedan observarse de acuerdo con las características de cada clase.
       </p>
     </div>
   </section>
