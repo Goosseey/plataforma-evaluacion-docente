@@ -292,10 +292,17 @@ const Introduccion = ({ setActiveTab }) => {
       icon: CalendarDays, 
       bg: 'bg-indigo-100', text: 'text-indigo-700', hoverText: 'group-hover:text-indigo-700' 
     },
+    {
+      id: 'guias',
+      title: 'Guías de Observación',
+      desc: 'Consulta materiales de orientación y preguntas de reflexión antes de una observación de clase.',
+      icon: FileText,
+      bg: 'bg-cyan-100', text: 'text-cyan-700', hoverText: 'group-hover:text-cyan-700'
+    },
     { 
       id: 'rubricas', 
       title: 'Rúbricas de Evaluación', 
-      desc: 'Consulta los criterios y descriptores utilizados durante la observación de clases de contenido y de idiomas.', 
+      desc: 'Consulta los instrumentos y descriptores utilizados en los distintos componentes del proceso de evaluación docente.', 
       icon: CheckSquare, 
       bg: 'bg-emerald-100', text: 'text-emerald-700', hoverText: 'group-hover:text-emerald-700' 
     },
@@ -917,11 +924,22 @@ const ContentObservationGuide = () => (
         icon={FileText}
       >
         <p className="mb-4">
-          Se revisará que Classroom cuente con los elementos institucionales requeridos y que las actividades o evidencias evaluables permitan identificar los criterios con los que serán evaluadas.
+          Se revisará que Classroom cuente con los cinco elementos institucionales requeridos y que se encuentren visibles y actualizados. También se revisará que las actividades o evidencias evaluables permitan identificar los criterios con los que serán evaluadas.
         </p>
+        <p className="font-bold text-slate-800 mb-2">Elementos institucionales requeridos:</p>
+        <ul className="list-disc pl-5 space-y-1.5 mb-4">
+          <li><strong>Presentación de la asignatura:</strong> información general que permite identificar y contextualizar el curso.</li>
+          <li><strong>Resultados de Aprendizaje (RA):</strong> resultados correspondientes a la asignatura.</li>
+          <li><strong>Organización de contenidos:</strong> temas, unidades, bloques o estructura equivalente del curso.</li>
+          <li><strong>Cronograma o información temporal:</strong> horario, calendario, fechas relevantes o información equivalente para ubicar el desarrollo del curso.</li>
+          <li><strong>Criterios generales de evaluación:</strong> información sobre cómo se integra la evaluación de la asignatura.</li>
+        </ul>
+        <div className="bg-blue-50 border border-blue-100 rounded-lg p-3 mb-4 text-blue-950">
+          <strong>Importante:</strong> los criterios generales de evaluación del curso son distintos de los criterios específicos con los que se valora una evidencia o actividad particular.
+        </div>
         <p className="font-bold text-slate-800 mb-2">Preguntas para revisar mi curso:</p>
         <ul className="list-disc pl-5 space-y-2">
-          <li>¿Mi Classroom contiene los elementos institucionales requeridos y están actualizados?</li>
+          <li>¿Los cinco elementos institucionales están visibles y actualizados en mi Classroom?</li>
           <li>Cuando una actividad será evaluada, ¿el estudiante puede identificar qué se tomará en cuenta para evaluarla?</li>
         </ul>
       </GuideAccordion>
@@ -1009,11 +1027,64 @@ const ContentObservationGuide = () => (
   </section>
 );
 
+const GuiasObservacion = () => {
+  const [tipoGuia, setTipoGuia] = useState('contenido');
+
+  return (
+    <div className="space-y-6 animate-fade-in max-w-5xl pb-16">
+      <div className="border-b border-slate-200 pb-5">
+        <h2 className="text-3xl font-bold text-slate-800 mb-2">Guías de Observación</h2>
+        <p className="text-slate-600 max-w-3xl">
+          Consulta materiales de orientación para conocer los aspectos que pueden considerarse durante la observación. Las guías tienen un propósito reflexivo y no sustituyen los criterios establecidos en las rúbricas de evaluación.
+        </p>
+      </div>
+
+      <div className="flex flex-wrap gap-2 bg-slate-100 p-2 rounded-xl border border-slate-200 no-print">
+        <button
+          type="button"
+          onClick={() => setTipoGuia('contenido')}
+          className={`inline-flex items-center px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${
+            tipoGuia === 'contenido'
+              ? 'bg-white text-blue-800 shadow-sm border border-blue-200'
+              : 'text-slate-600 hover:bg-white/70 hover:text-blue-700'
+          }`}
+        >
+          <BookOpen className="w-4 h-4 mr-2" /> Materias de Contenido
+        </button>
+        <button
+          type="button"
+          onClick={() => setTipoGuia('idiomas')}
+          className={`inline-flex items-center px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${
+            tipoGuia === 'idiomas'
+              ? 'bg-white text-indigo-800 shadow-sm border border-indigo-200'
+              : 'text-slate-600 hover:bg-white/70 hover:text-indigo-700'
+          }`}
+        >
+          <Languages className="w-4 h-4 mr-2" /> Clases de Idiomas
+        </button>
+      </div>
+
+      {tipoGuia === 'contenido' ? (
+        <ContentObservationGuide />
+      ) : (
+        <div className="pt-1">
+          <VideoEmbed
+            title="Guía de Observación: Clases de Idiomas"
+            description="Material preparatorio para conocer los aspectos generales considerados durante la observación de clases de idiomas."
+            embedId="eDHtNsIa9wE"
+            colorTheme="indigo"
+          />
+          <div className="bg-indigo-50 border-l-4 border-indigo-600 rounded-r-lg p-4 text-sm text-indigo-950">
+            Esta guía es un material de orientación. Los criterios y niveles que determinan la valoración se encuentran exclusivamente en la rúbrica de idiomas publicada en la sección de Rúbricas de Evaluación.
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const ContenidoAula = () => (
   <div className="animate-fade-in">
-    
-    <ContentObservationGuide />
-
     <Accordion title="1. GOOGLE CLASSROOM" icon={FileText} defaultOpen={false}>
       <CriterionTable 
         number="1.1" 
@@ -1156,14 +1227,6 @@ const ContenidoAula = () => (
 
 const ContenidoIdiomas = () => (
   <div className="animate-fade-in">
-    
-    <VideoEmbed 
-      title="Guía de Observación: Clases de Idiomas" 
-      description="Descubre nuestra visión sobre la enseñanza de lenguas. Te explicamos de forma empática y objetiva cómo evaluamos la inmersión (Target Language), el fomento de la interacción y las estrategias comunicativas para reducir el filtro afectivo de tus alumnos."
-      embedId="eDHtNsIa9wE"
-      colorTheme="indigo"
-    />
-
     <Accordion title="1. TARGET-LANGUAGE USE AND PRODUCTION" icon={Languages} defaultOpen={false}>
       <CriterionTable 
         number="1.1" 
@@ -1316,11 +1379,49 @@ const Rubricas = () => {
 
   return (
     <div className="space-y-6 animate-fade-in max-w-5xl relative pb-20">
-      <div className="mb-6 flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-slate-200 pb-4 print:border-none print:pb-0">
+      <div className="mb-2 flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-slate-200 pb-4 print:border-none print:pb-0">
         <div>
           <h2 className="text-3xl font-bold text-slate-800 mb-2">Rúbricas de Evaluación</h2>
-          <p className="text-slate-600 no-print">Seleccione el tipo de rúbrica a consultar.</p>
+          <p className="text-slate-600 no-print">Selecciona el componente del proceso de evaluación y consulta el instrumento correspondiente.</p>
         </div>
+      </div>
+
+      {/* SUBTEMAS DEL MODELO DE EVALUACIÓN */}
+      <div className="no-print">
+        <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Componente de evaluación</p>
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          <button
+            type="button"
+            className="flex-shrink-0 inline-flex items-center px-4 py-2.5 rounded-lg bg-emerald-700 text-white text-sm font-bold shadow-sm"
+          >
+            <Search className="w-4 h-4 mr-2" /> Observación en Aula
+          </button>
+          {[
+            { label: 'Estudiantes', icon: Users },
+            { label: 'Jefe de Departamento', icon: ClipboardList },
+            { label: 'Pares Académicos', icon: UserCheck },
+            { label: 'Autoevaluación', icon: BookOpen },
+          ].map((item) => {
+            const ItemIcon = item.icon;
+            return (
+              <button
+                key={item.label}
+                type="button"
+                disabled
+                title="Instrumento pendiente de incorporación"
+                className="flex-shrink-0 inline-flex items-center px-4 py-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-400 text-sm font-bold cursor-not-allowed"
+              >
+                <ItemIcon className="w-4 h-4 mr-2" /> {item.label}
+                <span className="ml-2 text-[10px] uppercase tracking-wider bg-slate-200 text-slate-500 px-2 py-0.5 rounded-full">Próximamente</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="pt-2 no-print">
+        <h3 className="text-xl font-bold text-slate-800">Rúbricas de Observación en Aula</h3>
+        <p className="text-sm text-slate-500 mt-1">Selecciona el tipo de clase para consultar el instrumento correspondiente.</p>
       </div>
 
       {/* SELECTOR PRINCIPAL DE RÚBRICA */}
@@ -1464,7 +1565,7 @@ export default function App() {
   // Inicializar la pestaña activa basándose en el hash de la URL o por defecto en 'introduccion'
   const [activeTab, setActiveTab] = useState(() => {
     const hash = window.location.hash.replace('#', '');
-    const validTabs = ['introduccion', 'inicio', 'calendario', 'rubricas', 'marco', 'faq'];
+    const validTabs = ['introduccion', 'inicio', 'calendario', 'guias', 'rubricas', 'marco', 'faq'];
     return validTabs.includes(hash) ? hash : 'introduccion';
   });
 
@@ -1483,7 +1584,7 @@ export default function App() {
   useEffect(() => {
     const handlePopState = () => {
       const hash = window.location.hash.replace('#', '');
-      const validTabs = ['introduccion', 'inicio', 'calendario', 'rubricas', 'marco', 'faq'];
+      const validTabs = ['introduccion', 'inicio', 'calendario', 'guias', 'rubricas', 'marco', 'faq'];
       if (validTabs.includes(hash)) {
         setActiveTab(hash);
       } else {
@@ -1507,6 +1608,7 @@ export default function App() {
     { id: 'introduccion', label: 'Introducción', icon: Info },
     { id: 'inicio', label: 'Modelo de Evaluación', icon: LayoutDashboard },
     { id: 'calendario', label: 'Calendario y Fases', icon: CalendarDays },
+    { id: 'guias', label: 'Guías de Observación', icon: FileText },
     { id: 'rubricas', label: 'Rúbricas de Evaluación', icon: CheckSquare },
     { id: 'marco', label: 'Marco Teórico', icon: BookOpen },
     { id: 'faq', label: 'FAQ y Contacto', icon: HelpCircle },
@@ -1517,6 +1619,7 @@ export default function App() {
       case 'introduccion': return <Introduccion setActiveTab={handleTabChange} />;
       case 'inicio': return <Dashboard />;
       case 'marco': return <MarcoTeorico />;
+      case 'guias': return <GuiasObservacion />;
       case 'rubricas': return <Rubricas />;
       case 'faq': return <FaqContacto />;
       case 'calendario': return <Calendario />;
