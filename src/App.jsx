@@ -852,15 +852,167 @@ const FaqContacto = () => (
 
 // --- SECCIONES DE RÚBRICAS INDIVIDUALES ---
 
+const GuideAccordion = ({ number, title, subtitle, icon: Icon, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow print:break-inside-avoid">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`w-full p-5 text-left flex items-center justify-between gap-4 transition-colors no-print ${isOpen ? 'bg-blue-50' : 'hover:bg-slate-50'}`}
+      >
+        <div className="flex items-center min-w-0">
+          <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 mr-4 ${isOpen ? 'bg-blue-700 text-white' : 'bg-blue-50 text-blue-700'}`}>
+            {Icon && <Icon className="w-5 h-5" />}
+          </div>
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs font-bold tracking-wider text-blue-700 uppercase">{number}</span>
+              <h4 className="font-bold text-slate-800">{title}</h4>
+            </div>
+            <p className="text-sm text-slate-500 leading-snug">{subtitle}</p>
+          </div>
+        </div>
+        {isOpen ? <ChevronUp className="w-5 h-5 text-blue-700 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />}
+      </button>
+
+      <div className={`${isOpen ? 'block' : 'hidden'} border-t border-slate-100 p-5 md:p-6 text-sm text-slate-700 leading-relaxed print:block print:border print:border-slate-200 print:rounded-xl print:mt-3`}>
+        <div className="hidden print:flex items-center mb-3">
+          {Icon && <Icon className="w-5 h-5 mr-2 text-blue-700" />}
+          <h4 className="font-bold text-slate-800">{number}. {title}</h4>
+        </div>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const ContentObservationGuide = () => (
+  <section className="mb-10 no-print-guide">
+    <div className="bg-gradient-to-r from-blue-800 to-blue-600 rounded-2xl p-6 md:p-7 text-white shadow-md mb-5 relative overflow-hidden print:bg-white print:text-slate-800 print:border print:border-slate-300 print:shadow-none">
+      <div className="absolute right-0 top-0 opacity-10 transform translate-x-6 -translate-y-6 no-print">
+        <BookOpen className="w-36 h-36" />
+      </div>
+      <div className="relative z-10 max-w-3xl">
+        <div className="flex items-center mb-3">
+          <div className="p-2 bg-white/15 rounded-lg mr-3 no-print">
+            <BookOpen className="w-6 h-6" />
+          </div>
+          <h2 className="text-2xl font-bold">Guía de Observación: Materias de Contenido</h2>
+        </div>
+        <p className="text-blue-50 leading-relaxed print:text-slate-700">
+          Una referencia rápida para conocer qué aspectos se consideran durante la observación. No es una lista de acciones obligatorias ni establece una única forma de impartir clase.
+        </p>
+        <p className="text-sm text-blue-100 mt-3 font-medium no-print">
+          Explora cada apartado para revisar las preguntas de reflexión.
+        </p>
+      </div>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5 print:block print:space-y-4">
+      <GuideAccordion
+        number="1"
+        title="Google Classroom"
+        subtitle="Estructura institucional y criterios de evaluación."
+        icon={FileText}
+      >
+        <p className="mb-4">
+          Se revisará que Classroom cuente con los elementos institucionales requeridos y que las actividades o evidencias evaluables permitan identificar los criterios con los que serán evaluadas.
+        </p>
+        <p className="font-bold text-slate-800 mb-2">Preguntas para revisar mi curso:</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>¿Mi Classroom contiene los elementos institucionales requeridos y están actualizados?</li>
+          <li>Cuando una actividad será evaluada, ¿el estudiante puede identificar qué se tomará en cuenta para evaluarla?</li>
+        </ul>
+      </GuideAccordion>
+
+      <GuideAccordion
+        number="2"
+        title="Desarrollo del contenido"
+        subtitle="Explicación, aplicación, contexto profesional y seguimiento del trabajo."
+        icon={BookOpen}
+      >
+        <p className="mb-4">
+          Se observará cómo se explica el contenido de la materia, cómo se utilizan ejemplos o aplicaciones, su relación con el contexto profesional y la manera en que el docente obtiene información sobre el trabajo de los estudiantes y responde a ella.
+        </p>
+        <p className="font-bold text-slate-800 mb-2">Preguntas para reflexionar:</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>¿Estoy desarrollando el significado, funcionamiento o procedimiento del contenido, además de presentar información?</li>
+          <li>¿Cuando utilizo un ejemplo, queda identificable su relación con el contenido que estoy trabajando?</li>
+          <li>Cuando corresponde, ¿puedo mostrar dónde o cómo aparece este contenido en el ámbito profesional?</li>
+          <li>¿Tengo alguna forma de saber qué están haciendo, respondiendo o produciendo los estudiantes?</li>
+          <li>Cuando obtengo información sobre una respuesta, procedimiento o producto, ¿mi intervención responde a lo que observé?</li>
+          <li>Después de intervenir, ¿hay oportunidad de comprobar qué ocurrió con el trabajo o respuesta del estudiante?</li>
+        </ul>
+      </GuideAccordion>
+
+      <GuideAccordion
+        number="3"
+        title="Vocabulario especializado en inglés"
+        subtitle="Inglés técnico de acuerdo con la progresión institucional."
+        icon={Languages}
+      >
+        <p className="mb-4">
+          Cuando corresponda de acuerdo con la progresión institucional de la asignatura, se observará la incorporación de vocabulario técnico en inglés tanto por parte del docente como en las oportunidades que se ofrecen para que los estudiantes trabajen con éste.
+        </p>
+        <p className="font-bold text-slate-800 mb-2">Preguntas para reflexionar:</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>¿Estoy incorporando el vocabulario técnico en inglés propio de mi asignatura?</li>
+          <li>¿Lo utilizo dentro de las explicaciones del contenido y no solamente como palabras aisladas?</li>
+          <li>¿Las actividades ofrecen alguna oportunidad para que los estudiantes reconozcan, nombren o utilicen ese vocabulario?</li>
+        </ul>
+      </GuideAccordion>
+
+      <GuideAccordion
+        number="4"
+        title="Desarrollo de las actividades"
+        subtitle="Instrucciones y expectativas de los trabajos, respuestas o productos."
+        icon={PlayCircle}
+      >
+        <p className="mb-4">
+          Se observará si las instrucciones permiten identificar qué debe realizarse y cómo proceder, así como qué trabajo, respuesta o producto se espera obtener.
+        </p>
+        <p className="font-bold text-slate-800 mb-2">Preguntas para reflexionar:</p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>¿Mis instrucciones permiten identificar qué debe hacerse?</li>
+          <li>Cuando la actividad lo requiere, ¿existe suficiente orientación para saber cómo proceder?</li>
+          <li>¿El estudiante puede identificar qué resultado, respuesta o producto se espera de la actividad?</li>
+          <li>Cuando existen requisitos, condiciones o criterios específicos, ¿puede el estudiante identificarlos?</li>
+        </ul>
+      </GuideAccordion>
+    </div>
+
+    <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 md:p-6 mb-4 print:break-inside-avoid">
+      <div className="flex items-start">
+        <div className="p-2 rounded-lg bg-blue-100 text-blue-700 mr-4 flex-shrink-0">
+          <Target className="w-5 h-5" />
+        </div>
+        <div>
+          <h3 className="font-bold text-slate-800 text-lg mb-3">Antes de la observación, puede ser útil preguntarme…</h3>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-slate-700 list-disc pl-5 md:pl-0 md:list-none">
+            <li>¿Qué quiero trabajar en esta sesión?</li>
+            <li>¿Qué espero que los estudiantes hagan durante ella?</li>
+            <li>¿Cómo sabré qué está ocurriendo con su trabajo o sus respuestas?</li>
+            <li>Si surge una dificultad, ¿qué posibilidades tengo para responder a ella?</li>
+            <li className="md:col-span-2">¿Hay algo de esta sesión que quisiera que el observador considere especialmente?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start bg-blue-50 border-l-4 border-blue-600 rounded-r-lg p-4 text-sm text-blue-950 print:border print:border-blue-200 print:rounded-lg">
+      <Info className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+      <p>
+        <strong>Importante:</strong> Estas preguntas tienen un propósito reflexivo. No constituyen una lista de acciones obligatorias que deban aparecer en todas las sesiones ni implican que exista una única forma correcta de impartir clase. No todos los elementos de la guía necesariamente serán observables o aplicables en todas las sesiones. La valoración se realizará a partir de las evidencias que puedan observarse de acuerdo con la naturaleza de cada sesión.
+      </p>
+    </div>
+  </section>
+);
+
 const ContenidoAula = () => (
   <div className="animate-fade-in">
     
-    <VideoEmbed 
-      title="Guía de Observación: Materias de Contenido" 
-      description="Te invitamos a ver este breve video preparatorio. Descubre qué aspectos clave observamos en tu sesión y cómo nuestra rúbrica busca apoyar tu crecimiento profesional reconociendo tu esfuerzo diario en el aula."
-      embedId="-nHLAzFIaF8"
-      colorTheme="blue"
-    />
+    <ContentObservationGuide />
 
     <Accordion title="1. GOOGLE CLASSROOM" icon={FileText} defaultOpen={false}>
       <CriterionTable 
@@ -1223,7 +1375,7 @@ const Rubricas = () => {
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1">Rúbrica de observación</p>
               <h3 className="text-xl font-bold text-slate-900">Clases de Idiomas</h3>
-              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Inglés, francés, alemán y japonés.</p>
+              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Inglés, francés, alemán y otras lenguas.</p>
               <p className="text-sm font-bold text-indigo-700 mt-4">View rubric →</p>
             </div>
           </div>
