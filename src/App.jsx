@@ -380,9 +380,14 @@ const Dashboard = () => (
       </div>
       <div className="relative z-10">
         <h1 className="text-3xl font-bold mb-4">Modelo de Evaluación 360°</h1>
-        <p className="text-blue-100 text-lg max-w-3xl leading-relaxed">
-          Un modelo institucional diseñado para proporcionar una evaluación integral y objetiva del desempeño docente, considerando múltiples perspectivas a lo largo del cuatrimestre para impulsar la mejora continua y la excelencia académica de la Universidad Tecnológica El Retoño.
-        </p>
+        <div className="text-blue-100 text-lg max-w-3xl leading-relaxed space-y-3">
+          <p>
+            El Modelo de Evaluación 360° integra distintas fuentes de información sobre el desempeño docente a lo largo del cuatrimestre. Cada componente aporta una perspectiva diferente y, en conjunto, permite obtener una valoración más amplia del desempeño profesional.
+          </p>
+          <p>
+            Ningún componente, considerado de manera aislada, representa por sí solo la totalidad de la práctica docente.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -390,28 +395,32 @@ const Dashboard = () => (
       <h2 className="text-2xl font-bold text-slate-800 mb-6">Composición de tu Calificación Final</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card title="Estudiantes (30%)" icon={Users} borderColor="border-blue-600">
-          <p>Evaluación en línea realizada por los alumnos sobre la dinámica y claridad en el aula.</p>
+          <p>Evaluación realizada por los estudiantes mediante el instrumento institucional correspondiente, a partir de su experiencia como participantes del proceso de enseñanza y aprendizaje.</p>
         </Card>
         <Card title="Observación en Aula (30%)" icon={Search} borderColor="border-red-600">
-          <p>Evaluación directa de la práctica docente mediante rúbricas objetivas y evidencia observable.</p>
+          <div className="space-y-2">
+            <p>Valoración de prácticas docentes observables durante una sesión de clase, mediante rúbricas con criterios y descriptores previamente establecidos.</p>
+            <p>La observación corresponde exclusivamente a la sesión observada y constituye una de las fuentes de información del proceso integral de evaluación docente.</p>
+          </div>
         </Card>
         <Card title="Jefe de Departamento (15%)" icon={ClipboardList} borderColor="border-blue-600">
-          <p>Evaluación del cumplimiento de lineamientos institucionales y administrativos.</p>
+          <p>Valoración realizada por el Jefe de Departamento mediante el instrumento institucional correspondiente, desde las responsabilidades y ámbitos de seguimiento propios de su función.</p>
         </Card>
         <Card title="Pares Académicos (15%)" icon={UserCheck} borderColor="border-slate-600">
-          <p>Retroalimentación constructiva de colegas sobre planeación y estrategias pedagógicas.</p>
+          <p>Valoración realizada por colegas académicos mediante el instrumento institucional correspondiente, incorporando la perspectiva de otros docentes sobre los aspectos contemplados en este componente.</p>
         </Card>
         <Card title="Autoevaluación (10%)" icon={BookOpen} borderColor="border-red-600">
-          <p>Reflexión personal sobre el propio desempeño y áreas de oportunidad.</p>
+          <p>Valoración reflexiva del propio docente sobre su práctica y desempeño a partir de los criterios establecidos en el instrumento de autoevaluación.</p>
         </Card>
       </div>
       <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4 text-red-800 text-sm flex items-start">
         <AlertCircle className="w-5 h-5 mr-2 flex-shrink-0 mt-0.5" />
-        <p><strong>Importante:</strong> Para obtener un resultado final completo, es obligatorio contar con la participación en los cinco componentes del modelo 360°.</p>
+        <p><strong>Importante:</strong> Para integrar el resultado final de la evaluación docente, se deberá contar con resultado en los cinco componentes del Modelo de Evaluación 360°.</p>
       </div>
     </div>
   </div>
 );
+
 
 const MarcoTeorico = () => (
   <div className="space-y-6 animate-fade-in max-w-4xl">
