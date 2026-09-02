@@ -1855,20 +1855,580 @@ const ContenidoIdiomas = () => (
 );
 
 
-// --- COMPONENTE ENVOLTORIO DE RÚBRICAS CON PESTAÑAS ---
+const InstrumentoEstudiantes = () => {
+  const scale = [
+    { score: '5', label: 'Muy de acuerdo', text: 'La afirmación describe completamente mi experiencia en la asignatura.' },
+    { score: '4', label: 'De acuerdo', text: 'La afirmación describe mi experiencia en la mayoría de las ocasiones.' },
+    { score: '3', label: 'Ni de acuerdo ni en desacuerdo', text: 'Mi experiencia fue variable o no tengo una opinión clara sobre la afirmación.' },
+    { score: '2', label: 'En desacuerdo', text: 'La afirmación describe poco mi experiencia en la asignatura.' },
+    { score: '1', label: 'Muy en desacuerdo', text: 'La afirmación no describe mi experiencia en la asignatura.' },
+    { score: 'NA', label: 'No aplica', text: 'La afirmación no aplica a esta asignatura o no cuento con elementos suficientes para responderla. Esta respuesta no se considera para el cálculo de resultados.' },
+  ];
+
+  const items = [
+    { number: '1', dimension: 'Comprensión', item: '1.1 Las explicaciones y actividades me ayudaron a entender los temas de esta asignatura.' },
+    { number: '2', dimension: 'Organización', item: '2.1 Durante el curso tuve claro qué actividades debía realizar y cómo sería evaluado(a).' },
+    { number: '3', dimension: 'Participación', item: '3.1 Durante las clases tuve oportunidades para participar, practicar o aplicar lo aprendido.' },
+    { number: '4', dimension: 'Apoyo docente', item: '4.1 Cuando tuve dudas o dificultades, recibí apoyo por parte del docente.' },
+    { number: '5', dimension: 'Aprendizaje y pertinencia', item: '5.1 Considero que lo aprendido en esta asignatura será útil para mi formación profesional o personal.' },
+    { number: '6', dimension: 'Inglés (solo BIS)', item: '6.1 El uso del inglés durante la asignatura favoreció mi comprensión de los contenidos y el desarrollo de mis habilidades en el idioma.' },
+  ];
+
+  return (
+    <div className="space-y-6 animate-fade-in">
+      <div className="bg-gradient-to-r from-sky-700 to-blue-800 rounded-2xl p-7 text-white shadow-md print:bg-white print:text-slate-900 print:border print:border-slate-300">
+        <div className="flex items-start gap-4">
+          <div className="p-3 rounded-xl bg-white/15 no-print">
+            <Users className="w-7 h-7" />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-sky-100 print:text-slate-500">Estudiantes · 30%</p>
+            <h3 className="text-2xl font-bold mt-1">Instrumento de Evaluación de Estudiantes</h3>
+            <p className="text-sky-100 mt-3 leading-relaxed print:text-slate-700">
+              Este cuestionario tiene como objetivo conocer tu experiencia de aprendizaje durante el cuatrimestre.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 print:shadow-none">
+        <h4 className="font-bold text-slate-800 text-lg mb-3 flex items-center">
+          <Info className="w-5 h-5 mr-2 text-sky-700" /> Instrucciones de aplicación
+        </h4>
+        <div className="space-y-3 text-sm text-slate-700 leading-relaxed">
+          <p>Evalúa qué tanto las clases, actividades y evaluaciones del docente te ayudaron a aprender, comprender los temas y desarrollarte como estudiante.</p>
+          <p>No evalúes la personalidad del docente, su forma de ser o si te cae bien o mal.</p>
+          <p>Evalúa cómo su forma de enseñar impactó tu aprendizaje.</p>
+          <p className="font-bold text-slate-900">Responde de manera honesta y objetiva.</p>
+          <div className="bg-sky-50 border-l-4 border-sky-600 p-3 rounded-r-lg font-medium text-sky-950">
+            No hay respuestas correctas o incorrectas. Marca la opción que mejor represente tu experiencia real.
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden print:shadow-none">
+        <div className="p-5 border-b border-slate-200 bg-slate-50">
+          <h4 className="font-bold text-slate-800 text-lg">Escala de respuesta</h4>
+          <p className="text-sm text-slate-500 mt-1">Esta escala aplica para todas las preguntas de la encuesta.</p>
+        </div>
+        <div className="divide-y divide-slate-100">
+          {scale.map((level) => (
+            <div key={level.score} className="grid grid-cols-[58px_1fr] md:grid-cols-[58px_190px_1fr] gap-3 p-4 items-start">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-slate-800">{level.score}</div>
+              <div className="font-bold text-slate-800">{level.label}</div>
+              <div className="text-sm text-slate-600 md:col-auto col-start-2">{level.text}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="mb-4">
+          <h4 className="text-xl font-bold text-slate-800">Reactivos del instrumento</h4>
+          <p className="text-sm text-slate-500 mt-1">Cada afirmación se responde utilizando la escala anterior.</p>
+        </div>
+        <div className="grid grid-cols-1 gap-4">
+          {items.map((item) => (
+            <div key={item.number} className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 print:shadow-none print:break-inside-avoid">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center font-bold">{item.number}</div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider font-bold text-sky-700 mb-1">{item.dimension}</p>
+                  <p className="text-slate-800 font-medium leading-relaxed">{item.item}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 print:shadow-none">
+        <h4 className="font-bold text-slate-800 text-lg mb-2 flex items-center">
+          <MessageSquare className="w-5 h-5 mr-2 text-sky-700" /> Comentarios del estudiante
+        </h4>
+        <p className="text-sm text-slate-600 leading-relaxed">
+          Si deseas agregar algún comentario, puedes mencionar aspectos que favorecieron tu aprendizaje o sugerencias para mejorar esta asignatura.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+const InstrumentoJefatura = () => {
+  const scale = [
+    { score: '5', label: 'Excede consistentemente lo esperado' },
+    { score: '4', label: 'Cumple de forma consistente' },
+    { score: '3', label: 'Cumple con lo esperado' },
+    { score: '2', label: 'Cumple parcialmente' },
+    { score: '1', label: 'No cumple' },
+    { score: 'NA', label: 'No aplica. No se condiera para el promedio final.' },
+  ];
+
+  const criteria = [
+    {
+      number: '1',
+      title: 'Cumplimiento de responsabilidades administrativas',
+      evaluates: 'El cumplimiento oportuno y correcto de las responsabilidades administrativas y académicas asignadas.',
+      evidence: ['Asistencia y puntualidad', 'Entrega de planeaciones, calificaciones y reportes', 'Uso adecuado de plataformas institucionales']
+    },
+    {
+      number: '2',
+      title: 'Cumplimiento de normativas institucionales',
+      evaluates: 'La adherencia a políticas, reglamentos y procedimientos de la institución.',
+      evidence: ['Cumplimiento de lineamientos académicos', 'Atención a indicaciones institucionales', 'Respeto a procesos establecidos']
+    },
+    {
+      number: '3',
+      title: 'Comunicación profesional y trabajo colaborativo',
+      evaluates: 'La calidad de la comunicación y colaboración con la comunidad académica.',
+      evidence: ['Comunicación clara y respetuosa', 'Trabajo en equipo', 'Manejo adecuado de desacuerdos o conflictos']
+    },
+    {
+      number: '4',
+      title: 'Participación y compromiso institucional',
+      evaluates: 'El nivel de involucramiento en actividades académicas e institucionales.',
+      evidence: ['Participación en reuniones y eventos', 'Colaboración en comités o proyectos', 'Disposición para apoyar iniciativas institucionales']
+    },
+    {
+      number: '5',
+      title: 'Desarrollo profesional e innovación institucional',
+      evaluates: 'La disposición para actualizarse y contribuir a la mejora institucional.',
+      evidence: ['Participación en capacitación', 'Implementación de mejoras alineadas al modelo BIS', 'Propuestas de mejora viables']
+    },
+    {
+      number: '6',
+      title: 'Ética y responsabilidad profesional',
+      evaluates: 'El actuar ético y responsable del docente.',
+      evidence: ['Confidencialidad', 'Trato profesional', 'Uso responsable de información institucional']
+    },
+    {
+      number: '7',
+      title: 'Cumplimiento de la carga académica asignada',
+      evaluates: 'El cumplimiento de las actividades académicas asignadas.',
+      evidence: ['Clases frente a grupo', 'Tutorías y asesorías', 'Proyectos, estadías u otras funciones asignadas']
+    },
+  ];
+
+  return (
+    <div className="space-y-6 animate-fade-in">
+      <div className="bg-gradient-to-r from-rose-700 to-red-800 rounded-2xl p-7 text-white shadow-md print:bg-white print:text-slate-900 print:border print:border-slate-300">
+        <div className="flex items-start gap-4">
+          <div className="p-3 rounded-xl bg-white/15 no-print">
+            <ClipboardList className="w-7 h-7" />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-rose-100 print:text-slate-500">Jefe de Departamento · 15%</p>
+            <h3 className="text-2xl font-bold mt-1">Instrumento de Evaluación del Jefe Académico</h3>
+            <p className="text-rose-100 mt-3 leading-relaxed print:text-slate-700">
+              Evaluar el desempeño del docente en relación con responsabilidades académicas, administrativas e institucionales, desde la perspectiva del jefe directo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 print:shadow-none">
+        <h4 className="font-bold text-slate-800 text-lg mb-3 flex items-center">
+          <Info className="w-5 h-5 mr-2 text-rose-700" /> Propósito
+        </h4>
+        <div className="space-y-3 text-sm text-slate-700 leading-relaxed">
+          <p>Evaluar el desempeño del docente en relación con responsabilidades académicas, administrativas e institucionales, desde la perspectiva del jefe directo.</p>
+          <div className="bg-rose-50 border-l-4 border-rose-600 p-3 rounded-r-lg font-medium text-rose-950">
+            Esta evaluación no mide la calidad de la práctica docente en el aula, sino el cumplimiento y contribución institucional.
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 print:shadow-none">
+        <h4 className="font-bold text-slate-800 text-lg mb-3 flex items-center">
+          <ClipboardList className="w-5 h-5 mr-2 text-rose-700" /> Instrucciones
+        </h4>
+        <div className="space-y-3 text-sm text-slate-700 leading-relaxed">
+          <p>El jefe académico evaluará el desempeño del docente a lo largo del cuatrimestre, con base en evidencias verificables (registros, entregables, participación y seguimiento).</p>
+          <p>Se utilizará la escala institucional NA–5.</p>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden print:shadow-none">
+        <div className="p-5 border-b border-slate-200 bg-slate-50">
+          <h4 className="font-bold text-slate-800 text-lg">Escala de valoración</h4>
+        </div>
+        <div className="divide-y divide-slate-100">
+          {scale.map((level) => (
+            <div key={level.score} className="grid grid-cols-[58px_1fr] gap-3 p-4 items-center">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-slate-800">{level.score}</div>
+              <div className="font-bold text-slate-800">{level.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="mb-4">
+          <h4 className="text-xl font-bold text-slate-800">Criterios del instrumento</h4>
+          <p className="text-sm text-slate-500 mt-1">La valoración se realiza con base en evidencia verificable acumulada durante el cuatrimestre.</p>
+        </div>
+
+        <div className="space-y-4">
+          {criteria.map((criterion) => (
+            <div key={criterion.number} className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden print:shadow-none print:break-inside-avoid">
+              <div className="p-5 border-b border-slate-100 flex items-start gap-4">
+                <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center font-bold">
+                  {criterion.number}
+                </div>
+                <div>
+                  <h5 className="font-bold text-slate-900 text-lg">{criterion.title}</h5>
+                  <p className="text-xs uppercase tracking-wider font-bold text-rose-700 mt-3 mb-1">Qué se evalúa</p>
+                  <p className="text-sm text-slate-700 leading-relaxed">{criterion.evaluates}</p>
+                </div>
+              </div>
+              <div className="p-5 bg-slate-50/60">
+                <p className="text-xs uppercase tracking-wider font-bold text-slate-500 mb-2">Evidencia típica</p>
+                <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
+                  {criterion.evidence.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 print:shadow-none">
+          <h4 className="font-bold text-slate-800 text-lg mb-2">A. Fortalezas observadas</h4>
+          <p className="text-sm text-slate-600">Fortalezas observadas en el desempeño institucional del docente.</p>
+        </div>
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 print:shadow-none">
+          <h4 className="font-bold text-slate-800 text-lg mb-2">B. Aspectos a fortalecer</h4>
+          <p className="text-sm text-slate-600">Aspectos a fortalecer para mejorar su contribución institucional.</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+const InstrumentoPares = () => {
+  const scale = [
+    { score: '5', label: 'Evidencia observada de forma constante', description: 'Durante gran parte de la sesión observé evidencia clara relacionada con la afirmación.' },
+    { score: '4', label: 'Evidencia observada en varios momentos', description: 'Observé evidencia relacionada con la afirmación en diferentes momentos de la sesión.' },
+    { score: '3', label: 'Evidencia observada de forma parcial', description: 'Observé algunos ejemplos relacionados con la afirmación, aunque no de forma consistente durante toda la sesión.' },
+    { score: '2', label: 'Evidencia observada de forma limitada', description: 'Observé pocos ejemplos relacionados con la afirmación.' },
+    { score: '1', label: 'No observé evidencia suficiente', description: 'No identifiqué evidencia suficiente relacionada con la afirmación durante la sesión observada.' },
+    { score: 'NA', label: 'No fue posible observar', description: 'La situación no se presentó durante la observación o no hubo elementos suficientes para valorarla.' },
+  ];
+
+  const criteria = [
+    {
+      number: '1',
+      title: 'Evidencia de participación estudiantil',
+      statement: 'Durante la observación identifiqué momentos donde los estudiantes participaron activamente en las actividades propuestas.'
+    },
+    {
+      number: '2',
+      title: 'Evidencia de construcción de conocimiento',
+      statement: 'Durante la observación identifiqué actividades donde los estudiantes tuvieron que explicar, justificar, analizar, resolver o producir algo.'
+    },
+    {
+      number: '3',
+      title: 'Evidencia de seguimiento docente',
+      statement: 'Durante la observación identifiqué acciones del docente para dar seguimiento al trabajo o participación de los estudiantes.',
+      examples: ['Preguntas', 'Monitoreo', 'Retroalimentación', 'Aclaraciones']
+    },
+    {
+      number: '4',
+      title: 'Evidencia de propósito',
+      statement: 'Durante la observación fue posible identificar qué estaban aprendiendo o desarrollando los estudiantes a través de las actividades realizadas.'
+    },
+    {
+      number: '5',
+      title: 'Prácticas transferibles',
+      statement: 'Durante la observación identifiqué ideas, estrategias o actividades que podría adaptar a mi propia práctica docente.',
+      formative: true
+    },
+  ];
+
+  return (
+    <div className="space-y-6 animate-fade-in">
+      <div className="bg-gradient-to-r from-violet-700 to-purple-800 rounded-2xl p-7 text-white shadow-md print:bg-white print:text-slate-900 print:border print:border-slate-300">
+        <div className="flex items-start gap-4">
+          <div className="p-3 rounded-xl bg-white/15 no-print">
+            <UserCheck className="w-7 h-7" />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-violet-100 print:text-slate-500">Pares Académicos · 15%</p>
+            <h3 className="text-2xl font-bold mt-1">Instrumento de Evaluación entre Pares</h3>
+            <p className="text-violet-100 mt-3 leading-relaxed print:text-slate-700">
+              Observación de una sesión de clase realizada por un colega, centrada en prácticas docentes observables y con un componente formativo de intercambio profesional.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 print:shadow-none">
+        <h4 className="font-bold text-slate-800 text-lg mb-3 flex items-center">
+          <Info className="w-5 h-5 mr-2 text-violet-700" /> Instrucciones de aplicación
+        </h4>
+        <div className="space-y-3 text-sm text-slate-700 leading-relaxed">
+          <p>El docente observador asistirá a una sesión de clase de un colega y evaluará prácticas docentes observables durante la sesión, utilizando la escala institucional NA–5.</p>
+          <p>Los criterios deben valorarse con base en evidencia directa, evitando juicios personales, comparaciones con otros docentes o evaluaciones del contenido disciplinar.</p>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden print:shadow-none">
+        <div className="p-5 border-b border-slate-200 bg-slate-50">
+          <h4 className="font-bold text-slate-800 text-lg">Escala de respuesta</h4>
+        </div>
+        <div className="divide-y divide-slate-100">
+          {scale.map((level) => (
+            <div key={level.score} className="grid grid-cols-[58px_1fr] gap-3 p-4 items-start">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-slate-800">{level.score}</div>
+              <div>
+                <div className="font-bold text-slate-800">{level.label}</div>
+                <p className="text-sm text-slate-600 mt-1">{level.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="mb-4">
+          <h4 className="text-xl font-bold text-slate-800">Criterios del instrumento</h4>
+          <p className="text-sm text-slate-500 mt-1">La valoración se basa en lo observado durante la sesión.</p>
+        </div>
+
+        <div className="space-y-4">
+          {criteria.map((criterion) => (
+            <div key={criterion.number} className={`bg-white rounded-xl border shadow-sm overflow-hidden print:shadow-none print:break-inside-avoid ${criterion.formative ? 'border-violet-300' : 'border-slate-200'}`}>
+              <div className="p-5 flex items-start gap-4">
+                <div className={`w-10 h-10 flex-shrink-0 rounded-xl flex items-center justify-center font-bold ${criterion.formative ? 'bg-violet-100 text-violet-800' : 'bg-slate-100 text-slate-800'}`}>
+                  {criterion.number}
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h5 className="font-bold text-slate-900 text-lg">{criterion.title}</h5>
+                    {criterion.formative && (
+                      <span className="text-[11px] uppercase tracking-wider font-bold bg-violet-100 text-violet-800 px-2 py-1 rounded-full">
+                        Solo formativo
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-slate-700 leading-relaxed mt-2">{criterion.statement}</p>
+
+                  {criterion.examples && (
+                    <div className="mt-4 bg-slate-50 rounded-lg p-4">
+                      <p className="text-xs uppercase tracking-wider font-bold text-slate-500 mb-2">Ejemplos</p>
+                      <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
+                        {criterion.examples.map((example) => <li key={example}>{example}</li>)}
+                      </ul>
+                    </div>
+                  )}
+
+                  {criterion.formative && (
+                    <div className="mt-4 bg-violet-50 border-l-4 border-violet-500 p-3 rounded-r-lg text-sm text-violet-950">
+                      Este criterio se utiliza únicamente con fines formativos y no se considera para el cálculo del puntaje final.
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 print:shadow-none">
+        <h4 className="font-bold text-slate-800 text-lg mb-4 flex items-center">
+          <MessageSquare className="w-5 h-5 mr-2 text-violet-700" /> Comentarios del colega evaluador
+        </h4>
+        <ol className="list-decimal pl-5 space-y-4 text-sm text-slate-700 leading-relaxed">
+          <li>Describe una práctica, actividad o decisión docente que consideres valiosa y explica por qué llamó tu atención.</li>
+          <li>¿Qué sugerencia compartirías con el docente a partir de lo observado durante la sesión?</li>
+          <li>¿Qué aspecto de esta observación te gustaría adaptar o probar en tu propia práctica docente?</li>
+        </ol>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+const InstrumentoAutoevaluacion = () => {
+  const scale = [
+    { score: '5', label: 'Lo hago de manera consistente y con alto impacto' },
+    { score: '4', label: 'Lo hago de manera adecuada y constante' },
+    { score: '3', label: 'Cumplo con lo esperado' },
+    { score: '2', label: 'Lo hago de forma parcial o irregular' },
+    { score: '1', label: 'No lo realizo' },
+    { score: 'NA', label: 'No aplica. No se condiera para el promedio final.' },
+  ];
+
+  const dimensions = [
+    {
+      title: 'Dimensión 1. Planeación y organización de la enseñanza',
+      items: [
+        'Clarifico a mis estudiantes qué se espera de ellos y cómo serán evaluados.',
+        'Organizo mis clases de manera coherente con los objetivos del curso.'
+      ]
+    },
+    {
+      title: 'Dimensión 2. Desarrollo de la clase y estrategias de aprendizaje',
+      items: [
+        'Utilizo estrategias que favorecen la participación y el aprendizaje activo.',
+        'Promuevo el pensamiento crítico y la aplicación de los contenidos.'
+      ]
+    },
+    {
+      title: 'Dimensión 3. Comunicación y ambiente de aprendizaje',
+      items: [
+        'Mantengo un ambiente de respeto y confianza en clase.',
+        'Me comunico de forma clara y adecuada a las características del grupo.'
+      ]
+    },
+    {
+      title: 'Dimensión 4. Evaluación y retroalimentación',
+      items: [
+        'Utilizo criterios claros para evaluar el aprendizaje.',
+        'Proporciono retroalimentación que ayuda a mis estudiantes a mejorar.'
+      ]
+    },
+    {
+      title: 'Dimensión 5. Uso del inglés (Modelo BIS)',
+      items: [
+        'Utilizo el inglés como herramienta para apoyar el aprendizaje del contenido.'
+      ]
+    },
+    {
+      title: 'Desempeño institucional',
+      items: [
+        'Cumplo oportunamente con mis responsabilidades académicas y administrativas.',
+        'Me comunico de manera profesional y colaboro con mis colegas.',
+        'Participo en actividades institucionales y de desarrollo profesional.'
+      ]
+    },
+  ];
+
+  let itemNumber = 0;
+
+  return (
+    <div className="space-y-6 animate-fade-in">
+      <div className="bg-gradient-to-r from-amber-600 to-orange-700 rounded-2xl p-7 text-white shadow-md print:bg-white print:text-slate-900 print:border print:border-slate-300">
+        <div className="flex items-start gap-4">
+          <div className="p-3 rounded-xl bg-white/15 no-print">
+            <BookOpen className="w-7 h-7" />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-amber-100 print:text-slate-500">Autoevaluación · 10%</p>
+            <h3 className="text-2xl font-bold mt-1">Instrumento de Autoevaluación Docente</h3>
+            <p className="text-amber-100 mt-3 leading-relaxed print:text-slate-700">
+              Reflexión del docente sobre su práctica académica e institucional a lo largo del cuatrimestre.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 print:shadow-none">
+        <h4 className="font-bold text-slate-800 text-lg mb-3 flex items-center">
+          <Info className="w-5 h-5 mr-2 text-amber-700" /> Objetivo
+        </h4>
+        <div className="space-y-3 text-sm text-slate-700 leading-relaxed">
+          <p>Esta autoevaluación tiene como objetivo reflexionar sobre tu práctica docente e institucional durante el cuatrimestre.</p>
+          <p>No es una auditoría ni una calificación externa.</p>
+          <p>Responde con honestidad para identificar fortalezas y áreas de mejora, y establecer metas claras para el siguiente periodo.</p>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden print:shadow-none">
+        <div className="p-5 border-b border-slate-200 bg-slate-50">
+          <h4 className="font-bold text-slate-800 text-lg">Escala de referencia</h4>
+        </div>
+        <div className="divide-y divide-slate-100">
+          {scale.map((level) => (
+            <div key={level.score} className="grid grid-cols-[58px_1fr] gap-3 p-4 items-center">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-slate-800">{level.score}</div>
+              <div className="font-bold text-slate-800">{level.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-5">
+        {dimensions.map((dimension, dimensionIndex) => (
+          <div key={dimension.title} className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden print:shadow-none print:break-inside-avoid">
+            <div className={`p-5 border-b border-slate-100 ${dimensionIndex === dimensions.length - 1 ? 'bg-orange-50' : 'bg-amber-50/60'}`}>
+              <h4 className="font-bold text-slate-900 text-lg">{dimension.title}</h4>
+            </div>
+            <div className="divide-y divide-slate-100">
+              {dimension.items.map((item) => {
+                itemNumber += 1;
+                return (
+                  <div key={item} className="p-5 flex items-start gap-4">
+                    <div className="w-9 h-9 flex-shrink-0 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+                      {itemNumber}
+                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed pt-1.5">{item}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden print:shadow-none">
+        <div className="p-5 border-b border-slate-200 bg-slate-50">
+          <h4 className="font-bold text-slate-800 text-lg flex items-center">
+            <Target className="w-5 h-5 mr-2 text-amber-700" /> Reflexión y desarrollo profesional
+          </h4>
+        </div>
+        <div className="divide-y divide-slate-100">
+          <div className="p-5">
+            <p className="text-xs uppercase tracking-wider font-bold text-amber-700 mb-1">1. Logros más significativos del periodo</p>
+            <p className="text-sm text-slate-700">¿Qué prácticas, estrategias o acciones consideras que tuvieron mayor impacto positivo en tu labor docente o institucional?</p>
+          </div>
+          <div className="p-5">
+            <p className="text-xs uppercase tracking-wider font-bold text-amber-700 mb-1">2. Principales áreas de mejora</p>
+            <p className="text-sm text-slate-700">¿Qué aspectos de tu práctica docente o institucional consideras que necesitas fortalecer?</p>
+          </div>
+          <div className="p-5">
+            <p className="text-xs uppercase tracking-wider font-bold text-amber-700 mb-1">3. Metas para el próximo periodo</p>
+            <p className="text-sm text-slate-700">¿Qué acciones concretas te propones realizar para mejorar tu desempeño?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+// --- COMPONENTE ENVOLTORIO DE INSTRUMENTOS CON SUBPESTAÑAS ---
 const Rubricas = () => {
+  const [componenteEvaluacion, setComponenteEvaluacion] = useState('observacion');
   const [tipoRubrica, setTipoRubrica] = useState('contenido');
 
   const handlePrint = () => {
     window.print();
   };
 
+  const componentes = [
+    { id: 'observacion', label: 'Observación en Aula', icon: Search, enabled: true },
+    { id: 'estudiantes', label: 'Estudiantes', icon: Users, enabled: true },
+    { id: 'jefatura', label: 'Jefe de Departamento', icon: ClipboardList, enabled: true },
+    { id: 'pares', label: 'Pares Académicos', icon: UserCheck, enabled: true },
+    { id: 'autoevaluacion', label: 'Autoevaluación', icon: BookOpen, enabled: true },
+  ];
+
   return (
     <div className="space-y-6 animate-fade-in max-w-5xl relative pb-20">
       <div className="mb-2 flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-slate-200 pb-4 print:border-none print:pb-0">
         <div>
-          <h2 className="text-3xl font-bold text-slate-800 mb-2">Rúbricas de Evaluación</h2>
-          <p className="text-slate-600 no-print">Selecciona el componente del proceso de evaluación y consulta el instrumento correspondiente.</p>
+          <h2 className="text-3xl font-bold text-slate-800 mb-2">Instrumentos de Evaluación</h2>
+          <p className="text-slate-600 no-print">Selecciona el componente del proceso de evaluación para consultar el instrumento correspondiente.</p>
         </div>
       </div>
 
@@ -1876,164 +2436,193 @@ const Rubricas = () => {
       <div className="no-print">
         <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Componente de evaluación</p>
         <div className="flex gap-2 overflow-x-auto pb-2">
-          <button
-            type="button"
-            className="flex-shrink-0 inline-flex items-center px-4 py-2.5 rounded-lg bg-emerald-700 text-white text-sm font-bold shadow-sm"
-          >
-            <Search className="w-4 h-4 mr-2" /> Observación en Aula
-          </button>
-          {[
-            { label: 'Estudiantes', icon: Users },
-            { label: 'Jefe de Departamento', icon: ClipboardList },
-            { label: 'Pares Académicos', icon: UserCheck },
-            { label: 'Autoevaluación', icon: BookOpen },
-          ].map((item) => {
+          {componentes.map((item) => {
             const ItemIcon = item.icon;
+            const active = componenteEvaluacion === item.id;
             return (
               <button
-                key={item.label}
+                key={item.id}
                 type="button"
-                disabled
-                title="Instrumento pendiente de incorporación"
-                className="flex-shrink-0 inline-flex items-center px-4 py-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-400 text-sm font-bold cursor-not-allowed"
+                disabled={!item.enabled}
+                onClick={() => item.enabled && setComponenteEvaluacion(item.id)}
+                title={item.enabled ? `Consultar ${item.label}` : 'Instrumento pendiente de incorporación'}
+                className={`flex-shrink-0 inline-flex items-center px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${
+                  active
+                    ? 'bg-emerald-700 text-white shadow-sm'
+                    : item.enabled
+                      ? 'border border-slate-200 bg-white text-slate-700 hover:border-emerald-300 hover:bg-emerald-50'
+                      : 'border border-slate-200 bg-slate-50 text-slate-400 cursor-not-allowed'
+                }`}
               >
                 <ItemIcon className="w-4 h-4 mr-2" /> {item.label}
-                <span className="ml-2 text-[10px] uppercase tracking-wider bg-slate-200 text-slate-500 px-2 py-0.5 rounded-full">Próximamente</span>
+                {!item.enabled && (
+                  <span className="ml-2 text-[10px] uppercase tracking-wider bg-slate-200 text-slate-500 px-2 py-0.5 rounded-full">Próximamente</span>
+                )}
               </button>
             );
           })}
         </div>
       </div>
 
-      <div className="pt-2 no-print">
-        <h3 className="text-xl font-bold text-slate-800">Rúbricas de Observación en Aula</h3>
-        <p className="text-sm text-slate-500 mt-1">Selecciona el tipo de clase para consultar el instrumento correspondiente.</p>
-      </div>
-
-      {/* SELECTOR PRINCIPAL DE RÚBRICA */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 no-print">
-        <button
-          type="button"
-          aria-pressed={tipoRubrica === 'contenido'}
-          onClick={() => setTipoRubrica('contenido')}
-          className={`group relative text-left rounded-2xl border-2 p-6 transition-all duration-200 ${
-            tipoRubrica === 'contenido'
-              ? 'border-blue-600 bg-blue-50 shadow-md ring-2 ring-blue-100'
-              : 'border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/40 hover:shadow-md'
-          }`}
-        >
-          {tipoRubrica === 'contenido' && (
-            <span className="absolute top-4 right-4 inline-flex items-center rounded-full bg-blue-700 px-3 py-1 text-xs font-bold text-white shadow-sm">
-              <CheckSquare className="w-3.5 h-3.5 mr-1.5" /> Seleccionada
-            </span>
-          )}
-          <div className="flex items-start pr-24">
-            <div className={`p-3 rounded-xl mr-4 ${tipoRubrica === 'contenido' ? 'bg-blue-700 text-white' : 'bg-blue-100 text-blue-700'}`}>
-              <BookOpen className="w-7 h-7" />
-            </div>
-            <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1">Rúbrica de observación</p>
-              <h3 className="text-xl font-bold text-slate-900">Materias de Contenido</h3>
-              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Asignaturas disciplinares, técnicas y profesionales.</p>
-              <p className="text-sm font-bold text-blue-700 mt-4">Ver rúbrica →</p>
-            </div>
+      {componenteEvaluacion === 'observacion' ? (
+        <>
+          <div className="pt-2 no-print">
+            <h3 className="text-xl font-bold text-slate-800">Rúbricas de Observación en Aula</h3>
+            <p className="text-sm text-slate-500 mt-1">Selecciona el tipo de clase para consultar el instrumento correspondiente.</p>
           </div>
-        </button>
 
-        <button
-          type="button"
-          aria-pressed={tipoRubrica === 'idiomas'}
-          onClick={() => setTipoRubrica('idiomas')}
-          className={`group relative text-left rounded-2xl border-2 p-6 transition-all duration-200 ${
-            tipoRubrica === 'idiomas'
-              ? 'border-indigo-600 bg-indigo-50 shadow-md ring-2 ring-indigo-100'
-              : 'border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50/40 hover:shadow-md'
-          }`}
-        >
-          {tipoRubrica === 'idiomas' && (
-            <span className="absolute top-4 right-4 inline-flex items-center rounded-full bg-indigo-700 px-3 py-1 text-xs font-bold text-white shadow-sm">
-              <CheckSquare className="w-3.5 h-3.5 mr-1.5" /> Seleccionada
-            </span>
-          )}
-          <div className="flex items-start pr-24">
-            <div className={`p-3 rounded-xl mr-4 ${tipoRubrica === 'idiomas' ? 'bg-indigo-700 text-white' : 'bg-indigo-100 text-indigo-700'}`}>
-              <Languages className="w-7 h-7" />
-            </div>
-            <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1">Rúbrica de observación</p>
-              <h3 className="text-xl font-bold text-slate-900">Clases de Idiomas</h3>
-              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Inglés, francés, alemán y japonés.</p>
-              <p className="text-sm font-bold text-indigo-700 mt-4">View rubric →</p>
-            </div>
-          </div>
-        </button>
-      </div>
-
-      {/* SELECTOR COMPACTO VISIBLE DURANTE EL DESPLAZAMIENTO */}
-      <div className="sticky top-2 z-30 no-print">
-        <div className="bg-white/95 backdrop-blur border border-slate-200 rounded-xl shadow-md p-2.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <div className="px-2">
-            <p className="text-[11px] uppercase tracking-wider font-bold text-slate-400">Actualmente estás consultando</p>
-            <p className={`text-sm font-bold ${tipoRubrica === 'contenido' ? 'text-blue-800' : 'text-indigo-800'}`}>
-              {tipoRubrica === 'contenido' ? 'Materias de Contenido' : 'Clases de Idiomas'}
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-2 sm:flex">
+          {/* SELECTOR PRINCIPAL DE RÚBRICA */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 no-print">
             <button
               type="button"
+              aria-pressed={tipoRubrica === 'contenido'}
               onClick={() => setTipoRubrica('contenido')}
-              className={`inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
+              className={`group relative text-left rounded-2xl border-2 p-6 transition-all duration-200 ${
                 tipoRubrica === 'contenido'
-                  ? 'bg-blue-700 text-white shadow-sm'
-                  : 'bg-slate-100 text-slate-600 hover:bg-blue-50 hover:text-blue-700'
+                  ? 'border-blue-600 bg-blue-50 shadow-md ring-2 ring-blue-100'
+                  : 'border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/40 hover:shadow-md'
               }`}
             >
-              <BookOpen className="w-4 h-4 mr-2" /> Contenido
+              {tipoRubrica === 'contenido' && (
+                <span className="absolute top-4 right-4 inline-flex items-center rounded-full bg-blue-700 px-3 py-1 text-xs font-bold text-white shadow-sm">
+                  <CheckSquare className="w-3.5 h-3.5 mr-1.5" /> Seleccionada
+                </span>
+              )}
+              <div className="flex items-start pr-24">
+                <div className={`p-3 rounded-xl mr-4 ${tipoRubrica === 'contenido' ? 'bg-blue-700 text-white' : 'bg-blue-100 text-blue-700'}`}>
+                  <BookOpen className="w-7 h-7" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1">Rúbrica de observación</p>
+                  <h3 className="text-xl font-bold text-slate-900">Materias de Contenido</h3>
+                  <p className="text-sm text-slate-600 mt-2 leading-relaxed">Asignaturas disciplinares, técnicas y profesionales.</p>
+                  <p className="text-sm font-bold text-blue-700 mt-4">Ver rúbrica →</p>
+                </div>
+              </div>
             </button>
+
             <button
               type="button"
+              aria-pressed={tipoRubrica === 'idiomas'}
               onClick={() => setTipoRubrica('idiomas')}
-              className={`inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
+              className={`group relative text-left rounded-2xl border-2 p-6 transition-all duration-200 ${
                 tipoRubrica === 'idiomas'
-                  ? 'bg-indigo-700 text-white shadow-sm'
-                  : 'bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-700'
+                  ? 'border-indigo-600 bg-indigo-50 shadow-md ring-2 ring-indigo-100'
+                  : 'border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50/40 hover:shadow-md'
               }`}
             >
-              <Languages className="w-4 h-4 mr-2" /> Idiomas
+              {tipoRubrica === 'idiomas' && (
+                <span className="absolute top-4 right-4 inline-flex items-center rounded-full bg-indigo-700 px-3 py-1 text-xs font-bold text-white shadow-sm">
+                  <CheckSquare className="w-3.5 h-3.5 mr-1.5" /> Seleccionada
+                </span>
+              )}
+              <div className="flex items-start pr-24">
+                <div className={`p-3 rounded-xl mr-4 ${tipoRubrica === 'idiomas' ? 'bg-indigo-700 text-white' : 'bg-indigo-100 text-indigo-700'}`}>
+                  <Languages className="w-7 h-7" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1">Rúbrica de observación</p>
+                  <h3 className="text-xl font-bold text-slate-900">Clases de Idiomas</h3>
+                  <p className="text-sm text-slate-600 mt-2 leading-relaxed">Inglés, francés, alemán y japonés.</p>
+                  <p className="text-sm font-bold text-indigo-700 mt-4">View rubric →</p>
+                </div>
+              </div>
             </button>
           </div>
-        </div>
-      </div>
 
-      {tipoRubrica === 'contenido' ? (
-        <>
-          <LineamientosContenido />
-          <EscalaObjetivaContenido />
+          {/* SELECTOR COMPACTO VISIBLE DURANTE EL DESPLAZAMIENTO */}
+          <div className="sticky top-2 z-30 no-print">
+            <div className="bg-white/95 backdrop-blur border border-slate-200 rounded-xl shadow-md p-2.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div className="px-2">
+                <p className="text-[11px] uppercase tracking-wider font-bold text-slate-400">Actualmente estás consultando</p>
+                <p className={`text-sm font-bold ${tipoRubrica === 'contenido' ? 'text-blue-800' : 'text-indigo-800'}`}>
+                  {tipoRubrica === 'contenido' ? 'Materias de Contenido' : 'Clases de Idiomas'}
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-2 sm:flex">
+                <button
+                  type="button"
+                  onClick={() => setTipoRubrica('contenido')}
+                  className={`inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
+                    tipoRubrica === 'contenido'
+                      ? 'bg-blue-700 text-white shadow-sm'
+                      : 'bg-slate-100 text-slate-600 hover:bg-blue-50 hover:text-blue-700'
+                  }`}
+                >
+                  <BookOpen className="w-4 h-4 mr-2" /> Contenido
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setTipoRubrica('idiomas')}
+                  className={`inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
+                    tipoRubrica === 'idiomas'
+                      ? 'bg-indigo-700 text-white shadow-sm'
+                      : 'bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-700'
+                  }`}
+                >
+                  <Languages className="w-4 h-4 mr-2" /> Idiomas
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {tipoRubrica === 'contenido' ? (
+            <>
+              <LineamientosContenido />
+              <EscalaObjetivaContenido />
+            </>
+          ) : (
+            <>
+              <GuidelinesLanguages />
+              <RatingScaleLanguages />
+            </>
+          )}
+
+          <div className="print:block">
+            {tipoRubrica === 'contenido' ? <ContenidoAula /> : <ContenidoIdiomas />}
+          </div>
         </>
+      ) : componenteEvaluacion === 'estudiantes' ? (
+        <InstrumentoEstudiantes />
+      ) : componenteEvaluacion === 'jefatura' ? (
+        <InstrumentoJefatura />
+      ) : componenteEvaluacion === 'pares' ? (
+        <InstrumentoPares />
       ) : (
-        <>
-          <GuidelinesLanguages />
-          <RatingScaleLanguages />
-        </>
+        <InstrumentoAutoevaluacion />
       )}
 
-      <div className="print:block">
-        {tipoRubrica === 'contenido' ? <ContenidoAula /> : <ContenidoIdiomas />}
-      </div>
-
-      {/* BOTÓN DE DESCARGA REUBICADO AL FINAL */}
+      {/* BOTÓN DE DESCARGA / IMPRESIÓN */}
       <div className="mt-12 pt-8 border-t border-slate-200 flex justify-center no-print">
-        <button 
+        <button
           onClick={handlePrint}
           className={`flex items-center justify-center space-x-3 px-8 py-4 rounded-xl transition-all shadow-md hover:shadow-lg font-bold text-white transform hover:-translate-y-1 ${
-            tipoRubrica === 'contenido' ? 'bg-blue-700 hover:bg-blue-800' : 'bg-indigo-700 hover:bg-indigo-800'
+            componenteEvaluacion === 'estudiantes'
+              ? 'bg-sky-700 hover:bg-sky-800'
+              : componenteEvaluacion === 'jefatura'
+                ? 'bg-rose-700 hover:bg-rose-800'
+                : componenteEvaluacion === 'pares'
+                  ? 'bg-violet-700 hover:bg-violet-800'
+                  : componenteEvaluacion === 'autoevaluacion'
+                    ? 'bg-amber-700 hover:bg-amber-800'
+                    : tipoRubrica === 'contenido'
+                      ? 'bg-blue-700 hover:bg-blue-800'
+                      : 'bg-indigo-700 hover:bg-indigo-800'
           }`}
         >
           <Download className="w-5 h-5" />
           <span>
-            {tipoRubrica === 'contenido' 
-              ? 'Descargar Rúbrica de Materias de Contenido' 
-              : 'Descargar Rúbrica de Idiomas'}
+            {componenteEvaluacion === 'estudiantes'
+              ? 'Descargar Instrumento de Evaluación de Estudiantes'
+              : componenteEvaluacion === 'jefatura'
+                ? 'Descargar Instrumento de Evaluación del Jefe Académico'
+                : componenteEvaluacion === 'pares'
+                  ? 'Descargar Instrumento de Evaluación entre Pares'
+                  : componenteEvaluacion === 'autoevaluacion'
+                    ? 'Descargar Instrumento de Autoevaluación Docente'
+                    : tipoRubrica === 'contenido'
+                      ? 'Descargar Rúbrica de Materias de Contenido'
+                      : 'Descargar Rúbrica de Idiomas'}
           </span>
         </button>
       </div>
