@@ -143,125 +143,65 @@ const CriterionTable = ({ number, title, levels, naLabel, note }) => {
   );
 };
 
-const EscalaObjetiva = () => (
-  <div className="bg-white rounded-lg p-5 border border-blue-100 text-sm mb-6 shadow-sm print:shadow-none print:border-slate-300">
-    <h4 className="font-bold text-slate-800 mb-3 tracking-wider">ESCALA DE EVALUACIÓN</h4>
+const RatingScaleLanguages = () => (
+  <div className="bg-white rounded-lg p-5 border border-indigo-100 text-sm mb-6 shadow-sm print:shadow-none print:border-slate-300">
+    <h4 className="font-bold text-slate-800 mb-3 tracking-wider">RATING SCALE</h4>
     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-green-100 text-green-700 font-bold rounded mr-2">5</span> Sobresaliente</div>
-      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-lime-100 text-lime-600 font-bold rounded mr-2">4</span> Destacado</div>
-      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-yellow-100 text-yellow-600 font-bold rounded mr-2">3</span> Satisfactorio</div>
-      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-red-100 text-red-600 font-bold rounded mr-2">2</span> Aceptable</div>
-      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-rose-100 text-rose-900 font-bold rounded mr-2">1</span> Incumplimiento</div>
-      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-slate-100 text-slate-600 font-bold rounded mr-2">0</span> No aplica</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-green-100 text-green-700 font-bold rounded mr-2">5</span> Outstanding</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-lime-100 text-lime-600 font-bold rounded mr-2">4</span> Distinguished</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-yellow-100 text-yellow-600 font-bold rounded mr-2">3</span> Satisfactory</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-red-100 text-red-600 font-bold rounded mr-2">2</span> Acceptable</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-rose-100 text-rose-900 font-bold rounded mr-2">1</span> Non-compliance</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-slate-100 text-slate-600 font-bold rounded mr-2">0</span> Not Applicable / Not Observable</div>
     </div>
+    <p className="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-500 leading-relaxed">
+      The level names correspond to the institutional rating scale. Scores must be assigned according to the specific descriptor established for each criterion.
+    </p>
   </div>
 );
 
-const LineamientosGenerales = () => (
-  <Accordion title="Propósito y Lineamientos de Aplicación del Instrumento" icon={Info} defaultOpen={false}>
-    <div className="space-y-8 text-sm text-slate-700 p-2">
+const GuidelinesLanguages = () => (
+  <Accordion title="Purpose and Guidelines for Use of the Instrument" icon={Info} defaultOpen={false}>
+    <div className="space-y-7 text-sm text-slate-700 p-2">
       <div>
-        <h4 className="font-bold text-blue-800 text-base mb-2">Propósito del instrumento de observación de clases:</h4>
-        <p className="mb-3 text-justify">
-          La presente rúbrica tiene como finalidad documentar conductas, acciones e interacciones observables durante una sesión de clase. La evaluación se centra exclusivamente en evidencia observable dentro del periodo de observación y no constituye, por sí sola, una valoración integral del desempeño profesional del docente.
+        <h4 className="font-bold text-indigo-800 text-base mb-2">Purpose</h4>
+        <p className="text-justify">
+          This rubric is intended to assess observable behaviors, actions, and interactions during a class session. The assessment is based exclusively on evidence recorded during the observation period and does not constitute a comprehensive evaluation of the teacher&apos;s professional performance.
         </p>
-        <p className="font-semibold mb-2">La aplicación del instrumento busca:</p>
-        <ul className="list-disc pl-6 space-y-1">
-          <li>identificar prácticas observables durante la sesión,</li>
-          <li>promover criterios homogéneos entre observadores,</li>
-          <li>y reducir interpretaciones subjetivas durante el proceso de evaluación.</li>
-        </ul>
       </div>
 
       <div>
-        <h4 className="font-bold text-blue-800 text-base mb-4 border-b pb-2">Principios de aplicación</h4>
-        
-        <div className="mb-5">
-          <h5 className="font-bold text-slate-800 mb-2">1. Evaluar únicamente lo observable</h5>
-          <p className="mb-2">La valoración deberá realizarse únicamente con base en acciones, interacciones o evidencias observadas directamente durante la sesión. No deberán inferirse:</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 pl-4">
-            <ul className="list-disc pl-4 space-y-1">
-              <li>intenciones del docente,</li>
-              <li>emociones,</li>
-              <li>motivación estudiantil,</li>
-            </ul>
-            <ul className="list-disc pl-4 space-y-1">
-              <li>dominio disciplinar total,</li>
-              <li>aprendizaje alcanzado,</li>
-              <li>ni estados internos del grupo.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mb-5">
-          <h5 className="font-bold text-slate-800 mb-2">2. Evitar interpretaciones subjetivas</h5>
-          <p className="mb-2">La asignación de niveles no deberá basarse en percepciones generales como:</p>
-          <ul className="list-disc pl-8 space-y-1 italic text-slate-500 mb-3">
-            <li>“la clase se sintió dinámica”,</li>
-            <li>“el docente parecía dominar el tema”,</li>
-            <li>“los estudiantes parecían interesados”,</li>
-            <li>“el ambiente fue agradable”.</li>
-          </ul>
-          <p className="bg-slate-50 border-l-4 border-blue-600 p-3 rounded">La valoración deberá sustentarse exclusivamente en los elementos descritos en cada criterio y escala.</p>
-        </div>
-
-        <div>
-          <h5 className="font-bold text-slate-800 mb-2">3. Considerar el contexto de la sesión</h5>
-          <p className="mb-2">La observación deberá considerar:</p>
-          <ul className="list-disc pl-8 space-y-1">
-            <li>modalidad de la clase, duración de la sesión y estructura de la actividad,</li>
-            <li>nivel del grupo, tipo de contenido y dinámica desarrollada durante la observación.</li>
-          </ul>
-          <p className="mt-2 font-medium text-slate-600">No todos los criterios necesariamente serán observables en todas las sesiones.</p>
-        </div>
+        <h4 className="font-bold text-indigo-800 text-base mb-3 border-b pb-2">Guidelines for Use</h4>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>Scores must be based solely on observable evidence and the descriptors established for each criterion.</li>
+          <li>The observer must not infer intentions, emotions, motivation, learning achieved, overall disciplinary knowledge, or overall linguistic competence.</li>
+          <li>The quantity or frequency of a behavior does not, by itself, determine a higher performance level unless the criterion explicitly establishes otherwise.</li>
+          <li>A single piece of evidence may support a performance level when it fully meets the corresponding descriptor.</li>
+          <li>The assessment must consider the characteristics and conditions of the observed session without assuming a single required teaching structure or methodology.</li>
+        </ul>
       </div>
 
       <div className="bg-slate-800 text-white rounded-xl p-6 shadow-sm">
         <h4 className="font-bold text-lg mb-3 flex items-center">
           <AlertCircle className="w-5 h-5 mr-2 text-red-400" />
-          Criterios para asignar “No aplica / No observable”
+          Not Applicable / Not Observable
         </h4>
-        <p className="mb-3 text-slate-300">El observador podrá utilizar NA cuando:</p>
-        <ul className="list-disc pl-6 space-y-2 text-slate-200">
-          <li>no se observe participación estudiantil suficiente,</li>
-          <li>la sesión no contemple interacción verbal o no existan actividades grupales,</li>
-          <li>no sea posible observar el inicio o cierre de la sesión,</li>
-          <li>el criterio dependa de una dinámica no desarrollada durante la observación,</li>
-          <li>o no exista evidencia observable suficiente para valorar objetivamente el criterio.</li>
-        </ul>
+        <div className="space-y-3 text-slate-200">
+          <p>
+            A score of <strong className="text-white">0 / N/A</strong> must be used when, due to the nature of the subject, activity, or observation conditions, there is no reasonable opportunity to assess the criterion.
+          </p>
+          <p>
+            It must not be used when the criterion could reasonably have been observed but the behavior described did not occur. In that case, the corresponding performance level must be assigned.
+          </p>
+          <p className="font-semibold text-white">A score of 0 / N/A does not represent a performance rating.</p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <h4 className="font-bold text-blue-800 text-base mb-2">Alcances y limitaciones del instrumento</h4>
-          <p className="mb-2 font-semibold">La presente rúbrica:</p>
-          <ul className="list-disc pl-6 space-y-1 mb-2">
-            <li>evalúa evidencia observable durante una sesión específica,</li>
-            <li>no sustituye procesos integrales de evaluación docente,</li>
-            <li>y no permite determinar de manera concluyente:
-              <ul className="list-[circle] pl-6 mt-1 space-y-1 text-slate-500 italic">
-                <li>aprendizaje alcanzado,</li>
-                <li>dominio disciplinar absoluto,</li>
-                <li>competencia lingüística total,</li>
-                <li>ni efectividad global de enseñanza.</li>
-              </ul>
-            </li>
-          </ul>
-          <p className="text-xs text-slate-500 bg-slate-100 p-2 rounded">Los resultados deberán interpretarse considerando el contexto específico de la observación.</p>
-        </div>
-
-        <div>
-          <h4 className="font-bold text-blue-800 text-base mb-2">Consideraciones éticas</h4>
-          <p className="mb-2 font-semibold">La observación docente deberá realizarse bajo principios de:</p>
-          <ul className="list-disc pl-6 space-y-1 mb-4">
-            <li>respeto,</li>
-            <li>confidencialidad,</li>
-            <li>objetividad,</li>
-            <li>consistencia,</li>
-            <li>y apego a los criterios establecidos en el instrumento.</li>
-          </ul>
-          <p className="bg-slate-50 border-l-4 border-blue-600 p-3 rounded text-sm">Las valoraciones deberán sustentarse exclusivamente en evidencia observable registrada durante la sesión.</p>
-        </div>
+      <div>
+        <h4 className="font-bold text-indigo-800 text-base mb-2">Scope</h4>
+        <p className="text-justify">
+          The results apply exclusively to the observed session and cannot conclusively determine student learning, overall disciplinary or linguistic competence, or the overall effectiveness of the teacher&apos;s practice.
+        </p>
       </div>
     </div>
   </Accordion>
@@ -797,22 +737,24 @@ const ContenidoAula = () => (
         number="1.1" 
         title="Estructura base de Classroom"
         levels={[
-          {score: 5, text: "Todos los elementos requeridos (Intro, RA, Temas, Horario, Criterios) visibles y actualizados."},
-          {score: 4, text: "Falta un elemento o uno está desactualizado."},
-          {score: 3, text: "Faltan dos elementos requeridos."},
-          {score: 2, text: "Información muy limitada o poco accesible."},
-          {score: 1, text: "Ausencia casi total de elementos requeridos."}
+          {score: 5, text: "Los cinco elementos requeridos están visibles y actualizados."},
+          {score: 4, text: "Cuatro de los cinco elementos requeridos están visibles y actualizados."},
+          {score: 3, text: "Tres de los cinco elementos requeridos están visibles y actualizados."},
+          {score: 2, text: "Uno o dos de los cinco elementos requeridos están visibles y actualizados."},
+          {score: 1, text: "Ninguno de los cinco elementos requeridos está visible y actualizado."}
         ]}
+        naLabel="No fue posible realizar la revisión de Classroom durante el periodo de evaluación."
       />
+
       <CriterionTable 
         number="1.2" 
         title="Criterios de evaluación en evidencias/actividades"
         levels={[
           {score: 5, text: "Todas las evidencias o actividades evaluables observadas incluyen criterios de evaluación identificables."},
-          {score: 4, text: "Falta criterio de evaluación en una sola evidencia o actividad evaluable observada."},
-          {score: 3, text: "Entre aproximadamente la mitad y menos de todas las evidencias observadas incluyen criterios de evaluación identificables."},
-          {score: 2, text: "Menos de la mitad de las evidencias observadas incluyen criterios de evaluación identificables."},
-          {score: 1, text: "Ninguna evidencia o actividad evaluable incluye criterios de evaluación identificables."}
+          {score: 4, text: "Al menos el 75% de las evidencias o actividades evaluables observadas incluyen criterios de evaluación identificables."},
+          {score: 3, text: "Entre el 50% y menos del 75% incluyen criterios de evaluación identificables."},
+          {score: 2, text: "Menos del 50% incluyen criterios de evaluación identificables."},
+          {score: 1, text: "Ninguna evidencia o actividad evaluable observada incluye criterios de evaluación identificables."}
         ]}
         naLabel="No se observaron evidencias o actividades evaluables durante la revisión."
       />
@@ -821,332 +763,111 @@ const ContenidoAula = () => (
     <Accordion title="2. CONTENIDO DE LA MATERIA" icon={BookOpen} defaultOpen={false}>
       <CriterionTable 
         number="2.1" 
-        title="Dominio y Explicación de Contenidos"
-        note="Evalúa conductas observables durante la sesión."
+        title="Explicación de Contenidos"
         levels={[
-          {score: 5, text: "Explica contenidos, responde preguntas, utiliza ejemplos/referencias y realiza conexiones entre conceptos del tema."},
-          {score: 4, text: "Explica contenidos, responde preguntas y utiliza ejemplos o referencias relacionadas."},
-          {score: 3, text: "Explica contenidos relacionados con la sesión y responde preguntas relacionadas con el tema."},
-          {score: 2, text: "Presenta información relacionada pero no utiliza ejemplos, referencias o conexiones entre conceptos."},
+          {score: 5, text: "Explica cómo las relaciones entre sus conceptos, componentes, pasos o criterios intervienen en el funcionamiento, procedimiento o resultado del contenido trabajado."},
+          {score: 4, text: "Explica el contenido estableciendo relaciones explícitas entre sus conceptos, componentes, pasos o criterios."},
+          {score: 3, text: "Explica el contenido desarrollando el significado, funcionamiento o procedimiento correspondiente al tema de la sesión."},
+          {score: 2, text: "Presenta información, definiciones, datos o pasos relacionados con el tema, sin desarrollar cómo funcionan o se relacionan."},
           {score: 1, text: "No se observan explicaciones relacionadas con el contenido de la sesión."}
         ]}
-        naLabel="No fue posible observar exposición o interacción relacionada con el contenido disciplinar."
+        naLabel="No fue posible observar explicación o interacción relacionada con el contenido disciplinar."
       />
+
       <CriterionTable 
         number="2.2" 
-        title="Variedad de Dinámicas y Recursos"
-        note="La complejidad cognitiva requiere evidencia complementaria."
+        title="Ejemplos y aplicación del contenido"
         levels={[
-          {score: 5, text: "Utiliza diferentes dinámicas de trabajo, distintos recursos o materiales y más de una forma de participación estudiantil."},
-          {score: 4, text: "Utiliza diferentes dinámicas de trabajo y distintos recursos o materiales durante la sesión."},
-          {score: 3, text: "Utiliza más de una dinámica o recurso durante la sesión."},
-          {score: 2, text: "Utiliza una sola dinámica o recurso durante toda la sesión."},
-          {score: 1, text: "No se observan actividades o recursos diferenciados durante la sesión."}
-        ]}
-        naLabel="No fue posible observar actividades de enseñanza durante la sesión."
-      />
-      <CriterionTable 
-        number="2.3" 
-        title="Relación con Ejemplos y Aplicación"
-        levels={[
-          {score: 5, text: "Se presentan múltiples ejemplos o aplicaciones prácticas relacionados explícitamente con el contenido."},
-          {score: 4, text: "Se presentan al menos dos ejemplos o aplicaciones prácticas relacionados explícitamente con el contenido."},
-          {score: 3, text: "Se presenta un ejemplo o aplicación práctica relacionado explícitamente con el contenido."},
-          {score: 2, text: "Se mencionan ejemplos o aplicaciones pero sin relación explícita con el contenido desarrollado."},
-          {score: 1, text: "No se observan ejemplos, situaciones o aplicaciones relacionadas con el contenido."}
+          {score: 5, text: "El ejemplo o aplicación se acompaña de una explicación que relaciona de manera directa el contenido trabajado con la situación presentada."},
+          {score: 4, text: "Se presenta un ejemplo o aplicación directamente relacionado con el contenido trabajado."},
+          {score: 3, text: "Se presenta un ejemplo o aplicación relacionado con el tema abordado, pero sin una relación explícita con el contenido trabajado."},
+          {score: 2, text: "Se menciona un ejemplo o aplicación de forma aislada, sin relación identificable con el tema o contenido desarrollado."},
+          {score: 1, text: "No se observan ejemplos o aplicaciones relacionadas con el contenido."}
         ]}
         naLabel="No fue posible observar desarrollo de contenido disciplinar durante la sesión."
       />
+
+      <CriterionTable 
+        number="2.3" 
+        title="Vinculación con el contexto profesional"
+        levels={[
+          {score: 5, text: "Explica cómo el contenido trabajado interviene en una tarea, función, proceso o situación específica del ámbito profesional."},
+          {score: 4, text: "Identifica de manera explícita una tarea, función, proceso o situación del ámbito profesional en la que se utiliza el contenido trabajado."},
+          {score: 3, text: "Hace referencias al ámbito profesional relacionadas con el contenido trabajado, sin explicar la relación entre ambos."},
+          {score: 2, text: "Hace referencias generales al ámbito profesional sin establecer su relación con el contenido trabajado."},
+          {score: 1, text: "No se observan referencias al contexto profesional cuando el criterio resulta aplicable."}
+        ]}
+        naLabel="La naturaleza de la sesión no contempló una relación observable con el contexto profesional."
+      />
+
       <CriterionTable 
         number="2.4" 
-        title="Información Actualizada del Área"
+        title="Verificación y Retroalimentación"
         levels={[
-          {score: 5, text: "Utiliza referencias recientes, ejemplos actuales y recursos sobre avances o tendencias del área."},
-          {score: 4, text: "Utiliza referencias recientes y ejemplos actuales relacionados."},
-          {score: 3, text: "Menciona información o ejemplos recientes relacionados."},
-          {score: 2, text: "Presenta contenido sin referencias recientes o actualizadas observables."},
-          {score: 1, text: "No se observan referencias relacionadas con información actualizada del área disciplinar."}
+          {score: 5, text: "Después de una intervención o retroalimentación, vuelve a observar, revisar o preguntar sobre la respuesta, procedimiento o producto del estudiante."},
+          {score: 4, text: "Utiliza información obtenida del trabajo o respuestas de los estudiantes para realizar una aclaración, corrección, indicación o retroalimentación específica."},
+          {score: 3, text: "Obtiene información sobre el trabajo o las respuestas de los estudiantes mediante preguntas, observación del trabajo, revisión de respuestas, procedimientos o productos."},
+          {score: 2, text: "Realiza preguntas o comentarios generales sobre el avance de la actividad, sin obtener evidencia identificable del trabajo o respuesta de los estudiantes."},
+          {score: 1, text: "No se observan acciones para obtener información sobre el trabajo de los estudiantes cuando la dinámica permite hacerlo."}
         ]}
-        naLabel="La naturaleza del contenido desarrollado no requiere actualización observable durante la sesión."
-      />
-      <CriterionTable 
-        number="2.5" 
-        title="Relación Actividades vs. Contenido/Objetivo"
-        levels={[
-          {score: 5, text: "Las actividades se relacionan con el contenido, requieren aplicación del contenido y corresponden con el objetivo presentado."},
-          {score: 4, text: "Las actividades se relacionan con el contenido de la sesión y corresponden con el objetivo presentado."},
-          {score: 3, text: "Las actividades se relacionan con el contenido de la sesión."},
-          {score: 2, text: "Las actividades presentan relación limitada con el contenido desarrollado."},
-          {score: 1, text: "No se observa relación entre las actividades y el contenido de la sesión."}
-        ]}
-        naLabel="No fue posible observar actividades relacionadas con el contenido."
-      />
-      <CriterionTable 
-        number="2.6" 
-        title="Vinculación con el Contexto Profesional"
-        levels={[
-          {score: 5, text: "Relaciona el contenido con situaciones profesionales, utiliza ejemplos laborales y explica aplicaciones en el ejercicio profesional."},
-          {score: 4, text: "Relaciona el contenido con situaciones profesionales y utiliza ejemplos del contexto laboral."},
-          {score: 3, text: "Menciona aplicaciones profesionales relacionadas con el contenido."},
-          {score: 2, text: "Hace referencias generales al ámbito profesional sin relacionarlas con el contenido."},
-          {score: 1, text: "No se observan referencias al contexto profesional."}
-        ]}
-        naLabel="La naturaleza de la sesión no contempló relación observable con contexto profesional."
-      />
-      <CriterionTable 
-        number="2.7" 
-        title="Verificación de Comprensión y Retroalimentación"
-        levels={[
-          {score: 5, text: "Verifica comprensión del contenido, corrige errores, realiza preguntas del tema y proporciona retroalimentación."},
-          {score: 4, text: "Verifica comprensión del contenido, corrige errores y proporciona retroalimentación."},
-          {score: 3, text: "Verifica comprensión o proporciona retroalimentación relacionada con el contenido."},
-          {score: 2, text: "Realiza comentarios generales sin verificar comprensión o retroalimentar contenido."},
-          {score: 1, text: "No se observan acciones de verificación o retroalimentación durante la sesión."}
-        ]}
-        naLabel="No fue posible observar interacción suficiente para valorar retroalimentación."
+        naLabel="La dinámica de la sesión no permitió observar acciones de verificación o retroalimentación."
       />
     </Accordion>
 
     <Accordion title="3. USO DE VOCABULARIO ESPECIALIZADO EN INGLÉS" icon={Languages} defaultOpen={false}>
       <CriterionTable 
         number="3.1" 
-        title="Vocabulario Especializado en Inglés"
+        title="Uso de vocabulario disciplinar en inglés"
         levels={[
-          {score: 5, text: "Utiliza vocabulario especializado, explica los términos utilizados y los relaciona con conceptos de la materia."},
-          {score: 4, text: "Utiliza vocabulario especializado en inglés y explica los términos utilizados durante la sesión."},
-          {score: 3, text: "Utiliza vocabulario especializado en inglés durante la sesión."},
-          {score: 2, text: "Utiliza palabras o expresiones aisladas en inglés sin relación directa con conceptos de la materia."},
-          {score: 1, text: "No se observa uso de vocabulario especializado en inglés durante la sesión."}
+          {score: 5, text: "Utiliza vocabulario técnico en inglés para explicar conceptos, procesos, componentes o procedimientos de la materia."},
+          {score: 4, text: "Utiliza vocabulario técnico en inglés para nombrar conceptos, procesos, componentes o elementos relacionados con el contenido."},
+          {score: 3, text: "Utiliza vocabulario en inglés relacionado con el tema de la sesión, sin evidenciar vocabulario técnico disciplinar."},
+          {score: 2, text: "Utiliza palabras o expresiones en inglés de forma aislada, sin relación identificable con el contenido disciplinar."},
+          {score: 1, text: "No se observa uso de vocabulario técnico en inglés cuando corresponde de acuerdo con la asignatura."}
         ]}
-        naLabel="La naturaleza de la sesión no contempló uso observable de vocabulario especializado."
+        naLabel="La asignatura observada no contempla incorporación de inglés de acuerdo con la progresión institucional."
       />
+
       <CriterionTable 
         number="3.2" 
-        title="Respuesta a Intervenciones en Inglés"
+        title="Oportunidades de producción de vocabulario técnico en inglés"
         levels={[
-          {score: 5, text: "Responde preguntas en inglés, solicita aclaraciones adicionales y amplía la explicación del contenido."},
-          {score: 4, text: "Responde preguntas o dudas en inglés y proporciona explicaciones relacionadas con el contenido."},
-          {score: 3, text: "Responde preguntas o dudas en inglés durante la sesión."},
-          {score: 2, text: "Responde parcialmente en inglés o cambia inmediatamente al español durante la interacción."},
-          {score: 1, text: "No se observan respuestas o interacción en inglés durante la sesión."}
+          {score: 5, text: "La consigna solicita utilizar vocabulario técnico en inglés."},
+          {score: 4, text: "La consigna solicita identificar o nombrar en inglés conceptos, componentes, procesos o elementos de la materia."},
+          {score: 3, text: "La actividad incorpora vocabulario técnico en inglés para lectura, consulta o referencia."},
+          {score: 2, text: "Durante la actividad aparecen palabras o expresiones en inglés, pero la consigna no solicita utilizar vocabulario técnico en inglés."},
+          {score: 1, text: "La actividad se desarrolla sin uso de vocabulario técnico en inglés cuando corresponde incorporarlo."}
         ]}
-        naLabel="No se presentaron preguntas o intervenciones estudiantiles en inglés durante la sesión."
-      />
-      <CriterionTable 
-        number="3.3" 
-        title="Uso de Recursos en Inglés"
-        levels={[
-          {score: 5, text: "Utiliza lecturas, ejercicios y materiales adicionales en inglés relacionados con el contenido."},
-          {score: 4, text: "Utiliza lecturas y ejercicios en inglés relacionados con el contenido."},
-          {score: 3, text: "Utiliza al menos un recurso en inglés relacionado con el contenido."},
-          {score: 2, text: "Presenta recursos en inglés sin utilizarlos durante la sesión."},
-          {score: 1, text: "No se observan recursos en inglés durante la sesión."}
-        ]}
-        naLabel="La sesión no contempló uso observable de recursos didácticos."
-      />
-      <CriterionTable 
-        number="3.4" 
-        title="Ejemplos y Ejercicios en Inglés"
-        levels={[
-          {score: 5, text: "Incorpora ejemplos, incorpora ejercicios en inglés y relaciona ambos con el contenido de la sesión."},
-          {score: 4, text: "Incorpora ejemplos y ejercicios en inglés durante la sesión."},
-          {score: 3, text: "Incorpora ejemplos o ejercicios en inglés durante la sesión."},
-          {score: 2, text: "Menciona ejemplos o ejercicios en inglés sin desarrollarlos durante la sesión."},
-          {score: 1, text: "No se observan ejemplos o ejercicios en inglés durante la sesión."}
-        ]}
-        naLabel="La estructura de la sesión no contempló actividades o ejemplos observables."
-      />
-      <CriterionTable 
-        number="3.5" 
-        title="Participación y Producción Estudiantil en Inglés"
-        levels={[
-          {score: 5, text: "Solicita participación en inglés, solicita uso de vocabulario técnico y desarrolla actividades que requieren interacción en inglés."},
-          {score: 4, text: "Solicita participación en inglés y solicita uso de vocabulario relacionado con la materia."},
-          {score: 3, text: "Solicita intervenciones breves en inglés durante la sesión."},
-          {score: 2, text: "Permite uso opcional del inglés sin solicitar participación directa."},
-          {score: 1, text: "No se observan oportunidades de uso del inglés durante la sesión."}
-        ]}
-        naLabel="La estructura de la sesión no contempló actividades de participación o producción oral observable."
-      />
-      <CriterionTable 
-        number="3.6" 
-        title="Inglés en Explicación e Instrucciones"
-        levels={[
-          {score: 5, text: "Utiliza inglés durante la explicación del contenido, en instrucciones y durante la interacción con estudiantes."},
-          {score: 4, text: "Utiliza inglés durante la explicación del contenido y en instrucciones relacionadas con la sesión."},
-          {score: 3, text: "Utiliza inglés en algunos momentos de la explanation o interacción."},
-          {score: 2, text: "Utiliza palabras o expresiones aisladas en inglés durante la sesión."},
-          {score: 1, text: "No se observa uso del inglés durante la sesión."}
-        ]}
-        naLabel="La naturaleza de la sesión no contempló uso observable del inglés."
+        naLabel="La asignatura no contempla incorporación de inglés de acuerdo con la progresión institucional."
       />
     </Accordion>
 
     <Accordion title="4. DESARROLLO DE LA CLASE" icon={PlayCircle} defaultOpen={false}>
-      <div className="mb-8">
-        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center border-b pb-2">
-          <Clock className="w-5 h-5 mr-2 text-blue-600" /> Momentos Iniciales
-        </h3>
-        <CriterionTable 
-          number="4.1" 
-          title="Introducción y Encuadre"
-          levels={[
-            {score: 5, text: "Comunica el objetivo, explica actividades, activa conocimientos previos y relaciona el tema con otros contenidos o contextos."},
-            {score: 4, text: "Comunica el objetivo de la sesión, explica las actividades y activa conocimientos previos mediante preguntas o actividades."},
-            {score: 3, text: "Comunica el objetivo de la sesión y explica las activities a realizar."},
-            {score: 2, text: "Menciona el tema o actividad de la sesión sin explicar objetivos o recuperación de conocimientos previos."},
-            {score: 1, text: "No se observan acciones de introducción u organización académica al inicio de la sesión."}
-          ]}
-          naLabel="No fue posible observar el inicio de la sesión."
-        />
+      <CriterionTable 
+        number="4.1" 
+        title="Organización e Instrucciones de Trabajo"
+        levels={[
+          {score: 5, text: "Explica qué debe realizarse y cómo proceder para desarrollar la actividad."},
+          {score: 4, text: "Indica qué debe realizarse y proporciona orientación sobre cómo proceder, aunque deja aspectos del desarrollo sin especificar."},
+          {score: 3, text: "Indica qué debe realizarse, sin explicar cómo proceder."},
+          {score: 2, text: "Proporciona indicaciones parciales o fragmentadas que no permiten identificar completamente qué debe realizarse."},
+          {score: 1, text: "No se observan instrucciones que permitan identificar qué deben realizar los estudiantes."}
+        ]}
+        naLabel="La sesión no contempló actividades que requirieran instrucciones observables."
+      />
 
-        <CriterionTable 
-          number="4.2" 
-          title="Organización e Instrucciones de Trabajo"
-          levels={[
-            {score: 5, text: "Comunica la organización, explica qué actividades se realizarán, cómo se desarrollarán y los materiales/tiempos/formas de participación."},
-            {score: 4, text: "Comunica la organización, explica qué actividades se realizarán y explica cómo se desarrollarán."},
-            {score: 3, text: "Comunica qué actividades se realizarán durante la sesión."},
-            {score: 2, text: "Proporciona instrucciones parciales o aisladas sin explicar la organización general."},
-            {score: 1, text: "No se observan instrucciones u organización de la sesión."}
-          ]}
-          naLabel="No fue posible observar el inicio u organización de la sesión."
-        />
-      </div>
-
-      <div className="mb-8">
-        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center border-b pb-2">
-          <LayoutDashboard className="w-5 h-5 mr-2 text-blue-600" /> Ejecución de la Sesión
-        </h3>
-        <CriterionTable 
-          number="4.3" 
-          title="Claridad en Criterios de la Actividad"
-          levels={[
-            {score: 5, text: "Comunica la actividad, tiempos de trabajo/entrega, producto esperado y criterios o instrumentos de evaluación."},
-            {score: 4, text: "Comunica la actividad a realizar, tiempos de trabajo o entrega y producto esperado."},
-            {score: 3, text: "Comunica la actividad a realizar y el producto esperado."},
-            {score: 2, text: "Comunica únicamente la actividad a realizar durante la sesión."},
-            {score: 1, text: "No se observan instrucciones relacionadas con actividades o productos de la sesión."}
-          ]}
-          naLabel="No fue posible observar explicación de actividades durante la sesión."
-        />
-
-        <CriterionTable 
-          number="4.4" 
-          title="Nivel Cognitivo de las Actividades"
-          note="Evalúa actividades observables; no determina nivel de pensamiento crítico final."
-          levels={[
-            {score: 5, text: "Utiliza actividades que requieren análisis o resolución de problemas, explanation o argumentación y trabajo colaborativo."},
-            {score: 4, text: "Utiliza actividades que requieren análisis o resolución de problemas y explicación o argumentación relacionada."},
-            {score: 3, text: "Utiliza actividades que requieren explicación, análisis o resolución de problemas."},
-            {score: 2, text: "Actividades centradas únicamente en repetición o seguimiento de instrucciones."},
-            {score: 1, text: "No se observan actividades de análisis, explicación o resolución de problemas."}
-          ]}
-          naLabel="No fue posible observar actividades de aprendizaje durante la sesión."
-        />
-
-        <CriterionTable 
-          number="4.5" 
-          title="Uso de Recursos Didácticos y Digitales"
-          levels={[
-            {score: 5, text: "Utiliza recursos digitales, materiales didácticos y documentos o recursos audiovisuales relacionados con la sesión."},
-            {score: 4, text: "Utiliza dos tipos distintos de recursos relacionados con la sesión."},
-            {score: 3, text: "Utiliza al menos un recurso didáctico o digital relacionado con la sesión."},
-            {score: 2, text: "Presenta recursos sin utilizarlos durante el desarrollo de la sesión."},
-            {score: 1, text: "No se observan recursos didácticos o digitales durante la sesión."}
-          ]}
-          naLabel="La dinámica de la sesión no requirió recursos observables."
-        />
-
-        <CriterionTable 
-          number="4.6" 
-          title="Estrategias para la Participación"
-          levels={[
-            {score: 5, text: "Solicita participación individual, promueve interacción entre estudiantes y utiliza más de una dinámica de participación."},
-            {score: 4, text: "Solicita participación individual y promueve interacción entre estudiantes."},
-            {score: 3, text: "Solicita participación estudiantil relacionada con el contenido."},
-            {score: 2, text: "Permite participación únicamente cuando los estudiantes intervienen espontáneamente."},
-            {score: 1, text: "No se observan acciones para promover participación estudiantil."}
-          ]}
-          naLabel="La estructura de la sesión no contempló espacios de participación."
-        />
-
-        <CriterionTable 
-          number="4.7" 
-          title="Interrogación y Cuestionamiento"
-          levels={[
-            {score: 5, text: "Utiliza preguntas abiertas, de análisis o reflexión y dirigidas a distintos estudiantes."},
-            {score: 4, text: "Utiliza preguntas abiertas y preguntas relacionadas con análisis o reflexión del contenido."},
-            {score: 3, text: "Utiliza preguntas relacionadas con el contenido durante la sesión."},
-            {score: 2, text: "Utiliza preguntas cerradas o de respuesta breve únicamente."},
-            {score: 1, text: "No se observan preguntas relacionadas con el contenido."}
-          ]}
-          naLabel="La dinámica de la sesión no contempló interacción verbal observable."
-        />
-      </div>
-
-      <div className="mb-8">
-        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center border-b pb-2">
-          <MessageSquare className="w-5 h-5 mr-2 text-blue-600" /> Habilidades de Comunicación
-        </h3>
-        <CriterionTable 
-          number="4.8" 
-          title="Comunicación No Verbal y Contacto Visual"
-          levels={[
-            {score: 5, text: "Mantiene contacto visual e interacción corporal observable durante toda la sesión."},
-            {score: 4, text: "Mantiene contacto visual e interacción corporal durante la mayor parte de la sesión."},
-            {score: 3, text: "Utiliza contacto visual o comunicación no verbal en momentos específicos de la sesión."},
-            {score: 2, text: "El contacto visual y la comunicación no verbal son limitados durante la sesión."},
-            {score: 1, text: "No se observan elementos de comunicación no verbal relacionados con la interacción."}
-          ]}
-          naLabel="No fue posible observar interacción directa con el grupo."
-        />
-
-        <CriterionTable 
-          number="4.9" 
-          title="Manejo de la Voz (Paralingüística)"
-          levels={[
-            {score: 5, text: "Utiliza cambios de volumen, entonación, velocidad y pausas durante la sesión de manera efectiva."},
-            {score: 4, text: "Utiliza tres de los elementos (volumen, entonación, velocidad, pausas) durante la sesión."},
-            {score: 3, text: "Utiliza dos de los elementos anteriores durante la sesión."},
-            {score: 2, text: "Utiliza uno de los elementos anteriores durante la sesión."},
-            {score: 1, text: "No se observan variaciones en la comunicación oral (monótono)."}
-          ]}
-          naLabel="No fue posible observar intervenciones orales suficientes."
-        />
-      </div>
-
-      <div className="mb-8">
-        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center border-b pb-2">
-          <CheckSquare className="w-5 h-5 mr-2 text-blue-600" /> Cierre de la Sesión
-        </h3>
-        <CriterionTable 
-          number="4.10" 
-          title="Recuperación y Comentarios de Cierre"
-          note="Evalúa acciones de cierre; no determina nivel de aprendizaje final."
-          levels={[
-            {score: 5, text: "Realiza cierre, solicita participación estudiantil sobre lo trabajado y relaciona información revisada."},
-            {score: 4, text: "Realiza actividades de cierre y solicita participación estudiantil sobre lo trabajado."},
-            {score: 3, text: "Realiza una actividad o comentario de cierre relacionado con la sesión."},
-            {score: 2, text: "Finaliza la sesión sin recuperar información trabajada durante la clase."},
-            {score: 1, text: "No se observan actividades o comentarios de cierre relacionados con la sesión."}
-          ]}
-          naLabel="No fue posible observar el cierre de la sesión."
-        />
-
-        <CriterionTable 
-          number="4.11" 
-          title="Síntesis de Contenidos y Objetivos"
-          levels={[
-            {score: 5, text: "Resume contenidos, relaciona actividades realizadas y retoma el objetivo de la sesión al finalizar."},
-            {score: 4, text: "Resume contenidos trabajados y relaciona actividades realizadas durante la sesión."},
-            {score: 3, text: "Resume contenidos o actividades realizadas durante la sesión."},
-            {score: 2, text: "Realiza comentarios generales de cierre sin resumir contenidos o actividades."},
-            {score: 1, text: "No se observan acciones de síntesis o cierre relacionadas con la sesión."}
-          ]}
-          naLabel="No fue posible observar el cierre de la sesión."
-        />
-      </div>
+      <CriterionTable 
+        number="4.2" 
+        title="Claridad de expectativas de la actividad"
+        levels={[
+          {score: 5, text: "Comunica criterios que permiten determinar si el trabajo, respuesta o producto cumple con lo esperado, más allá de indicar sus componentes o requisitos."},
+          {score: 4, text: "Comunica los componentes, requisitos o condiciones que debe cumplir el trabajo, respuesta o producto."},
+          {score: 3, text: "Comunica qué trabajo, respuesta o producto se espera obtener."},
+          {score: 2, text: "Comunica la actividad a realizar, sin precisar qué resultado se espera."},
+          {score: 1, text: "No se observa información que permita identificar qué trabajo, respuesta o producto se espera obtener."}
+        ]}
+        naLabel="La sesión no contempló una actividad que requiriera comunicar un resultado o producto esperado."
+      />
     </Accordion>
   </div>
 );
@@ -1161,397 +882,147 @@ const ContenidoIdiomas = () => (
       colorTheme="indigo"
     />
 
-    <Accordion title="1. PREPARATION" icon={BookOpen} defaultOpen={false}>
+    <Accordion title="1. TARGET-LANGUAGE USE AND PRODUCTION" icon={Languages} defaultOpen={false}>
       <CriterionTable 
         number="1.1" 
-        title="The teacher uses both: structured language activities, and activities that require student interaction or language production during the session."
+        title="Opportunities for Target-Language Production"
         levels={[
-          {score: 5, text: "The teacher uses: structured language activities, student interaction activities, and activities requiring spoken or written language production during the session."},
-          {score: 4, text: "The teacher uses: structured language activities, and activities requiring student interaction during the session."},
-          {score: 3, text: "The teacher uses more than one type of language activity during the session."},
-          {score: 2, text: "The teacher uses only one type of activity during most of the session."},
-          {score: 1, text: "No observable language-learning activities are developed during the session."}
+          {score: 5, text: "The activity asks students to produce spoken or written language in the target language to express information, ideas, or messages."},
+          {score: 4, text: "The activity asks students to complete, reproduce, or transform language provided in the target language."},
+          {score: 3, text: "The activity asks students to identify, select, recognize, or otherwise work directly with the language content, skill, or communicative function being developed, without asking students to produce language."},
+          {score: 2, text: "The activity exposes students to the target language through listening, reading, consultation, or reference, without an identifiable connection to the language content, skill, or communicative function being developed and without asking students to produce language."},
+          {score: 1, text: "No observable opportunities to work with or use the target language are provided during the session."}
         ]}
-        naLabel="It was not possible to observe language-learning activities during the session."
+        naLabel="It was not possible to observe activities that allowed this criterion to be evaluated."
       />
 
       <CriterionTable 
         number="1.2" 
-        title="The teacher introduces activities using: examples, situations, previous content, or explanations related to the topic of the lesson."
+        title="Teacher Use of the Target Language"
         levels={[
-          {score: 5, text: "The teacher introduces activities using: examples, situations related to the topic, previous content, and explanations of the activity purpose."},
-          {score: 4, text: "The teacher introduces activities using: examples, situations related to the topic, and explanations of the activity purpose."},
-          {score: 3, text: "The teacher introduces activities using examples or explanations related to the lesson topic."},
-          {score: 2, text: "The teacher introduces activities without relating them to the lesson topic or previous content."},
-          {score: 1, text: "Activities are assigned without introduction or contextual explanation."}
+          {score: 5, text: "The teacher uses the target language as the main language for instructional communication, using another language strategically when needed to support understanding."},
+          {score: 4, text: "The teacher uses the target language for extended explanations, instructions, or classroom interaction, while also relying on another language for part of the instructional communication."},
+          {score: 3, text: "The teacher uses the target language in brief explanations, instructions, or classroom exchanges related to the lesson."},
+          {score: 2, text: "The teacher's use of the target language is limited to isolated words, expressions, or classroom routines."},
+          {score: 1, text: "No observable use of the target language occurs during the session."}
         ]}
-        naLabel="It was not possible to observe activity introduction during the session."
-      />
-
-      <CriterionTable 
-        number="1.3" 
-        title="The teacher uses activities that require students to use language related to: real situations, personal information, academic tasks, or everyday communication."
-        note="This criterion evaluates observable language-use activities during the session and does not determine communicative competence or language acquisition outcomes."
-        levels={[
-          {score: 5, text: "The teacher uses activities requiring students to: exchange information, respond to situations, and use language related to real or academic contexts."},
-          {score: 4, text: "The teacher uses activities requiring students to use language related to real or academic contexts."},
-          {score: 3, text: "The teacher uses activities involving controlled language use related to the lesson topic."},
-          {score: 2, text: "Activities focus mainly on isolated repetition or mechanical exercises."},
-          {score: 1, text: "No activities involving language use are observed during the session."}
-        ]}
-        naLabel="It was not possible to observe student language-use activities during the session."
-      />
-
-      <CriterionTable 
-        number="1.4" 
-        title="The teacher uses activities or materials in addition to the coursebook during the session."
-        levels={[
-          {score: 5, text: "The teacher uses: coursebook activities, additional materials, and supplementary activities developed during the session."},
-          {score: 4, text: "The teacher uses: coursebook activities, and additional materials or activities during the session."},
-          {score: 3, text: "The teacher uses at least one activity or material apart from the coursebook."},
-          {score: 2, text: "The teacher uses only coursebook activities during the session."},
-          {score: 1, text: "No observable learning activities or materials are used during the session."}
-        ]}
-        naLabel="It was not possible to observe activities or materials during the session."
+        naLabel="It was not possible to observe oral communication during the session."
       />
     </Accordion>
 
-    <Accordion title="2. LANGUAGE USE" icon={MessageSquare} defaultOpen={false}>
+    <Accordion title="2. ACTIVITY DESIGN AND EXPECTATIONS" icon={ClipboardList} defaultOpen={false}>
       <CriterionTable 
         number="2.1" 
-        title="The teacher uses the target language during explanations, instructions, or classroom interaction."
+        title="Alignment of Activities with Lesson Content"
         levels={[
-          {score: 5, text: "The teacher uses the target language during: explanations, instructions, classroom interaction, and feedback throughout the session."},
-          {score: 4, text: "The teacher uses the target language during: explanations, instructions, and classroom interaction during most of the session."},
-          {score: 3, text: "The teacher uses the target language during some parts of the session."},
-          {score: 2, text: "The teacher uses isolated words or brief expressions in the target language during the session."},
-          {score: 1, text: "No observable use of the target language occurs during the session."}
+          {score: 5, text: "The activity asks students to work with the language content, skill, or communicative function developed during the lesson."},
+          {score: 4, text: "The activity presents the language content, skill, or communicative function developed during the lesson."},
+          {score: 3, text: "The activity is directly related to the lesson content, but does not include the specific language content, skill, or communicative function being developed."},
+          {score: 2, text: "The activity is related to the general topic of the lesson without an identifiable connection to the language content, skill, or communicative function being developed."},
+          {score: 1, text: "No identifiable relation is observed between the activity and the lesson content."}
         ]}
-        naLabel="It was not possible to observe oral interaction during the session."
+        naLabel="The session did not include activities that allowed this criterion to be evaluated."
       />
 
       <CriterionTable 
         number="2.2" 
-        title="The teacher communicates in the target language during the session."
-        note="This criterion evaluates observable classroom language use during the session and does not certify linguistic proficiency, pronunciation accuracy, or grammatical mastery of the teacher."
+        title="Activity Instructions"
         levels={[
-          {score: 5, text: "The teacher: maintains communication in the target language throughout the session, responds to questions in the target language, and completes explanations without switching languages frequently."},
-          {score: 4, text: "The teacher: maintains communication in the target language during most of the session, and responds to classroom interaction in the target language."},
-          {score: 3, text: "The teacher uses the target language during explanations or interaction in some parts of the session."},
-          {score: 2, text: "The teacher alternates constantly between languages or limits communication in the target language to isolated expressions."},
-          {score: 1, text: "No observable communication in the target language occurs during the session."}
+          {score: 5, text: "The teacher explains what students are expected to do and how to proceed during the activity."},
+          {score: 4, text: "The teacher explains what students are expected to do and provides some guidance on how to proceed, while leaving aspects of the activity development unspecified."},
+          {score: 3, text: "The teacher indicates what students are expected to do without explaining how to proceed."},
+          {score: 2, text: "The teacher provides partial or fragmented instructions that do not fully identify what students are expected to do."},
+          {score: 1, text: "No observable instructions allow students to identify what they are expected to do."}
         ]}
-        naLabel="It was not possible to observe oral communication during the session."
+        naLabel="The session did not include activities requiring observable instructions."
       />
 
       <CriterionTable 
         number="2.3" 
-        title="The teacher creates opportunities for students to use the target language during classroom interaction."
+        title="Activity Expectations and Expected Language Output"
         levels={[
-          {score: 5, text: "The teacher: asks questions in the target language, requests student responses in the target language, and develops activities requiring interaction in the target language."},
-          {score: 4, text: "The teacher: asks questions in the target language, and requests student responses in the target language."},
-          {score: 3, text: "The teacher requests brief student participation in the target language during the session."},
-          {score: 2, text: "The teacher allows optional use of the target language without directly requesting participation."},
-          {score: 1, text: "No observable opportunities for student use of the target language occur during the session."}
+          {score: 5, text: "The teacher communicates the expected spoken or written response, product, or outcome in a way that identifies what students are expected to communicate or demonstrate through it."},
+          {score: 4, text: "The teacher communicates the expected spoken or written response, product, or outcome."},
+          {score: 3, text: "The teacher identifies the type of response or product students are expected to produce, without specifying what it is expected to communicate or demonstrate."},
+          {score: 2, text: "The teacher communicates the activity to be completed, without identifying the expected response, product, or outcome."},
+          {score: 1, text: "No observable information allows the expected student response, product, or outcome to be identified."}
         ]}
-        naLabel="The session structure did not include observable student interaction."
+        naLabel="The session did not include an activity with an observable expected response, product, or outcome."
       />
     </Accordion>
 
-    <Accordion title="3. CLASS PRESENTATION" icon={PlayCircle} defaultOpen={false}>
-      
+    <Accordion title="3. MONITORING AND RESPONSE TO STUDENT WORK" icon={Search} defaultOpen={false}>
       <CriterionTable 
         number="3.1" 
-        title="The teacher presents: lesson objectives, activities, and content explanations during the session."
+        title="Monitoring Student Work and Language Use"
         levels={[
-          {score: 5, text: "The teacher: presents lesson objectives, explains activities, develops content explanations, and connects activities with the lesson topic during the session."},
-          {score: 4, text: "The teacher: presents lesson objectives, explains activities, and develops content explanations during the session."},
-          {score: 3, text: "The teacher: explains activities or lesson content during the session."},
-          {score: 2, text: "The teacher provides limited explanation of activities or lesson content."},
-          {score: 1, text: "No observable explanation of lesson content or activities occurs during the session."}
+          {score: 5, text: "The teacher reviews or listens to an identifiable student response, work, or output produced during the activity."},
+          {score: 4, text: "The teacher observes how students are carrying out the activity, without reviewing identifiable responses, work, or productions."},
+          {score: 3, text: "The teacher checks whether students are participating in or progressing through the activity."},
+          {score: 2, text: "The teacher checks only whether the activity has been started, continued, or completed."},
+          {score: 1, text: "No observable monitoring occurs when the activity provides a reasonable opportunity for it."}
         ]}
-        naLabel="It was not possible to observe lesson development during the session."
+        naLabel="The session did not provide a reasonable opportunity to observe student work or language use."
       />
 
       <CriterionTable 
         number="3.2" 
-        title="The activities used during the session are related to the lesson objectives or topic."
+        title="Feedback on Student Language Use"
         levels={[
-          {score: 5, text: "The activities: are related to the lesson topic, require use of lesson content, and correspond to the lesson objectives presented during the session."},
-          {score: 4, text: "The activities: are related to the lesson topic, and correspond to the lesson objectives."},
-          {score: 3, text: "The activities are related to the lesson topic during the session."},
-          {score: 2, text: "The activities show limited relation to the lesson topic or objectives."},
-          {score: 1, text: "No observable relation between activities and lesson content occurs during the session."}
+          {score: 5, text: "The teacher provides feedback on an identifiable aspect of the student's spoken or written language production and gives information the student can use to maintain, adjust, or revise that language use."},
+          {score: 4, text: "The teacher provides a correction, confirmation, reformulation, or comment related to a specific aspect of the student's spoken or written language production."},
+          {score: 3, text: "The teacher indicates whether the student's language production is correct, appropriate, or needs revision, without addressing a specific aspect of the language produced."},
+          {score: 2, text: "The teacher acknowledges the student's language production without providing information about it."},
+          {score: 1, text: "No observable feedback is provided when student language production creates a reasonable opportunity for it."}
         ]}
-        naLabel="It was not possible to observe classroom activities during the session."
+        naLabel="The session did not provide a reasonable opportunity to observe feedback on student language production."
       />
 
       <CriterionTable 
         number="3.3" 
-        title="The teacher distributes classroom time among activities during the session."
+        title="Responsive Support During the Lesson"
         levels={[
-          {score: 5, text: "The teacher: assigns time to activities, completes planned activities, and maintains continuous lesson development during the session."},
-          {score: 4, text: "The teacher: assigns time to activities, and completes most planned activities during the session."},
-          {score: 3, text: "The teacher develops activities during the session without major interruptions or delays."},
-          {score: 2, text: "Activity development is interrupted by repeated delays, transitions, or unfinished tasks."},
-          {score: 1, text: "The session lacks observable time organization for activities."}
+          {score: 5, text: "The teacher provides information, clarification, guidance, explanation, an example, or other support that addresses the student's question or identified difficulty."},
+          {score: 4, text: "The teacher provides information or support related to the student's question or identified difficulty, but only partially addresses the issue raised."},
+          {score: 3, text: "The teacher responds to the question or difficulty without providing information that addresses the issue raised."},
+          {score: 2, text: "The teacher acknowledges the question or difficulty without attempting to address it."},
+          {score: 1, text: "No observable response is provided when a student question, request for clarification, or identifiable difficulty creates a reasonable opportunity for it."}
         ]}
-        naLabel="It was not possible to observe activity development during the session."
+        naLabel="The session did not provide a reasonable opportunity to observe responsive support."
       />
-
-      <CriterionTable 
-        number="3.4" 
-        title="The session includes both: teacher verbal participation, and student verbal participation."
-        note="This criterion evaluates observable verbal participation during the session and does not establish an ideal proportion of teacher or student talk."
-        levels={[
-          {score: 5, text: "The session includes: teacher explanations, student verbal participation, and interaction among students during the session."},
-          {score: 4, text: "The session includes: teacher explanations, and student verbal participation during the session."},
-          {score: 3, text: "The session includes limited student verbal participation during the session."},
-          {score: 2, text: "The session is developed mainly through teacher verbal participation."},
-          {score: 1, text: "No observable student verbal participation occurs during the session."}
-        ]}
-        naLabel="The session structure did not include observable verbal interaction."
-      />
-
-      <CriterionTable 
-        number="3.5" 
-        title="The teacher provides feedback related to student participation or classroom activities."
-        levels={[
-          {score: 5, text: "The teacher: corrects student responses, provides explanations, and gives feedback related to classroom activities during the session."},
-          {score: 4, text: "The teacher: corrects student responses, and provides feedback related to classroom activities."},
-          {score: 3, text: "The teacher provides comments or corrections related to student participation."},
-          {score: 2, text: "The teacher provides general comments without correction or explanation."},
-          {score: 1, text: "No observable feedback related to student participation occurs during the session."}
-        ]}
-        naLabel="The session structure did not include observable student participation."
-      />
-
-      <CriterionTable 
-        number="3.6" 
-        title="The teacher includes references to: cultural practices, social situations, traditions, or contextual uses of the target language during the session."
-        levels={[
-          {score: 5, text: "The teacher includes: cultural references, contextual language use, and discussion of social or cultural situations related to the lesson."},
-          {score: 4, text: "The teacher includes: cultural references, and contextual language use related to the lesson."},
-          {score: 3, text: "The teacher mentions cultural or contextual information related to the target language."},
-          {score: 2, text: "The teacher makes isolated references unrelated to lesson development."},
-          {score: 1, text: "No observable cultural references occur during the session."}
-        ]}
-        naLabel="The lesson content did not include observable cultural components."
-      />
-
-      <CriterionTable 
-        number="3.7" 
-        title="The teacher uses technological or digital resources during the session."
-        levels={[
-          {score: 5, text: "The teacher uses: audio, video, and digital or web-based materials related to the lesson activities."},
-          {score: 4, text: "The teacher uses: two types of technological or digital resources during the session."},
-          {score: 3, text: "The teacher uses at least one technological or digital resource during the session."},
-          {score: 2, text: "Technological or digital resources are presented but not integrated into classroom activities."},
-          {score: 1, text: "No observable use of technological or digital resources occurs during the session."}
-        ]}
-        naLabel="The session structure did not require technological or digital resources."
-      />
-
     </Accordion>
 
-    <Accordion title="4. CLASSROOM MANAGEMENT" icon={Users} defaultOpen={false}>
-      
+    <Accordion title="4. LANGUAGE SUPPORT" icon={MessageSquare} defaultOpen={false}>
       <CriterionTable 
         number="4.1" 
-        title="The teacher uses pair work or group work during classroom activities."
+        title="Support for Target-Language Production"
         levels={[
-          {score: 5, text: "The teacher: organizes pair work, organizes group work, and provides instructions for collaborative activities during the session."},
-          {score: 4, text: "The teacher: organizes pair work or group work, and provides instructions for collaborative activities."},
-          {score: 3, text: "The teacher uses at least one collaborative activity during the session."},
-          {score: 2, text: "Students work individually during most of the session with limited interaction."},
-          {score: 1, text: "No observable collaborative activities occur during the session."}
+          {score: 5, text: "When language support is needed, the teacher provides words, expressions, sentence starters, models, or other language that students can incorporate directly into the spoken or written production expected in the activity."},
+          {score: 4, text: "When language support is needed, the teacher provides language related to the expected production, without providing language that can be incorporated directly into the expected production."},
+          {score: 3, text: "When language support is needed, the teacher provides language related to the lesson, but its connection to the expected production is not clearly identified."},
+          {score: 2, text: "When language support is needed, the teacher provides general help or clarification without providing language students can use in the expected production."},
+          {score: 1, text: "No observable language support is provided when the activity or an observable student difficulty creates a reasonable need for it."}
         ]}
-        naLabel="The lesson structure did not include collaborative activities."
+        naLabel="The session did not include a situation in which support for target-language production was reasonably needed."
       />
 
       <CriterionTable 
         number="4.2" 
-        title="The classroom arrangement allows student interaction and movement during activities."
+        title="Support for Target-Language Comprehension"
         levels={[
-          {score: 5, text: "The classroom arrangement: allows student interaction, supports group or pair activities, and allows teacher movement during the session."},
-          {score: 4, text: "The classroom arrangement: allows student interaction, and supports classroom activities during the session."},
-          {score: 3, text: "The classroom arrangement allows limited student interaction during activities."},
-          {score: 2, text: "The classroom arrangement restricts movement or interaction during activities."},
-          {score: 1, text: "The classroom arrangement prevents observable interaction during the session."}
+          {score: 5, text: "The teacher supports target-language comprehension through context, modeling, examples, visual or verbal references, reformulation, or other resources that allow the intended meaning to be identified while maintaining the target language as part of the communication."},
+          {score: 4, text: "The teacher provides support related to the meaning of the target-language input, but relies partly on direct explanation or translation in another language to convey the message."},
+          {score: 3, text: "The teacher mainly uses direct translation or equivalent expressions in another language to establish the meaning of target-language input."},
+          {score: 2, text: "The teacher repeats target-language input or provides limited support without adding information that helps identify its meaning."},
+          {score: 1, text: "No observable support for understanding target-language input is provided when such support is reasonably needed."}
         ]}
-        naLabel="It was not possible to observe classroom organization during the session."
+        naLabel="The session did not provide a reasonable opportunity to observe support for target-language comprehension."
       />
-
-      <CriterionTable 
-        number="4.3" 
-        title="Students participate in activities related to the lesson during the session."
-        note="This criterion evaluates observable participation during the session and does not determine student motivation or learning outcomes."
-        levels={[
-          {score: 5, text: "Most students: participate in classroom activities, follow activity instructions, and remain engaged in lesson tasks during the session."},
-          {score: 4, text: "Most students: participate in classroom activities, and follow activity instructions during the session."},
-          {score: 3, text: "Some students participate in classroom activities during the session."},
-          {score: 2, text: "Student participation is limited or frequently interrupted during activities."},
-          {score: 1, text: "No observable student participation related to lesson activities occurs during the session."}
-        ]}
-        naLabel="The session structure did not include observable student participation."
-      />
-
-      <CriterionTable 
-        number="4.4" 
-        title="The teacher maintains activity development during the session without extended interruptions."
-        levels={[
-          {score: 5, text: "The session: progresses continuously between activities, includes clear transitions, and avoids extended interruptions or inactive periods."},
-          {score: 4, text: "The session progresses continuously with only brief interruptions between activities."},
-          {score: 3, text: "The session includes occasional interruptions or inactive periods during activities."},
-          {score: 2, text: "The session includes repeated interruptions or extended inactive periods."},
-          {score: 1, text: "The session lacks observable continuity between activities."}
-        ]}
-        naLabel="It was not possible to observe activity transitions during the session."
-      />
-
-      <CriterionTable 
-        number="4.5" 
-        title="The teacher develops activities requiring students to produce spoken or written language."
-        levels={[
-          {score: 5, text: "The teacher develops activities requiring: spoken interaction, written production, and student responses related to the lesson content."},
-          {score: 4, text: "The teacher develops activities requiring: spoken interaction, and student responses related to the lesson content."},
-          {score: 3, text: "The teacher develops activities requiring brief spoken or written student responses."},
-          {score: 2, text: "Activities focus mainly on repetition or teacher-centered participation."},
-          {score: 1, text: "No observable student language production activities occur during the session."}
-        ]}
-        naLabel="The session structure did not include observable language production activities."
-      />
-
-      <CriterionTable 
-        number="4.6" 
-        title="The teacher checks student work or activity development during the session."
-        levels={[
-          {score: 5, text: "The teacher: moves around the classroom, checks student work during activities, and interacts with different students or groups during the session."},
-          {score: 4, text: "The teacher: checks student work, and interacts with students during activities."},
-          {score: 3, text: "The teacher checks student work during some parts of the session."},
-          {score: 2, text: "The teacher observes activities without interacting with students during most of the session."},
-          {score: 1, text: "No observable monitoring of student work occurs during the session."}
-        ]}
-        naLabel="The session structure did not include observable student work activities."
-      />
-
-      <CriterionTable 
-        number="4.7" 
-        title="The teacher uses questions related to lesson content during the session."
-        levels={[
-          {score: 5, text: "The teacher uses: open questions, follow-up questions, and questions directed to different students during the session."},
-          {score: 4, text: "The teacher uses: open questions, and questions related to lesson understanding during the session."},
-          {score: 3, text: "The teacher asks questions related to lesson content during the session."},
-          {score: 2, text: "The teacher uses mainly closed or one-word-answer questions."},
-          {score: 1, text: "No observable questions related to lesson content occur during the session."}
-        ]}
-        naLabel="The session structure did not include observable verbal interaction."
-      />
-
-      <CriterionTable 
-        number="4.8" 
-        title="The teacher responds to student language errors during classroom activities."
-        levels={[
-          {score: 5, text: "The teacher: identifies student errors, provides corrections, and explains or models corrected language during the session."},
-          {score: 4, text: "The teacher: identifies student errors, and provides corrections during classroom activities."},
-          {score: 3, text: "The teacher responds to some student errors during the session."},
-          {score: 2, text: "The teacher observes student errors without observable correction during most activities."},
-          {score: 1, text: "No observable response to student language errors occurs during the session."}
-        ]}
-        naLabel="The session structure did not include observable student language production."
-      />
-    </Accordion>
-
-    <Accordion title="5. CLASSROOM ATMOSPHERE" icon={ThumbsUp} defaultOpen={false}>
-      
-      <CriterionTable 
-        number="5.1" 
-        title="The teacher promotes student participation during classroom activities."
-        levels={[
-          {score: 5, text: "The teacher: requests participation from different students, develops interaction activities, and maintains student participation during most of the session."},
-          {score: 4, text: "The teacher: requests participation from different students, and develops interaction activities during the session."},
-          {score: 3, text: "The teacher requests student participation during some parts of the session."},
-          {score: 2, text: "Student participation occurs only occasionally or through voluntary responses."},
-          {score: 1, text: "No observable actions promoting student participation occur during the session."}
-        ]}
-        naLabel="The lesson structure did not include observable student participation."
-      />
-
-      <CriterionTable 
-        number="5.2" 
-        title="The classroom interaction allows student participation and respectful communication during the session."
-        note="This criterion evaluates observable classroom interaction during the session and does not determine students’ emotional state or personal perceptions of the classroom environment."
-        levels={[
-          {score: 5, text: "During the session: students participate without repeated interruption, classroom interaction remains respectful, and the teacher allows student responses and questions during activities."},
-          {score: 4, text: "During the session: classroom interaction remains respectful, and students participate during activities."},
-          {score: 3, text: "Students participate during some parts of the session without observable conflict or interruption."},
-          {score: 2, text: "Student participation is limited by interruptions, lack of interaction, or restricted opportunities to respond."},
-          {score: 1, text: "Observable classroom interaction prevents participation or respectful communication during the session."}
-        ]}
-        naLabel="It was not possible to observe classroom interaction during the session."
-      />
-
-      <CriterionTable 
-        number="5.3" 
-        title="The teacher responds to student questions, errors, or requests for clarification during the session."
-        levels={[
-          {score: 5, text: "The teacher: responds to student questions, provides clarification, and adjusts explanations or activities during the session when needed."},
-          {score: 4, text: "The teacher: responds to student questions, and provides clarification during activities."},
-          {score: 3, text: "The teacher responds to some student questions or requests for clarification during the session."},
-          {score: 2, text: "Student questions or requests receive limited response during the session."},
-          {score: 1, text: "No observable response to student questions or requests for clarification occurs during the session."}
-        ]}
-        naLabel="The session did not include observable student questions or requests for clarification."
-      />
-
-      <CriterionTable 
-        number="5.4" 
-        title="The teacher responds to student errors during classroom activities."
-        levels={[
-          {score: 5, text: "The teacher: identifies student errors, provides correction, explains corrected language, and allows students to continue participation after correction."},
-          {score: 4, text: "The teacher: identifies student errors, provides correction, and allows continued student participation during activities."},
-          {score: 3, text: "The teacher provides correction related to student errors during the session."},
-          {score: 2, text: "The teacher provides correction without additional explanation or follow-up participation."},
-          {score: 1, text: "No observable response to student errors occurs during the session."}
-        ]}
-        naLabel="The session structure did not include observable student language production."
-      />
-
-    </Accordion>
-
-    <Accordion title="6. CLOSING" icon={CheckSquare} defaultOpen={false}>
-      
-      <CriterionTable 
-        number="6.1" 
-        title="The teacher reviews or summarizes lesson content at the end of the session."
-        levels={[
-          {score: 5, text: "The teacher: reviews lesson content, summarizes activities completed during the session, and retakes the lesson objective at the end of the class."},
-          {score: 4, text: "The teacher: reviews lesson content, and summarizes activities completed during the session."},
-          {score: 3, text: "The teacher reviews lesson content or activities at the end of the session."},
-          {score: 2, text: "The teacher makes general closing comments without reviewing lesson content or activities."},
-          {score: 1, text: "No observable lesson summary or closing review occurs during the session."}
-        ]}
-        naLabel="It was not possible to observe the end of the session."
-      />
-
-      <CriterionTable 
-        number="6.2" 
-        title="The teacher provides opportunities for students to respond, participate, or use lesson content at the end of the session."
-        note="This criterion evaluates observable student participation during the session closing and does not determine the level of learning achieved by students."
-        levels={[
-          {score: 5, text: "The teacher: requests student responses related to lesson content, allows students to participate at the end of the session, and develops an activity or interaction reviewing lesson content."},
-          {score: 4, text: "The teacher: requests student responses related to lesson content, and allows participation during the session closing."},
-          {score: 3, text: "The teacher requests brief student responses related to the lesson at the end of the session."},
-          {score: 2, text: "Students participate minimally or only through isolated responses during the session closing."},
-          {score: 1, text: "No observable student participation related to lesson content occurs during the session closing."}
-        ]}
-        naLabel="It was not possible to observe the end of the session."
-      />
-
     </Accordion>
 
   </div>
 );
+
 
 // --- COMPONENTE ENVOLTORIO DE RÚBRICAS CON PESTAÑAS ---
 const Rubricas = () => {
@@ -1577,8 +1048,8 @@ const Rubricas = () => {
         </>
       ) : (
         <>
-          <LineamientosGenerales />
-          <EscalaObjetiva />
+          <GuidelinesLanguages />
+          <RatingScaleLanguages />
         </>
       )}
 
