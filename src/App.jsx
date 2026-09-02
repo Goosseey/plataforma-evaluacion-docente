@@ -765,32 +765,43 @@ const FaqContacto = () => (
   <div className="space-y-8 animate-fade-in max-w-4xl">
     <div className="mb-8">
       <h2 className="text-3xl font-bold text-slate-800 mb-2">Preguntas Frecuentes (FAQ) y Contacto</h2>
-      <p className="text-slate-600">Resolvemos tus dudas más comunes y te dejamos nuestros medios de contacto directo.</p>
+      <p className="text-slate-600">Resolvemos algunas dudas frecuentes sobre el proceso de observación de clase y los criterios utilizados durante la evaluación.</p>
     </div>
 
     <div className="space-y-2">
       <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center">
         <HelpCircle className="w-6 h-6 mr-2 text-blue-600" /> Dudas Comunes
       </h3>
-      <Accordion title="¿Qué pasa si me pongo nervioso o cometo un error en la observación?" icon={MessageSquare}>
-        <p className="text-slate-700">
-          ¡No pasa absolutamente nada! Es completamente normal y humano. De hecho, evaluamos cómo manejas el error frente al grupo; verlo como una oportunidad de aprendizaje es una excelente práctica. No buscamos una clase "perfecta" e irreal, sino tu práctica cotidiana.
-        </p>
+
+      <Accordion title="¿Qué pasa si me pongo nervioso o cometo un error durante la observación?" icon={MessageSquare}>
+        <div className="space-y-3 text-slate-700">
+          <p>La observación no busca una clase perfecta ni libre de imprevistos. La valoración se realiza únicamente con base en la evidencia observable correspondiente a los criterios de la rúbrica.</p>
+          <p>Un error aislado, una interrupción o una situación imprevista no determinan por sí mismos la calificación de la sesión. El observador considerará las características y condiciones particulares en las que se desarrolla la clase.</p>
+        </div>
       </Accordion>
-      <Accordion title="¿Tengo que preparar un 'show' especial para el día que me observen?" icon={MessageSquare}>
-        <p className="text-slate-700">
-          Para nada. Queremos ver tu autenticidad. Prepara tu clase exactamente como lo haces todos los días, apegándote a tu planeación y a los criterios que ya conoces en las rúbricas publicadas en esta plataforma. La naturalidad es tu mejor herramienta.
-        </p>
+
+      <Accordion title="¿Tengo que preparar una clase especial para el día de la observación?" icon={MessageSquare}>
+        <div className="space-y-3 text-slate-700">
+          <p>No. La observación busca registrar la práctica docente dentro de las condiciones habituales de la asignatura y de la sesión.</p>
+          <p>No se requiere utilizar una metodología específica, incorporar actividades adicionales, trabajar en equipos, utilizar tecnología, realizar una dinámica particular de inicio o cierre ni modificar la clase únicamente con motivo de la observación.</p>
+          <p>La valoración se realizará conforme a los criterios y descriptores establecidos en la rúbrica correspondiente.</p>
+        </div>
       </Accordion>
-      <Accordion title="¿Qué pasa si un criterio de la rúbrica simplemente no aplica para mi tema hoy?" icon={MessageSquare}>
-        <p className="text-slate-700">
-          Existe el criterio <strong>NA (No Aplica)</strong> precisamente para estos casos. Si tu materia es 100% teórica en esa sesión o hubo una falla técnica ajena a ti, el observador marcará NA y este punto no te penalizará ni afectará negativamente tu calificación.
-        </p>
+
+      <Accordion title="¿Qué pasa si un criterio de la rúbrica no puede observarse durante mi clase?" icon={MessageSquare}>
+        <div className="space-y-3 text-slate-700">
+          <p>Algunos criterios dependen de que durante la sesión exista una oportunidad razonable para observarlos.</p>
+          <p>Cuando, por la naturaleza de la asignatura, la actividad o las condiciones de la sesión, dicha oportunidad no exista, podrá utilizarse <strong>0 / N/A (No aplica / No observable)</strong>.</p>
+          <p>El <strong>0 / N/A</strong> no representa una calificación de desempeño.</p>
+          <p>Sin embargo, no deberá utilizarse cuando sí existió una oportunidad razonable de observar el criterio pero la conducta descrita no ocurrió. En ese caso se asignará el nivel correspondiente de la rúbrica.</p>
+        </div>
       </Accordion>
+
       <Accordion title="¿Cuándo y cómo sabré mis resultados de la observación?" icon={MessageSquare}>
-        <p className="text-slate-700">
-          Una vez concluido el periodo de evaluación, tu Director o Jefe de Departamento recibirá el reporte. Entre las semanas 14 y 15 obtendrás tus resultados oficiales, los cuales sirven para trazar un plan de crecimiento formativo en conjunto.
-        </p>
+        <div className="space-y-3 text-slate-700">
+          <p>Los resultados de la observación serán enviados al correo institucional del docente en un plazo máximo de <strong>cinco días hábiles posteriores a la sesión observada</strong>.</p>
+          <p>El reporte incluirá la puntuación obtenida y la retroalimentación correspondiente a la evidencia registrada durante la observación.</p>
+        </div>
       </Accordion>
     </div>
 
@@ -801,7 +812,7 @@ const FaqContacto = () => (
       </h3>
       <div className="space-y-4 relative z-10">
         <p className="text-slate-600 mb-4">
-          Si tienes alguna duda adicional, sugerencia o comentario sobre el proceso de evaluación, estoy para escucharte.
+          Si tienes alguna duda, sugerencia o comentario sobre el proceso de evaluación docente, puedes comunicarte directamente con la Coordinación de Evaluación Docente.
         </p>
         <div className="flex items-center text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-100">
           <UserCheck className="w-6 h-6 mr-3 text-slate-400" />
@@ -821,13 +832,14 @@ const FaqContacto = () => (
           </a>
           <div className="flex items-center text-slate-600 bg-white border border-slate-200 p-4 rounded-xl shadow-sm col-span-1 md:col-span-2">
             <Phone className="w-5 h-5 mr-3 text-blue-500 flex-shrink-0" />
-            <span className="text-sm font-medium">449 786 1786 <strong className="ml-1 text-slate-800">EXT 1127</strong> <span className="text-xs text-slate-400 ml-2 italic hidden md:inline">(Aunque la mayoría del tiempo estoy observando 😉)</span></span>
+            <span className="text-sm font-medium">449 786 1786 <strong className="ml-1 text-slate-800">EXT. 1127</strong></span>
           </div>
         </div>
       </div>
     </div>
   </div>
 );
+
 
 // --- SECCIONES DE RÚBRICAS INDIVIDUALES ---
 
