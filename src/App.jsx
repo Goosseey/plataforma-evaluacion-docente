@@ -267,6 +267,72 @@ const LineamientosGenerales = () => (
   </Accordion>
 );
 
+
+// --- LINEAMIENTOS ACTUALIZADOS: RÚBRICA DE CONTENIDO ---
+const LineamientosContenido = () => (
+  <Accordion title="Propósito y Lineamientos de Aplicación del Instrumento" icon={Info} defaultOpen={false}>
+    <div className="space-y-7 text-sm text-slate-700 p-2">
+      <div>
+        <h4 className="font-bold text-blue-800 text-base mb-2">Propósito</h4>
+        <p className="text-justify">
+          La presente rúbrica tiene como finalidad valorar conductas, acciones e interacciones observables durante una sesión de clase. La valoración se basa exclusivamente en evidencia registrada durante el periodo de observación y no constituye una evaluación integral del desempeño profesional del docente.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="font-bold text-blue-800 text-base mb-3 border-b pb-2">Principios de aplicación</h4>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>La puntuación deberá sustentarse únicamente en evidencia observable y en los descriptores establecidos para cada criterio.</li>
+          <li>No deberán inferirse intenciones, emociones, motivación, aprendizaje alcanzado, dominio disciplinar total ni competencia lingüística global.</li>
+          <li>La cantidad o frecuencia de una conducta no determinará por sí sola un nivel superior, salvo cuando el criterio lo establezca expresamente.</li>
+          <li>Una sola evidencia podrá sustentar un nivel cuando cumpla completamente con el descriptor correspondiente.</li>
+          <li>La valoración deberá considerar las características y condiciones de la sesión observada, sin asumir una estructura o metodología única de enseñanza.</li>
+        </ul>
+      </div>
+
+      <div className="bg-slate-800 text-white rounded-xl p-6 shadow-sm">
+        <h4 className="font-bold text-lg mb-3 flex items-center">
+          <AlertCircle className="w-5 h-5 mr-2 text-red-400" />
+          No aplica / No observable
+        </h4>
+        <div className="space-y-3 text-slate-200">
+          <p>
+            El valor <strong className="text-white">0 / NA</strong> se utilizará cuando, por la naturaleza de la asignatura, la actividad o las condiciones de observación, no exista una oportunidad razonable para valorar el criterio.
+          </p>
+          <p>
+            No deberá utilizarse cuando el criterio sí podía observarse, pero la conducta descrita no ocurrió. En ese caso deberá asignarse el nivel correspondiente.
+          </p>
+          <p className="font-semibold text-white">El 0 / NA no representa una calificación de desempeño.</p>
+        </div>
+      </div>
+
+      <div>
+        <h4 className="font-bold text-blue-800 text-base mb-2">Alcances</h4>
+        <p className="text-justify">
+          Los resultados corresponden exclusivamente a la sesión observada y no permiten determinar de manera concluyente el aprendizaje alcanzado, el dominio disciplinar o lingüístico total ni la efectividad global de la práctica docente.
+        </p>
+      </div>
+    </div>
+  </Accordion>
+);
+
+const EscalaObjetivaContenido = () => (
+  <div className="bg-white rounded-lg p-5 border border-blue-100 text-sm mb-6 shadow-sm print:shadow-none print:border-slate-300">
+    <h4 className="font-bold text-slate-800 mb-3 tracking-wider">ESCALA DE EVALUACIÓN</h4>
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-green-100 text-green-700 font-bold rounded mr-2">5</span> Sobresaliente</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-lime-100 text-lime-600 font-bold rounded mr-2">4</span> Destacado</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-yellow-100 text-yellow-600 font-bold rounded mr-2">3</span> Satisfactorio</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-red-100 text-red-600 font-bold rounded mr-2">2</span> Aceptable</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-rose-100 text-rose-900 font-bold rounded mr-2">1</span> Incumplimiento</div>
+      <div className="flex items-center"><span className="w-7 h-7 flex items-center justify-center bg-slate-100 text-slate-600 font-bold rounded mr-2">0</span> No aplica / No observable</div>
+    </div>
+    <p className="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-500 leading-relaxed">
+      Los nombres de los niveles corresponden a la escala institucional. La puntuación deberá asignarse conforme al descriptor específico de cada criterio.
+    </p>
+  </div>
+);
+
 // --- VISTAS PRINCIPALES ---
 
 const Introduccion = ({ setActiveTab }) => {
@@ -1504,8 +1570,17 @@ const Rubricas = () => {
         </div>
       </div>
 
-      <LineamientosGenerales />
-      <EscalaObjetiva />
+      {tipoRubrica === 'contenido' ? (
+        <>
+          <LineamientosContenido />
+          <EscalaObjetivaContenido />
+        </>
+      ) : (
+        <>
+          <LineamientosGenerales />
+          <EscalaObjetiva />
+        </>
+      )}
 
       <div className="flex space-x-2 border-b border-slate-200 mb-6 no-print">
         <button
