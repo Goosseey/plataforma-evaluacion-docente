@@ -417,134 +417,243 @@ const MarcoTeorico = () => (
   <div className="space-y-6 animate-fade-in max-w-4xl">
     <div className="mb-8">
       <h2 className="text-3xl font-bold text-slate-800 mb-2">Fundamentos de la Observación y Evaluación de Clase</h2>
-      <p className="text-slate-600">
-        Este documento presenta las bases pedagógicas que sustentan nuestros procesos. El objetivo es transitar de una "inspección" hacia una práctica reflexiva basada en la evidencia y el diseño intencional. Queremos que esta herramienta sea tu aliada.
+      <p className="text-slate-600 text-justify mb-3">
+        La observación de clase constituye una fuente directa de información sobre prácticas docentes que ocurren durante una sesión específica. Su propósito es documentar evidencia observable que permita describir determinados aspectos de la práctica mediante criterios previamente establecidos.
+      </p>
+      <p className="text-slate-600 text-justify">
+        La enseñanza es una actividad compleja y situada. Una sesión de clase permite observar acciones, interacciones, explicaciones, actividades y respuestas concretas, pero no permite determinar por sí sola la calidad global del desempeño profesional de un docente, el aprendizaje alcanzado por los estudiantes ni todos los procesos que forman parte de la enseñanza. Por esta razón, la observación debe interpretarse dentro de los límites de la evidencia disponible y como parte de un proceso de evaluación más amplio.
       </p>
     </div>
 
-    <Accordion title="1. El Pilar del Alineamiento Constructivo" icon={BookOpen} defaultOpen={false}>
-      <div className="space-y-3">
-        <p className="text-justify text-slate-700">
-          La evaluación de tu clase no es un evento aislado, sino la verificación de un "contrato pedagógico". Entendemos que el aprendizaje profundo ocurre cuando hay coherencia total entre lo que esperamos, lo que hacemos y lo que evaluamos. Según John Biggs, debe existir un vínculo indisoluble entre:
-        </p>
-        <ul className="list-disc pl-6 space-y-1 text-slate-700">
-          <li><strong>Resultados de Aprendizaje (RAE):</strong> Lo que el estudiante debe saber hacer.</li>
-          <li><strong>Actividades de Enseñanza (AEA):</strong> Lo que ocurre de manera viva en tu aula.</li>
-          <li><strong>Tareas de Evaluación:</strong> Cómo verificamos juntos ese logro.</li>
-        </ul>
-        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4 rounded-r-lg">
-          <p className="text-sm text-blue-900">
-            <strong>En la práctica:</strong> Buscamos evidenciar que vas más allá de "dar un tema". Valoramos cómo alineas tus preguntas y actividades para que el estudiante construya su propio conocimiento. ¡Si el objetivo es analizar, sabemos que tu clase no será solo una exposición pasiva!
-          </p>
-        </div>
-      </div>
-    </Accordion>
-
-    <Accordion title="2. Diseño Inverso: Planificar con el fin en mente" icon={Target}>
-      <div className="space-y-3">
-        <p className="text-justify text-slate-700">
-          Aplicamos la filosofía del <em>Backward Planning</em> (Wiggins & McTighe). En lugar de planificar "hacia adelante" (libro → actividad → examen), te animamos a diseñar a la inversa la arquitectura de tu clase:
-        </p>
-        <ol className="list-decimal pl-6 space-y-2 text-slate-700">
-          <li><strong>Identificar resultados deseados:</strong> ¿Qué comprensión perdurable quieres lograr en ellos?</li>
-          <li><strong>Determinar evidencia aceptable:</strong> ¿Qué debe hacer el alumno para demostrarte que aprendió?</li>
-          <li><strong>Planificar experiencias:</strong> Diseñar la instrucción exacta para alcanzar esa evidencia.</li>
-        </ol>
-        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4 rounded-r-lg">
-          <p className="text-sm text-blue-900">
-            <strong>En la práctica:</strong> Valoramos que cada minuto de tu sesión sea un vector cinético hacia la meta final, evitando actividades que solo mantienen ocupado al alumno pero no generan transferencia cognitiva.
-          </p>
-        </div>
-      </div>
-    </Accordion>
-
-    <Accordion title="3. Diferenciación: Contenido vs. Idiomas" icon={Layers}>
-      <div className="space-y-3">
-        <p className="text-justify text-slate-700">
-          Comprendemos que no todas las clases son iguales. Nuestro instrumento reconoce que la naturaleza del aprendizaje dicta cómo se interactúa en el aula:
-        </p>
-        
-        <div className="overflow-x-auto mt-5 rounded-xl border border-slate-200 shadow-sm">
-          <table className="w-full text-sm text-left">
-            <thead>
-              <tr>
-                <th className="p-4 bg-slate-100 text-slate-700 font-bold border-b border-slate-200 w-1/4">
-                  Dimensión
-                </th>
-                <th className="p-4 bg-blue-600 text-white font-bold border-b border-blue-700 w-[37.5%]">
-                  <div className="flex items-center"><BookOpen className="w-4 h-4 mr-2"/> Clases de Contenido</div>
-                </th>
-                <th className="p-4 bg-indigo-600 text-white font-bold border-b border-indigo-700 w-[37.5%]">
-                  <div className="flex items-center"><Globe className="w-4 h-4 mr-2"/> Clases de Idiomas</div>
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {[
-                { dim: "Enfoque Principal", cont: "Dominio conceptual y relacional del tema.", idio: "Competencia comunicativa y uso de la lengua." },
-                { dim: "Uso del Lenguaje", cont: "Vehículo para entender conceptos.", idio: "El lenguaje es el objeto de estudio y la herramienta." },
-                { dim: "Interacción", cont: "Enfocada en la construcción de argumentos.", idio: "Enfocada en la producción (oral/escrita) en L2." },
-                { dim: "Criterio Clave", cont: "Rigor académico y profundidad.", idio: "Exposición al idioma meta y retroalimentación de errores." },
-              ].map((row, i) => (
-                <tr key={i} className="group transition-colors cursor-default">
-                  <td className="p-4 font-bold text-slate-700 bg-slate-50/50 group-hover:bg-slate-100 transition-colors border-r border-slate-100">
-                    {row.dim}
-                  </td>
-                  <td className="p-4 text-slate-700 bg-blue-50/30 group-hover:bg-blue-50 transition-colors border-r border-slate-100">
-                    {row.cont}
-                  </td>
-                  <td className="p-4 text-slate-700 bg-indigo-50/30 group-hover:bg-indigo-50 transition-colors">
-                    {row.idio}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </Accordion>
-
-    <Accordion title="4. El valor del Planning y la Gestión" icon={Clock}>
-      <div className="space-y-3">
-        <p className="text-justify text-slate-700">
-          Sabemos que la planificación diaria no es una carga administrativa, sino una hoja de ruta estratégica. Un buen plan te permite:
-        </p>
-        <ul className="list-disc pl-6 space-y-2 text-slate-700 mt-2">
-          <li><strong>Gestión del tiempo:</strong> Evitar interrupciones y transiciones muertas.</li>
-          <li><strong>Equidad y Accesibilidad:</strong> Anticipar andamiajes (<em>scaffolding</em>) para estudiantes que necesitan apoyo adicional.</li>
-          <li><strong>Atmósfera de Clase:</strong> Crear un entorno seguro de respeto, donde equivocarse sea visto como una gran oportunidad de aprendizaje.</li>
-        </ul>
-      </div>
-    </Accordion>
-
-    <Accordion title="5. Alcances y Limitaciones (No somos infalibles)" icon={AlertCircle}>
-      <div className="space-y-4 text-slate-700">
+    <Accordion title="1. La observación como evidencia situada de la práctica docente" icon={Search} defaultOpen={false}>
+      <div className="space-y-3 text-slate-700">
         <p className="text-justify">
-          Somos muy conscientes de que la observación de una sesión tiene sus fronteras naturales. Reconocemos que:
+          La observación de clase permite registrar la enseñanza mientras esta ocurre. Sin embargo, la interpretación de lo observado debe considerar que las decisiones docentes varían según la asignatura, el contenido, el nivel del grupo, las características de las actividades y las condiciones particulares de cada sesión.
         </p>
-        <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Naturaleza Episódica:</strong> Evaluamos un "instante" del proceso educativo, no tu progreso a largo plazo.</li>
-          <li><strong>Foco en lo Observable:</strong> Medimos comportamientos y productos visibles, pero no podemos capturar por completo los procesos internos de pensamiento del estudiante.</li>
-          <li><strong>Dependencia del Contexto:</strong> Factores externos (ánimo del grupo, fallas técnicas) influyen en el desempeño de la sesión y lo tomamos en cuenta.</li>
+        <p className="text-justify">
+          Darling-Hammond y Snyder señalan que la evaluación de la enseñanza debe reconocer esta dependencia del contexto y evitar reducir la práctica docente a una lista universal de conductas que deberían presentarse de la misma manera en todas las situaciones. O'Leary, por su parte, plantea la observación como una herramienta que puede utilizarse tanto para evaluación como para aprendizaje profesional, siempre que sus propósitos, criterios y límites estén claramente definidos.
+        </p>
+        <p className="text-justify">
+          En consecuencia, las rúbricas de observación no establecen una estructura única de clase ni exigen la presencia sistemática de determinadas metodologías, recursos, formas de agrupamiento, tipos de preguntas, momentos de apertura o cierre u otras prácticas cuya pertinencia depende del contexto.
+        </p>
+        <p className="text-justify">
+          La valoración se concentra en aquello que razonablemente puede observarse durante la sesión y en la forma en que la evidencia corresponde a los descriptores del instrumento.
+        </p>
+      </div>
+    </Accordion>
+
+    <Accordion title="2. Validez, consistencia y uso de rúbricas analíticas" icon={CheckSquare}>
+      <div className="space-y-3 text-slate-700">
+        <p className="text-justify">
+          Todo instrumento de evaluación requiere que las interpretaciones derivadas de sus resultados sean consistentes con la evidencia que realmente recoge. Los <em>Standards for Educational and Psychological Testing</em>, desarrollados conjuntamente por AERA, APA y NCME, sitúan la validez, la confiabilidad y la equidad como principios centrales para el desarrollo, aplicación e interpretación de instrumentos de evaluación.
+        </p>
+        <p className="text-justify">
+          En una observación de clase, esto implica evitar que la puntuación dependa de aspectos que el criterio no pretende evaluar, de inferencias sobre procesos que no pueden observarse directamente o de oportunidades que no se presentaron durante la sesión.
+        </p>
+        <p className="text-justify">
+          La investigación sobre rúbricas muestra que estas pueden favorecer una mayor consistencia de las valoraciones cuando utilizan criterios explícitos y descriptores diferenciados de desempeño. Jonsson y Svingby encontraron que las rúbricas analíticas pueden contribuir a una mayor confiabilidad de la puntuación, especialmente cuando los criterios son específicos y su aplicación se acompaña de procesos de formación o calibración de los evaluadores. Al mismo tiempo, advierten que la existencia de una rúbrica no garantiza por sí misma una evaluación válida: la calidad depende de aquello que se decide evaluar y de cómo se interpretan los resultados.
+        </p>
+        <p className="text-justify">
+          Brookhart señala igualmente que una rúbrica requiere criterios definidos y descripciones que permitan distinguir niveles de desempeño a lo largo de un continuo de calidad.
+        </p>
+        <p className="text-justify">
+          A partir de estos principios, los instrumentos utilizan descriptores específicos para cada nivel y priorizan la correspondencia entre la evidencia observada y el descriptor. La frecuencia o cantidad de una conducta no constituye por sí sola evidencia de un nivel superior, excepto cuando la cantidad forma parte explícita del criterio evaluado.
+        </p>
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+          <p className="text-sm text-blue-900">
+            Asimismo, el valor <strong>No aplica / No observable</strong> se reserva para situaciones en las que no existió una oportunidad razonable de valorar el criterio. La ausencia de una conducta cuando sí existió oportunidad de observarla debe valorarse mediante el descriptor correspondiente y no mediante N/A.
+          </p>
+        </div>
+      </div>
+    </Accordion>
+
+    <Accordion title="3. Evaluar la práctica sin imponer una metodología única" icon={Layers}>
+      <div className="space-y-3 text-slate-700">
+        <p className="text-justify">
+          Una observación contextualizada reconoce que diferentes estrategias pueden ser pertinentes para diferentes propósitos, contenidos y grupos. La calidad de la práctica no puede reducirse a la presencia acumulativa de determinadas técnicas.
+        </p>
+        <p className="text-justify">
+          Darling-Hammond y Snyder advierten precisamente sobre las limitaciones de los sistemas de observación construidos a partir de listas de comportamientos supuestamente efectivos en cualquier contexto. La práctica docente requiere tomar decisiones diferentes ante distintas situaciones de enseñanza y aprendizaje.
+        </p>
+        <p className="text-justify">
+          Por esta razón, los instrumentos no consideran que una clase sea superior simplemente por utilizar más recursos, más actividades, tecnología, trabajo colaborativo, preguntas abiertas, determinadas distribuciones del tiempo u otras características metodológicas.
+        </p>
+        <p className="text-justify">
+          La valoración se realiza sobre aspectos definidos y observables de la práctica, atendiendo a lo que sucede dentro de las condiciones reales de la sesión.
+        </p>
+        <div className="bg-slate-50 border-l-4 border-slate-500 p-4 rounded-r-lg">
+          <p className="text-sm text-slate-800">
+            Este principio permite distinguir entre <strong>observar una práctica</strong> y <strong>prescribir una forma única de enseñar</strong>.
+          </p>
+        </div>
+      </div>
+    </Accordion>
+
+    <Accordion title="4. Coherencia entre contenido, actividades y expectativas" icon={Target}>
+      <div className="space-y-3 text-slate-700">
+        <p className="text-justify">
+          El concepto de alineamiento constructivo propuesto por Biggs continúa siendo pertinente como referencia para comprender la importancia de la coherencia entre aquello que se pretende desarrollar, las actividades mediante las que los estudiantes trabajan con el contenido y las evidencias utilizadas para valorar su desempeño. El modelo fue desarrollado específicamente en el contexto de educación superior.
+        </p>
+        <p className="text-justify">
+          En estos instrumentos, este principio no implica que cada sesión deba comunicar formalmente un objetivo, seguir una secuencia determinada o utilizar una metodología específica. Se refleja, en cambio, en elementos observables como la relación de las actividades con el contenido trabajado, la comunicación de aquello que se espera realizar o producir y la existencia de criterios o condiciones que permitan comprender las expectativas de una actividad.
+        </p>
+        <p className="text-justify">
+          La explicitación de criterios y expectativas también es consistente con la literatura sobre uso de rúbricas, que destaca su utilidad para hacer visibles los referentes mediante los cuales se valora una tarea o desempeño.
+        </p>
+      </div>
+    </Accordion>
+
+    <Accordion title="5. Obtención de evidencia, retroalimentación y respuesta docente" icon={MessageSquare}>
+      <div className="space-y-3 text-slate-700">
+        <p className="text-justify">
+          La evaluación formativa se sustenta en obtener información sobre lo que los estudiantes están haciendo, comprendiendo o produciendo y utilizar esa información para orientar decisiones posteriores durante el proceso de enseñanza.
+        </p>
+        <p className="text-justify">
+          Black y Wiliam identifican la obtención y utilización de evidencia del aprendizaje como un componente fundamental de la evaluación formativa. La información adquiere valor cuando permite ajustar las acciones de enseñanza y aprendizaje en función de lo que ocurre durante el proceso.
+        </p>
+        <p className="text-justify">
+          De manera complementaria, Hattie y Timperley señalan que el efecto de la retroalimentación depende de su contenido y de la información que proporciona, y no simplemente de que exista un comentario del docente.
+        </p>
+        <p className="font-semibold text-slate-800">Estos principios se reflejan en criterios relacionados con:</p>
+        <ul className="list-disc pl-6 space-y-1">
+          <li>la obtención de información a partir del trabajo, respuestas, procedimientos o producciones de los estudiantes;</li>
+          <li>la utilización de esa información para aclarar, orientar, corregir o retroalimentar;</li>
+          <li>el seguimiento posterior a una intervención;</li>
+          <li>la retroalimentación sobre producciones concretas;</li>
+          <li>y la respuesta ante preguntas o dificultades identificables.</li>
         </ul>
-        <div className="pt-4 border-t border-slate-100">
-          <p className="font-bold text-blue-800 mb-2">
-            Conclusión: Hacia la Excelencia Docente
+        <p className="text-justify">
+          La rúbrica no presupone que en toda sesión deban producirse errores, preguntas o dificultades. Cuando una situación necesaria para valorar un criterio no ocurre razonablemente durante la observación, su ausencia no debe convertirse automáticamente en una penalización.
+        </p>
+      </div>
+    </Accordion>
+
+    <Accordion title="6. Diferenciación entre materias de contenido y enseñanza de idiomas" icon={Globe}>
+      <div className="space-y-6 text-slate-700">
+        <div className="space-y-3">
+          <p className="text-justify">
+            La naturaleza de aquello que se enseña modifica las oportunidades de observación. Por esta razón se utilizan instrumentos diferenciados para materias de contenido y para clases de idiomas.
           </p>
           <p className="text-justify">
-            Aunque ninguna evaluación es completamente perfecta, las rúbricas nos permiten contar con criterios más claros y consistentes para acompañar la mejora continua de la práctica docente.
+            La diferenciación no implica establecer una metodología única para cada tipo de clase. Su función es seleccionar aspectos observables que resulten pertinentes para el objeto de enseñanza.
           </p>
+        </div>
+
+        <div className="bg-blue-50/60 border border-blue-100 rounded-xl p-5">
+          <h4 className="font-bold text-blue-800 text-lg mb-3 flex items-center"><BookOpen className="w-5 h-5 mr-2" />6.1 Materias de contenido</h4>
+          <div className="space-y-3">
+            <p className="text-justify">
+              En las materias de contenido, la observación considera principalmente cómo se desarrolla el contenido disciplinar durante la sesión.
+            </p>
+            <p className="text-justify">
+              El instrumento distingue entre presentar información y desarrollar explicaciones que permitan establecer relaciones entre conceptos, componentes, procedimientos o criterios. También considera el uso de ejemplos y aplicaciones, la vinculación con situaciones del ámbito profesional cuando esta resulte pertinente y las acciones mediante las cuales el docente obtiene información sobre el trabajo de los estudiantes y responde a ella.
+            </p>
+            <p className="text-justify">
+              El alineamiento constructivo de Biggs ofrece una referencia para comprender la importancia de conectar contenido, actividades y evidencias dentro de la enseñanza universitaria, sin establecer que exista una única estrategia para lograrlo.
+            </p>
+            <p className="text-justify">
+              Los criterios relativos a la estructura institucional de Google Classroom y a la incorporación progresiva de vocabulario técnico en inglés responden, además, a <strong>lineamientos institucionales específicos</strong>. Su inclusión en la rúbrica no pretende establecer estas características como principios universales de calidad docente, sino valorar su cumplimiento dentro del modelo educativo de la institución.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-indigo-50/60 border border-indigo-100 rounded-xl p-5">
+          <h4 className="font-bold text-indigo-800 text-lg mb-3 flex items-center"><Languages className="w-5 h-5 mr-2" />6.2 Clases de idiomas</h4>
+          <div className="space-y-3">
+            <p className="text-justify">
+              En la enseñanza de idiomas, la lengua constituye simultáneamente objeto y medio de aprendizaje. Por ello, el instrumento considera oportunidades de recepción y producción, uso de la lengua meta, diseño de actividades, producción esperada, monitoreo, retroalimentación y apoyo para la comprensión y producción.
+            </p>
+            <p className="text-justify">
+              El <em>Common European Framework of Reference for Languages: Companion Volume</em> organiza el uso de la lengua en torno a actividades de recepción, producción, interacción y mediación, reconociendo distintas formas mediante las cuales los estudiantes utilizan y construyen significado a través de la lengua.
+            </p>
+            <p className="text-justify">
+              Ellis también destaca la importancia de las tareas como espacios en los que los estudiantes pueden trabajar con comprensión, interacción y producción lingüística, así como la necesidad de relacionar el diseño de la actividad con aquello que se espera que el estudiante haga con la lengua.
+            </p>
+            <p className="text-justify">
+              ACTFL sostiene que la enseñanza de lenguas debe proporcionar niveles significativos de comunicación en la lengua meta y utilizar estrategias que faciliten la comprensión, la negociación de significado y la retroalimentación. Entre estas estrategias se encuentran el uso de contexto, gestos, apoyos visuales, comprobaciones de comprensión y otras formas de apoyo al significado.
+            </p>
+            <p className="text-justify">
+              Aunque ACTFL establece recomendaciones cuantitativas sobre el uso de la lengua meta, la rúbrica institucional <strong>no convierte esta recomendación en una cuota fija de tiempo</strong>. El criterio observa la función y extensión del uso de la lengua meta dentro de la comunicación de la sesión y reconoce que otra lengua puede utilizarse estratégicamente cuando sea necesario para apoyar la comprensión.
+            </p>
+            <p className="text-justify">
+              De manera similar, el apoyo lingüístico o <em>scaffolding</em> puede facilitar que los estudiantes comprendan y produzcan lenguaje que todavía no pueden manejar de forma completamente independiente. Gibbons describe el andamiaje como apoyo vinculado con las demandas lingüísticas de la actividad y con las necesidades de los estudiantes.
+            </p>
+            <p className="text-justify">
+              Por esta razón, el instrumento no exige apoyos lingüísticos adicionales en todas las actividades. Su valoración depende de que exista una necesidad razonable de apoyo dentro de la producción o comprensión observada.
+            </p>
+            <p className="text-justify">
+              La rúbrica tampoco pretende determinar la competencia lingüística global del docente a partir de una sesión. Los criterios se concentran en prácticas pedagógicas observables relacionadas con el uso y enseñanza de la lengua.
+            </p>
+          </div>
         </div>
       </div>
     </Accordion>
 
-    <Accordion title="6. Referencias Bibliográficas" icon={FileText}>
+    <Accordion title="7. La observación como parte de una evaluación docente integral" icon={PieChart}>
+      <div className="space-y-3 text-slate-700">
+        <p className="text-justify">
+          La efectividad de la enseñanza es un constructo complejo que difícilmente puede representarse de manera suficiente mediante una única fuente de información.
+        </p>
+        <p className="text-justify">
+          En educación superior, Berk propone utilizar múltiples fuentes de evidencia para valorar la enseñanza —entre ellas evaluaciones de estudiantes, observación o valoración por colegas y superiores, autoevaluación, resultados y otros productos de la práctica— de manera que las fortalezas y limitaciones de una fuente puedan complementarse con las demás.
+        </p>
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+          <p className="text-sm text-blue-900">
+            En consecuencia, el resultado de la observación de clase debe interpretarse como <strong>un componente de la evaluación docente y no como una valoración integral independiente</strong>.
+          </p>
+        </div>
+        <p className="font-semibold text-slate-800">La puntuación describe la evidencia observada durante una sesión bajo los criterios definidos por el instrumento. No permite, por sí sola, concluir de manera definitiva:</p>
+        <ul className="list-disc pl-6 space-y-1">
+          <li>el aprendizaje alcanzado por los estudiantes;</li>
+          <li>el dominio disciplinar total del docente;</li>
+          <li>su competencia lingüística global;</li>
+          <li>la calidad de todas sus sesiones;</li>
+          <li>ni su efectividad profesional global.</li>
+        </ul>
+        <p className="text-justify">
+          Su principal contribución consiste en proporcionar evidencia estructurada sobre prácticas específicas que pueden integrarse con otras fuentes de evaluación y utilizarse para orientar procesos de retroalimentación y desarrollo profesional.
+        </p>
+      </div>
+    </Accordion>
+
+    <Accordion title="8. Alcance del instrumento" icon={AlertCircle}>
+      <div className="space-y-4 text-slate-700">
+        <p className="text-justify">
+          Las rúbricas fueron diseñadas para favorecer valoraciones más transparentes y consistentes mediante criterios explícitos, niveles diferenciados y reglas comunes de aplicación.
+        </p>
+        <p className="font-semibold text-slate-800">Su interpretación debe conservar siempre tres límites fundamentales:</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
+            <p><strong>Evidencia.</strong> Se valora aquello que puede observarse o verificarse durante la sesión y dentro de las fuentes contempladas por el criterio.</p>
+          </div>
+          <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
+            <p><strong>Contexto.</strong> La misma práctica no necesariamente resulta pertinente en todas las asignaturas, niveles, actividades o momentos.</p>
+          </div>
+          <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
+            <p><strong>Alcance.</strong> Una observación representa una muestra situada de la práctica docente y no la totalidad de su desempeño profesional.</p>
+          </div>
+        </div>
+        <p className="text-justify">
+          Desde esta perspectiva, la observación no busca definir una única forma correcta de impartir clase, sino documentar con criterios comunes aquello que razonablemente puede observarse durante una sesión y utilizar esa evidencia como parte de un proceso institucional más amplio de evaluación y mejora docente.
+        </p>
+      </div>
+    </Accordion>
+
+    <Accordion title="Referencias bibliográficas" icon={FileText}>
       <div className="space-y-4 text-sm text-slate-600 pl-4 py-2">
-        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Biggs, J. B. (1996). Enhancing teaching through constructive alignment. <em>Higher Education</em>, 32(3), 347-364. https://doi.org/10.1007/BF00138871</p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">American Council on the Teaching of Foreign Languages. (2010). <em>Use of the target language in the classroom</em>. ACTFL.</p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">American Educational Research Association, American Psychological Association, &amp; National Council on Measurement in Education. (2014). <em>Standards for educational and psychological testing</em>. American Educational Research Association.</p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Berk, R. A. (2005). Survey of 12 strategies to measure teaching effectiveness. <em>International Journal of Teaching and Learning in Higher Education, 17</em>(1), 48–62.</p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Biggs, J. (1996). Enhancing teaching through constructive alignment. <em>Higher Education, 32</em>(3), 347–364. <a href="https://doi.org/10.1007/BF00138871" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://doi.org/10.1007/BF00138871</a></p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Black, P., &amp; Wiliam, D. (1998). Assessment and classroom learning. <em>Assessment in Education: Principles, Policy &amp; Practice, 5</em>(1), 7–74. <a href="https://doi.org/10.1080/0969595980050102" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://doi.org/10.1080/0969595980050102</a></p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Brookhart, S. M. (2013). <em>How to create and use rubrics for formative assessment and grading</em>. ASCD.</p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Council of Europe. (2020). <em>Common European Framework of Reference for Languages: Learning, teaching, assessment—Companion volume</em>. Council of Europe Publishing.</p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Darling-Hammond, L., &amp; Snyder, J. (2000). Authentic assessment of teaching in context. <em>Teaching and Teacher Education, 16</em>(5–6), 523–545. <a href="https://doi.org/10.1016/S0742-051X(00)00015-9" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://doi.org/10.1016/S0742-051X(00)00015-9</a></p>
         <p className="indent-[-1.5rem] pl-6 leading-relaxed">Ellis, R. (2003). <em>Task-based language learning and teaching</em>. Oxford University Press.</p>
-        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Krashen, S. D. (1981). <em>Second language acquisition and second language learning</em>. Pergamon Press.</p>
-        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Wiggins, G., & McTighe, J. (2005). <em>Understanding by design</em> (2nd ed.). Association for Supervision and Curriculum Development.</p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Gibbons, P. (2015). <em>Scaffolding language, scaffolding learning: Teaching English language learners in the mainstream classroom</em> (2nd ed.). Heinemann.</p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Hattie, J., &amp; Timperley, H. (2007). The power of feedback. <em>Review of Educational Research, 77</em>(1), 81–112. <a href="https://doi.org/10.3102/003465430298487" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://doi.org/10.3102/003465430298487</a></p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">Jönsson, A., &amp; Svingby, G. (2007). The use of scoring rubrics: Reliability, validity and educational consequences. <em>Educational Research Review, 2</em>(2), 130–144. <a href="https://doi.org/10.1016/j.edurev.2007.05.002" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://doi.org/10.1016/j.edurev.2007.05.002</a></p>
+        <p className="indent-[-1.5rem] pl-6 leading-relaxed">O'Leary, M. (2020). <em>Classroom observation: A guide to the effective observation of teaching and learning</em> (2nd ed.). Routledge.</p>
       </div>
     </Accordion>
   </div>
