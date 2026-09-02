@@ -1162,6 +1162,101 @@ const Rubricas = () => {
         </div>
       </div>
 
+      {/* SELECTOR PRINCIPAL DE RÚBRICA */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 no-print">
+        <button
+          type="button"
+          aria-pressed={tipoRubrica === 'contenido'}
+          onClick={() => setTipoRubrica('contenido')}
+          className={`group relative text-left rounded-2xl border-2 p-6 transition-all duration-200 ${
+            tipoRubrica === 'contenido'
+              ? 'border-blue-600 bg-blue-50 shadow-md ring-2 ring-blue-100'
+              : 'border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/40 hover:shadow-md'
+          }`}
+        >
+          {tipoRubrica === 'contenido' && (
+            <span className="absolute top-4 right-4 inline-flex items-center rounded-full bg-blue-700 px-3 py-1 text-xs font-bold text-white shadow-sm">
+              <CheckSquare className="w-3.5 h-3.5 mr-1.5" /> Seleccionada
+            </span>
+          )}
+          <div className="flex items-start pr-24">
+            <div className={`p-3 rounded-xl mr-4 ${tipoRubrica === 'contenido' ? 'bg-blue-700 text-white' : 'bg-blue-100 text-blue-700'}`}>
+              <BookOpen className="w-7 h-7" />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1">Rúbrica de observación</p>
+              <h3 className="text-xl font-bold text-slate-900">Materias de Contenido</h3>
+              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Asignaturas disciplinares, técnicas y profesionales.</p>
+              <p className="text-sm font-bold text-blue-700 mt-4">Ver rúbrica →</p>
+            </div>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          aria-pressed={tipoRubrica === 'idiomas'}
+          onClick={() => setTipoRubrica('idiomas')}
+          className={`group relative text-left rounded-2xl border-2 p-6 transition-all duration-200 ${
+            tipoRubrica === 'idiomas'
+              ? 'border-indigo-600 bg-indigo-50 shadow-md ring-2 ring-indigo-100'
+              : 'border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50/40 hover:shadow-md'
+          }`}
+        >
+          {tipoRubrica === 'idiomas' && (
+            <span className="absolute top-4 right-4 inline-flex items-center rounded-full bg-indigo-700 px-3 py-1 text-xs font-bold text-white shadow-sm">
+              <CheckSquare className="w-3.5 h-3.5 mr-1.5" /> Seleccionada
+            </span>
+          )}
+          <div className="flex items-start pr-24">
+            <div className={`p-3 rounded-xl mr-4 ${tipoRubrica === 'idiomas' ? 'bg-indigo-700 text-white' : 'bg-indigo-100 text-indigo-700'}`}>
+              <Languages className="w-7 h-7" />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1">Rúbrica de observación</p>
+              <h3 className="text-xl font-bold text-slate-900">Clases de Idiomas</h3>
+              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Inglés, francés, alemán y otras lenguas.</p>
+              <p className="text-sm font-bold text-indigo-700 mt-4">View rubric →</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      {/* SELECTOR COMPACTO VISIBLE DURANTE EL DESPLAZAMIENTO */}
+      <div className="sticky top-2 z-30 no-print">
+        <div className="bg-white/95 backdrop-blur border border-slate-200 rounded-xl shadow-md p-2.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div className="px-2">
+            <p className="text-[11px] uppercase tracking-wider font-bold text-slate-400">Actualmente estás consultando</p>
+            <p className={`text-sm font-bold ${tipoRubrica === 'contenido' ? 'text-blue-800' : 'text-indigo-800'}`}>
+              {tipoRubrica === 'contenido' ? 'Materias de Contenido' : 'Clases de Idiomas'}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-2 sm:flex">
+            <button
+              type="button"
+              onClick={() => setTipoRubrica('contenido')}
+              className={`inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
+                tipoRubrica === 'contenido'
+                  ? 'bg-blue-700 text-white shadow-sm'
+                  : 'bg-slate-100 text-slate-600 hover:bg-blue-50 hover:text-blue-700'
+              }`}
+            >
+              <BookOpen className="w-4 h-4 mr-2" /> Contenido
+            </button>
+            <button
+              type="button"
+              onClick={() => setTipoRubrica('idiomas')}
+              className={`inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
+                tipoRubrica === 'idiomas'
+                  ? 'bg-indigo-700 text-white shadow-sm'
+                  : 'bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-700'
+              }`}
+            >
+              <Languages className="w-4 h-4 mr-2" /> Idiomas
+            </button>
+          </div>
+        </div>
+      </div>
+
       {tipoRubrica === 'contenido' ? (
         <>
           <LineamientosContenido />
@@ -1173,29 +1268,6 @@ const Rubricas = () => {
           <RatingScaleLanguages />
         </>
       )}
-
-      <div className="flex space-x-2 border-b border-slate-200 mb-6 no-print">
-        <button
-          onClick={() => setTipoRubrica('contenido')}
-          className={`px-5 py-3 font-semibold text-sm rounded-t-lg transition-colors ${
-            tipoRubrica === 'contenido' 
-              ? 'bg-blue-50 text-blue-700 border-b-2 border-blue-700' 
-              : 'text-slate-500 hover:bg-slate-50'
-          }`}
-        >
-          Materias de Contenido
-        </button>
-        <button
-          onClick={() => setTipoRubrica('idiomas')}
-          className={`px-5 py-3 font-semibold text-sm rounded-t-lg transition-colors ${
-            tipoRubrica === 'idiomas' 
-              ? 'bg-indigo-50 text-indigo-700 border-b-2 border-indigo-700' 
-              : 'text-slate-500 hover:bg-slate-50'
-          }`}
-        >
-          Clases de Idiomas
-        </button>
-      </div>
 
       <div className="print:block">
         {tipoRubrica === 'contenido' ? <ContenidoAula /> : <ContenidoIdiomas />}
