@@ -1030,6 +1030,499 @@ const ContentObservationGuide = () => (
   </section>
 );
 
+
+const LanguageGuideAccordion = ({ number, title, subtitle, icon: Icon, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow print:break-inside-avoid">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`w-full p-5 text-left flex items-center justify-between gap-4 transition-colors no-print ${isOpen ? 'bg-indigo-50' : 'hover:bg-slate-50'}`}
+      >
+        <div className="flex items-center min-w-0">
+          <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 mr-4 ${isOpen ? 'bg-indigo-700 text-white' : 'bg-indigo-50 text-indigo-700'}`}>
+            {Icon && <Icon className="w-5 h-5" />}
+          </div>
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs font-bold tracking-wider text-indigo-700 uppercase">{number}</span>
+              <h4 className="font-bold text-slate-800">{title}</h4>
+            </div>
+            <p className="text-sm text-slate-500 leading-snug">{subtitle}</p>
+          </div>
+        </div>
+        {isOpen ? <ChevronUp className="w-5 h-5 text-indigo-700 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />}
+      </button>
+
+      <div className={`${isOpen ? 'block' : 'hidden'} border-t border-slate-100 p-5 md:p-6 text-sm text-slate-700 leading-relaxed print:block print:border print:border-slate-200 print:rounded-xl print:mt-3`}>
+        <div className="hidden print:flex items-center mb-3">
+          {Icon && <Icon className="w-5 h-5 mr-2 text-indigo-700" />}
+          <h4 className="font-bold text-slate-800">{number}. {title}</h4>
+        </div>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const languageGuideContent = {
+  en: {
+    label: 'English',
+    title: 'Observation Guide: Language Classes',
+    intro: 'This guide offers a quick reference to the aspects that may be considered during the observation of a language class. It is not a list of required actions and does not establish a single correct method or way to teach a session.',
+    explore: 'Explore each section to review questions that may help you reflect on your class.',
+    sections: [
+      {
+        number: '1',
+        title: 'Target-Language Use and Production',
+        subtitle: 'Opportunities to work with the target language and its use during classroom communication.',
+        icon: Languages,
+        paragraphs: [
+          'The observation will consider the opportunities students have to work with the target language and how the teacher uses it during classroom communication.',
+          'Activities may involve different ways of working with the language, such as listening, reading, identifying, selecting, completing, transforming, speaking, or writing. Not every activity is expected to require the same type of language production.',
+          'The teacher’s use of the target language during explanations, instructions, and interactions will also be considered. Another language may be used strategically when it supports understanding.'
+        ],
+        questionsTitle: 'Questions for reflection:',
+        questions: [
+          'Do the activities allow students to work directly with the language they are learning?',
+          'When appropriate, do students have opportunities to speak or write in the target language?',
+          'Do I use the target language during explanations, instructions, or interactions in a way that fits the characteristics and level of the group?',
+          'When I use another language, do I do so for a purpose related to understanding or carrying out the activity?'
+        ]
+      },
+      {
+        number: '2',
+        title: 'Activity Design and Expectations',
+        subtitle: 'Connection with lesson content, instructions, and expected responses or products.',
+        icon: ClipboardList,
+        paragraphs: [
+          'The observation will consider the relationship between the activities and the language content, skill, or communicative function being developed.',
+          'It will also consider whether instructions allow students to identify what they are expected to do and how to proceed, as well as the response, product, or outcome expected from the activity.'
+        ],
+        questionsTitle: 'Questions for reflection:',
+        questions: [
+          'Is the activity connected to the language content, skill, or communicative function we are working on?',
+          'Do my instructions allow students to identify what they are expected to do?',
+          'When the activity requires it, do I provide enough guidance for students to know how to proceed?',
+          'Can students identify the response, product, or outcome expected from the activity?',
+          'When spoken or written production is expected, is it clear what students are expected to communicate or demonstrate through it?'
+        ]
+      },
+      {
+        number: '3',
+        title: 'Monitoring and Response to Student Work',
+        subtitle: 'Monitoring, feedback, and response to questions or difficulties.',
+        icon: Search,
+        paragraphs: [
+          'The observation will consider how the teacher obtains information about what students are doing or producing during activities and how the teacher responds to that information.',
+          'It will also consider feedback related to spoken or written production and the response to questions, requests for clarification, or identifiable difficulties.'
+        ],
+        questionsTitle: 'Questions for reflection:',
+        questions: [
+          'Do I have a way to know how students are carrying out the activity?',
+          'When the activity allows it, do I review or listen to specific responses, work, or language production?',
+          'When I give feedback on spoken or written production, does the student receive information about a specific aspect of what they produced?',
+          'When possible, does my feedback give students information they can use to maintain, adjust, or revise their production?',
+          'If a question or difficulty arises, does the information, explanation, example, or guidance I provide address that situation?'
+        ]
+      },
+      {
+        number: '4',
+        title: 'Support for Production and Comprehension',
+        subtitle: 'Language support when students reasonably need it to understand or produce language.',
+        icon: HelpCircle,
+        paragraphs: [
+          'In some activities, students may need additional support to understand the target language or to express what they want to say or write.',
+          'Support may take different forms depending on the situation, such as words or expressions, examples, models, reformulation, context, visual references, or other resources.',
+          'Additional language support is not expected in every activity. It is considered when there is a reasonable need for it.'
+        ],
+        questionsTitle: 'Questions for reflection:',
+        questions: [
+          'When students need support to speak or write, do I provide language or references that can help them produce?',
+          'When I provide support for production, is it connected to what students need to say or write?',
+          'When students have difficulty understanding something in the target language, do I use context, examples, models, reformulation, visual references, or other resources to support comprehension?',
+          'When I use another language to support comprehension, do I do so according to the needs of the situation?',
+          'Do I avoid adding unnecessary support when students can carry out the activity independently?'
+        ]
+      }
+    ],
+    beforeTitle: 'Before the observation, it may be useful to ask myself…',
+    before: [
+      'What language content, skill, or communicative function do I want to work on in this session?',
+      'What do I expect students to do with the language during the class?',
+      'How will I know what students are doing or producing during the activities?',
+      'What type of language production, if any, do I expect students to complete?',
+      'If a difficulty with understanding or production arises, what options do I have to respond?',
+      'Is there anything about this session that I would like the observer to consider?'
+    ],
+    importantLabel: 'Important',
+    important: 'These questions are intended for reflection. They are not a list of required actions and do not imply that there is one correct method for teaching languages. Not every session must include spoken and written production, collaborative work, translation, additional language support, or a particular type of activity. Some aspects of the guide may not apply to every session. Assessment will be based only on the evidence that can be observed according to the characteristics of the class and the descriptors established in the rubric.'
+  },
+  fr: {
+    label: 'Français',
+    title: 'Guide d’observation : Cours de langues',
+    intro: 'Ce guide offre un repère rapide sur les aspects qui peuvent être pris en compte lors de l’observation d’un cours de langue. Il ne s’agit pas d’une liste d’actions obligatoires et il n’impose ni méthode unique ni façon unique de conduire une séance.',
+    explore: 'Explorez chaque rubrique pour consulter des questions qui peuvent vous aider à réfléchir à votre cours.',
+    sections: [
+      {
+        number: '1',
+        title: 'Utilisation et production dans la langue cible',
+        subtitle: 'Occasions de travailler avec la langue cible et utilisation de celle-ci dans la communication en classe.',
+        icon: Languages,
+        paragraphs: [
+          'L’observation prendra en compte les occasions offertes aux étudiants de travailler avec la langue cible ainsi que la manière dont l’enseignant l’utilise dans la communication en classe.',
+          'Les activités peuvent mobiliser la langue de différentes façons : écouter, lire, identifier, sélectionner, compléter, transformer, parler ou écrire. Toutes les activités ne sont pas censées demander le même type de production langagière.',
+          'L’utilisation de la langue cible par l’enseignant pendant les explications, les consignes et les interactions sera également prise en compte. Une autre langue peut être utilisée de manière stratégique lorsqu’elle facilite la compréhension.'
+        ],
+        questionsTitle: 'Questions pour réfléchir :',
+        questions: [
+          'Les activités permettent-elles aux étudiants de travailler directement avec la langue qu’ils apprennent ?',
+          'Lorsque cela est pertinent, les étudiants ont-ils l’occasion de parler ou d’écrire dans la langue cible ?',
+          'Est-ce que j’utilise la langue cible pendant les explications, les consignes ou les interactions d’une manière adaptée aux caractéristiques et au niveau du groupe ?',
+          'Lorsque j’utilise une autre langue, est-ce dans un but lié à la compréhension ou au déroulement de l’activité ?'
+        ]
+      },
+      {
+        number: '2',
+        title: 'Conception des activités et attentes',
+        subtitle: 'Lien avec le contenu du cours, consignes et réponses ou productions attendues.',
+        icon: ClipboardList,
+        paragraphs: [
+          'L’observation prendra en compte le lien entre les activités et le contenu linguistique, la compétence ou la fonction communicative travaillée.',
+          'Elle considérera également si les consignes permettent aux étudiants d’identifier ce qu’ils doivent faire et comment procéder, ainsi que la réponse, la production ou le résultat attendu de l’activité.'
+        ],
+        questionsTitle: 'Questions pour réfléchir :',
+        questions: [
+          'L’activité est-elle liée au contenu linguistique, à la compétence ou à la fonction communicative que nous travaillons ?',
+          'Mes consignes permettent-elles aux étudiants d’identifier ce qu’ils doivent faire ?',
+          'Lorsque l’activité l’exige, est-ce que je donne suffisamment d’indications pour savoir comment procéder ?',
+          'Les étudiants peuvent-ils identifier la réponse, la production ou le résultat attendu de l’activité ?',
+          'Lorsqu’une production orale ou écrite est attendue, est-il clair ce que les étudiants doivent communiquer ou démontrer à travers cette production ?'
+        ]
+      },
+      {
+        number: '3',
+        title: 'Suivi et réponse au travail des étudiants',
+        subtitle: 'Suivi, rétroaction et réponse aux questions ou difficultés.',
+        icon: Search,
+        paragraphs: [
+          'L’observation prendra en compte la manière dont l’enseignant obtient des informations sur ce que les étudiants font ou produisent pendant les activités et la façon dont il répond à ces informations.',
+          'Elle considérera également la rétroaction liée aux productions orales ou écrites ainsi que la réponse aux questions, demandes de clarification ou difficultés identifiables.'
+        ],
+        questionsTitle: 'Questions pour réfléchir :',
+        questions: [
+          'Ai-je un moyen de savoir comment les étudiants réalisent l’activité ?',
+          'Lorsque l’activité le permet, est-ce que j’examine ou j’écoute des réponses, travaux ou productions langagières précises ?',
+          'Lorsque je donne une rétroaction sur une production orale ou écrite, l’étudiant reçoit-il une information sur un aspect précis de ce qu’il a produit ?',
+          'Lorsque c’est possible, ma rétroaction fournit-elle des informations que l’étudiant peut utiliser pour maintenir, ajuster ou réviser sa production ?',
+          'Si une question ou une difficulté apparaît, l’information, l’explication, l’exemple ou l’orientation que je donne répond-il à cette situation ?'
+        ]
+      },
+      {
+        number: '4',
+        title: 'Soutien à la production et à la compréhension',
+        subtitle: 'Soutien linguistique lorsque les étudiants en ont raisonnablement besoin pour comprendre ou produire.',
+        icon: HelpCircle,
+        paragraphs: [
+          'Dans certaines activités, les étudiants peuvent avoir besoin d’un soutien supplémentaire pour comprendre la langue cible ou pour exprimer ce qu’ils souhaitent dire ou écrire.',
+          'Ce soutien peut prendre différentes formes selon la situation : mots ou expressions, exemples, modèles, reformulations, contexte, repères visuels ou autres ressources.',
+          'Un soutien linguistique supplémentaire n’est pas attendu dans toutes les activités. Il est pris en compte lorsqu’un besoin raisonnable apparaît.'
+        ],
+        questionsTitle: 'Questions pour réfléchir :',
+        questions: [
+          'Lorsque les étudiants ont besoin d’aide pour parler ou écrire, est-ce que je leur fournis des mots, des expressions ou des repères linguistiques qui peuvent les aider à produire ?',
+          'Lorsque je fournis un soutien à la production, est-il lié à ce que les étudiants doivent dire ou écrire ?',
+          'Lorsque les étudiants ont du mal à comprendre quelque chose dans la langue cible, est-ce que j’utilise le contexte, des exemples, des modèles, des reformulations, des repères visuels ou d’autres ressources pour faciliter la compréhension ?',
+          'Lorsque j’utilise une autre langue pour soutenir la compréhension, est-ce que je le fais en fonction des besoins de la situation ?',
+          'Est-ce que j’évite d’ajouter un soutien inutile lorsque les étudiants peuvent réaliser l’activité de manière autonome ?'
+        ]
+      }
+    ],
+    beforeTitle: 'Avant l’observation, il peut être utile de me demander…',
+    before: [
+      'Quel contenu linguistique, quelle compétence ou quelle fonction communicative est-ce que je souhaite travailler pendant cette séance ?',
+      'Qu’est-ce que j’attends des étudiants avec la langue pendant le cours ?',
+      'Comment saurai-je ce que les étudiants font ou produisent pendant les activités ?',
+      'Quel type de production langagière, s’il y en a une, est-ce que j’attends des étudiants ?',
+      'Si une difficulté de compréhension ou de production apparaît, quelles possibilités ai-je pour y répondre ?',
+      'Y a-t-il un élément de cette séance que je souhaiterais que l’observateur prenne particulièrement en compte ?'
+    ],
+    importantLabel: 'Important',
+    important: 'Ces questions ont un objectif réflexif. Elles ne constituent pas une liste d’actions obligatoires et n’impliquent pas qu’il existe une seule méthode correcte pour enseigner les langues. Toutes les séances ne doivent pas nécessairement inclure une production orale et écrite, du travail collaboratif, de la traduction, un soutien linguistique supplémentaire ou un type d’activité particulier. Certains aspects du guide peuvent ne pas correspondre à toutes les séances. L’évaluation reposera uniquement sur les éléments observables, en fonction des caractéristiques du cours et des descripteurs établis dans la grille.'
+  },
+  de: {
+    label: 'Deutsch',
+    title: 'Beobachtungsleitfaden: Sprachunterricht',
+    intro: 'Dieser Leitfaden bietet eine kurze Orientierung zu den Aspekten, die bei der Beobachtung einer Sprachunterrichtsstunde berücksichtigt werden können. Er ist keine Liste verpflichtender Handlungen und schreibt weder eine einzige Methode noch eine bestimmte Form des Unterrichts vor.',
+    explore: 'Öffnen Sie die einzelnen Bereiche, um Fragen zu sehen, die Sie bei der Reflexion über Ihren Unterricht unterstützen können.',
+    sections: [
+      {
+        number: '1',
+        title: 'Verwendung und Produktion der Zielsprache',
+        subtitle: 'Möglichkeiten zur Arbeit mit der Zielsprache und ihre Verwendung in der Unterrichtskommunikation.',
+        icon: Languages,
+        paragraphs: [
+          'Bei der Beobachtung wird berücksichtigt, welche Möglichkeiten die Lernenden haben, mit der Zielsprache zu arbeiten, und wie die Lehrkraft sie in der Unterrichtskommunikation verwendet.',
+          'Aktivitäten können unterschiedliche Formen der Spracharbeit umfassen, zum Beispiel Hören, Lesen, Erkennen, Auswählen, Ergänzen, Umformen, Sprechen oder Schreiben. Nicht jede Aktivität muss dieselbe Art von Sprachproduktion verlangen.',
+          'Auch die Verwendung der Zielsprache durch die Lehrkraft bei Erklärungen, Anweisungen und Interaktionen wird berücksichtigt. Eine andere Sprache kann strategisch eingesetzt werden, wenn sie das Verständnis unterstützt.'
+        ],
+        questionsTitle: 'Fragen zur Reflexion:',
+        questions: [
+          'Ermöglichen die Aktivitäten den Lernenden, direkt mit der Sprache zu arbeiten, die sie lernen?',
+          'Haben die Lernenden, wenn es sinnvoll ist, Gelegenheit, in der Zielsprache zu sprechen oder zu schreiben?',
+          'Verwende ich die Zielsprache bei Erklärungen, Anweisungen oder Interaktionen so, dass dies zu den Merkmalen und zum Niveau der Gruppe passt?',
+          'Wenn ich eine andere Sprache verwende, geschieht dies mit einem Zweck, der das Verständnis oder die Durchführung der Aktivität unterstützt?'
+        ]
+      },
+      {
+        number: '2',
+        title: 'Gestaltung der Aktivitäten und Erwartungen',
+        subtitle: 'Bezug zum Unterrichtsinhalt, Anweisungen und erwartete Antworten oder Produkte.',
+        icon: ClipboardList,
+        paragraphs: [
+          'Bei der Beobachtung wird der Zusammenhang zwischen den Aktivitäten und dem sprachlichen Inhalt, der Fertigkeit oder der kommunikativen Funktion berücksichtigt, die im Unterricht bearbeitet wird.',
+          'Außerdem wird betrachtet, ob die Anweisungen erkennen lassen, was die Lernenden tun sollen und wie sie vorgehen können, sowie welche Antwort, welches Produkt oder welches Ergebnis von der Aktivität erwartet wird.'
+        ],
+        questionsTitle: 'Fragen zur Reflexion:',
+        questions: [
+          'Steht die Aktivität in Verbindung mit dem sprachlichen Inhalt, der Fertigkeit oder der kommunikativen Funktion, die wir gerade bearbeiten?',
+          'Lassen meine Anweisungen erkennen, was die Lernenden tun sollen?',
+          'Gebe ich, wenn die Aktivität es erfordert, genügend Orientierung dazu, wie vorzugehen ist?',
+          'Können die Lernenden erkennen, welche Antwort, welches Produkt oder welches Ergebnis erwartet wird?',
+          'Wenn eine mündliche oder schriftliche Sprachproduktion erwartet wird, ist klar, was die Lernenden damit ausdrücken oder zeigen sollen?'
+        ]
+      },
+      {
+        number: '3',
+        title: 'Beobachtung und Reaktion auf die Arbeit der Lernenden',
+        subtitle: 'Beobachtung, Feedback und Reaktion auf Fragen oder Schwierigkeiten.',
+        icon: Search,
+        paragraphs: [
+          'Bei der Beobachtung wird berücksichtigt, wie die Lehrkraft Informationen darüber gewinnt, was die Lernenden während der Aktivitäten tun oder produzieren, und wie sie auf diese Informationen reagiert.',
+          'Ebenso werden Feedback zu mündlicher oder schriftlicher Sprachproduktion sowie Reaktionen auf Fragen, Bitten um Klärung oder erkennbare Schwierigkeiten berücksichtigt.'
+        ],
+        questionsTitle: 'Fragen zur Reflexion:',
+        questions: [
+          'Habe ich eine Möglichkeit festzustellen, wie die Lernenden die Aktivität bearbeiten?',
+          'Überprüfe oder höre ich, wenn die Aktivität es ermöglicht, konkrete Antworten, Arbeiten oder sprachliche Produktionen?',
+          'Erhält die lernende Person bei meinem Feedback zu einer mündlichen oder schriftlichen Produktion Informationen zu einem konkreten Aspekt ihrer Produktion?',
+          'Gibt mein Feedback, wenn möglich, Informationen, die die Lernenden nutzen können, um ihre Produktion beizubehalten, anzupassen oder zu überarbeiten?',
+          'Wenn eine Frage oder Schwierigkeit auftritt, geht die Information, Erklärung, das Beispiel oder die Unterstützung, die ich gebe, auf diese Situation ein?'
+        ]
+      },
+      {
+        number: '4',
+        title: 'Unterstützung bei Produktion und Verständnis',
+        subtitle: 'Sprachliche Unterstützung, wenn Lernende sie zum Verstehen oder Produzieren sinnvoll benötigen.',
+        icon: HelpCircle,
+        paragraphs: [
+          'Bei manchen Aktivitäten benötigen Lernende zusätzliche Unterstützung, um die Zielsprache zu verstehen oder auszudrücken, was sie sagen oder schreiben möchten.',
+          'Diese Unterstützung kann je nach Situation unterschiedliche Formen annehmen, zum Beispiel Wörter oder Ausdrücke, Beispiele, Modelle, Umformulierungen, Kontext, visuelle Hinweise oder andere Hilfen.',
+          'Zusätzliche sprachliche Unterstützung wird nicht in jeder Aktivität erwartet. Sie wird dann berücksichtigt, wenn ein nachvollziehbarer Bedarf besteht.'
+        ],
+        questionsTitle: 'Fragen zur Reflexion:',
+        questions: [
+          'Wenn Lernende Unterstützung beim Sprechen oder Schreiben benötigen, stelle ich ihnen sprachliche Mittel oder Hinweise zur Verfügung, die ihnen bei der Produktion helfen?',
+          'Wenn ich Unterstützung für eine Produktion anbiete, steht sie in Verbindung mit dem, was die Lernenden sagen oder schreiben sollen?',
+          'Wenn Lernende Schwierigkeiten haben, etwas in der Zielsprache zu verstehen, nutze ich Kontext, Beispiele, Modelle, Umformulierungen, visuelle Hinweise oder andere Hilfen, um das Verständnis zu unterstützen?',
+          'Wenn ich eine andere Sprache nutze, um das Verständnis zu unterstützen, geschieht dies entsprechend den Bedürfnissen der Situation?',
+          'Vermeide ich zusätzliche Unterstützung, wenn die Lernenden die Aktivität selbstständig bewältigen können?'
+        ]
+      }
+    ],
+    beforeTitle: 'Vor der Beobachtung kann es hilfreich sein, mich zu fragen…',
+    before: [
+      'Welchen sprachlichen Inhalt, welche Fertigkeit oder welche kommunikative Funktion möchte ich in dieser Stunde bearbeiten?',
+      'Was sollen die Lernenden während des Unterrichts mit der Sprache tun?',
+      'Woran werde ich erkennen, was die Lernenden während der Aktivitäten tun oder produzieren?',
+      'Welche Art von Sprachproduktion, falls überhaupt, erwarte ich von den Lernenden?',
+      'Welche Möglichkeiten habe ich zu reagieren, wenn Schwierigkeiten beim Verstehen oder Produzieren auftreten?',
+      'Gibt es etwas an dieser Stunde, das die beobachtende Person besonders berücksichtigen sollte?'
+    ],
+    importantLabel: 'Wichtig',
+    important: 'Diese Fragen dienen der Reflexion. Sie sind keine Liste verpflichtender Handlungen und bedeuten nicht, dass es nur eine richtige Methode für den Sprachunterricht gibt. Nicht jede Stunde muss mündliche und schriftliche Produktion, Gruppenarbeit, Übersetzung, zusätzliche sprachliche Unterstützung oder eine bestimmte Art von Aktivität enthalten. Einige Aspekte des Leitfadens treffen möglicherweise nicht auf jede Stunde zu. Die Bewertung erfolgt ausschließlich auf Grundlage der beobachtbaren Evidenz, der Merkmale der jeweiligen Stunde und der in der Rubrik festgelegten Beschreibungen.'
+  },
+  ja: {
+    label: '日本語',
+    title: '授業観察ガイド：語学授業',
+    intro: 'このガイドは、語学授業の観察で確認される可能性のあるポイントを簡潔に示したものです。すべての授業で実施すべき行動の一覧ではなく、特定の教授法や授業の進め方を唯一の正解として求めるものでもありません。',
+    explore: '各項目を開くと、授業を振り返るための質問を確認できます。',
+    sections: [
+      {
+        number: '1',
+        title: '目標言語の使用と産出',
+        subtitle: '学習者が目標言語に取り組む機会と、授業内コミュニケーションでの目標言語の使用。',
+        icon: Languages,
+        paragraphs: [
+          '観察では、学習者が目標言語に取り組む機会と、教師が授業内のコミュニケーションで目標言語をどのように使用しているかを確認します。',
+          '活動では、聞く、読む、見つける、選ぶ、補う、言い換える、話す、書くなど、さまざまな形で言語に取り組むことができます。すべての活動で同じ種類の言語産出を求める必要はありません。',
+          'また、説明、指示、やり取りの中で教師が目標言語をどのように使用しているかも確認します。理解を助ける必要がある場合には、別の言語を目的に応じて使用することもできます。'
+        ],
+        questionsTitle: '振り返りのための質問：',
+        questions: [
+          '活動の中で、学習者が学んでいる言語そのものに直接取り組む機会があるか。',
+          '必要な場面では、目標言語で話したり書いたりする機会があるか。',
+          'クラスの特徴やレベルに合わせて、説明、指示、やり取りの中で目標言語を使用しているか。',
+          '別の言語を使う場合、その使用には理解の支援や活動の進行に関わる目的があるか。'
+        ]
+      },
+      {
+        number: '2',
+        title: '活動の設計と期待される成果',
+        subtitle: '授業内容とのつながり、指示、期待される応答や成果物。',
+        icon: ClipboardList,
+        paragraphs: [
+          '観察では、活動が授業で扱っている言語項目、技能、またはコミュニケーション機能とどのようにつながっているかを確認します。',
+          'また、指示によって学習者が「何をするのか」「どのように進めるのか」を把握できるか、そして活動でどのような応答、成果物、結果が期待されているかも確認します。'
+        ],
+        questionsTitle: '振り返りのための質問：',
+        questions: [
+          '活動は、授業で扱っている言語項目、技能、またはコミュニケーション機能とつながっているか。',
+          '指示によって、学習者は何をすべきか把握できるか。',
+          '活動に必要な場合、どのように進めるかが分かる程度の案内をしているか。',
+          '学習者は、期待される応答、成果物、または結果を把握できるか。',
+          '話す・書く活動では、何を伝えたり示したりすることが期待されているか明確になっているか。'
+        ]
+      },
+      {
+        number: '3',
+        title: '学習者の活動の把握と対応',
+        subtitle: '活動の確認、フィードバック、質問や困難への対応。',
+        icon: Search,
+        paragraphs: [
+          '観察では、活動中に学習者が何をしているか、何を産出しているかについて教師がどのように情報を得て、その情報にどのように対応しているかを確認します。',
+          'また、口頭・記述による言語産出へのフィードバックや、質問、説明を求める場面、確認できる困難への対応も確認します。'
+        ],
+        questionsTitle: '振り返りのための質問：',
+        questions: [
+          '学習者が活動をどのように進めているか把握する方法があるか。',
+          '活動の中で可能な場合、具体的な応答、課題、または言語産出を確認したり聞いたりしているか。',
+          '口頭・記述の産出にフィードバックを行うとき、学習者は自分の産出の具体的な点について情報を受け取っているか。',
+          '可能な場合、そのフィードバックは、学習者が自分の表現を維持・調整・修正するために使える情報になっているか。',
+          '質問や困難が生じたとき、説明、例、情報、案内などがその状況に対応したものになっているか。'
+        ]
+      },
+      {
+        number: '4',
+        title: '産出と理解への支援',
+        subtitle: '理解や産出のために合理的に必要となる場合の言語的支援。',
+        icon: HelpCircle,
+        paragraphs: [
+          '活動によっては、学習者が目標言語を理解したり、自分が伝えたいことを話したり書いたりするために、追加の支援が必要になることがあります。',
+          '支援の形は状況によって異なり、語句、表現、例、モデル、言い換え、文脈、視覚的な手掛かりなどを利用できます。',
+          '追加の言語的支援は、すべての活動で必ず求められるものではありません。支援が合理的に必要な場面で確認します。'
+        ],
+        questionsTitle: '振り返りのための質問：',
+        questions: [
+          '学習者が話す・書くための支援を必要としているとき、産出に使える語句や手掛かりを示しているか。',
+          '産出を支援する場合、その支援は学習者が実際に話したり書いたりする内容とつながっているか。',
+          '目標言語の理解が難しい場面で、文脈、例、モデル、言い換え、視覚的な手掛かりなどを使って理解を支えているか。',
+          '理解を助けるために別の言語を使う場合、その場面の必要性に応じて使っているか。',
+          '学習者が自力で活動を進められる場合には、不要な支援を加えすぎていないか。'
+        ]
+      }
+    ],
+    beforeTitle: '観察前に、次のことを考えておくと役立つことがあります。',
+    before: [
+      'この授業で、どの言語項目、技能、またはコミュニケーション機能を扱いたいか。',
+      '授業中、学習者にその言語を使って何をしてほしいか。',
+      '活動中に学習者が何をしているか、何を産出しているかをどのように把握するか。',
+      '言語産出を求める場合、どのような産出を期待しているか。',
+      '理解や産出に困難が生じた場合、どのように対応できるか。',
+      'この授業について、観察者に特に考慮してほしい点があるか。'
+    ],
+    importantLabel: '重要',
+    important: 'これらの質問は授業を振り返るためのものです。すべての授業で実施すべき行動の一覧ではなく、語学授業に唯一の正しい教授法があることを示すものでもありません。すべての授業で口頭・記述の両方の産出、協働活動、翻訳、追加の言語支援、特定の活動形式を取り入れる必要はありません。授業によっては、このガイドの一部が当てはまらない場合があります。評価は、授業の特徴とルーブリックの記述に基づき、実際に観察できた内容のみをもとに行われます。'
+  }
+};
+
+const LanguageObservationGuide = () => {
+  const [guideLanguage, setGuideLanguage] = useState('en');
+  const guide = languageGuideContent[guideLanguage];
+
+  return (
+    <section className="mb-10 no-print-guide">
+      <div className="bg-gradient-to-r from-indigo-800 to-violet-700 rounded-2xl p-6 md:p-7 text-white shadow-md mb-5 relative overflow-hidden print:bg-white print:text-slate-800 print:border print:border-slate-300 print:shadow-none">
+        <div className="absolute right-0 top-0 opacity-10 transform translate-x-6 -translate-y-6 no-print">
+          <Languages className="w-36 h-36" />
+        </div>
+        <div className="relative z-10 max-w-3xl">
+          <div className="flex items-center mb-3">
+            <div className="p-2 bg-white/15 rounded-lg mr-3 no-print">
+              <Languages className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl font-bold">{guide.title}</h2>
+          </div>
+          <p className="text-indigo-50 leading-relaxed print:text-slate-700">{guide.intro}</p>
+          <p className="text-sm text-indigo-100 mt-3 font-medium no-print">{guide.explore}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-2 bg-slate-100 p-2 rounded-xl border border-slate-200 mb-5 no-print" aria-label="Guide language">
+        {Object.entries(languageGuideContent).map(([code, item]) => (
+          <button
+            key={code}
+            type="button"
+            onClick={() => setGuideLanguage(code)}
+            className={`px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${
+              guideLanguage === code
+                ? 'bg-white text-indigo-800 shadow-sm border border-indigo-200'
+                : 'text-slate-600 hover:bg-white/70 hover:text-indigo-700'
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5 print:block print:space-y-4">
+        {guide.sections.map((section) => {
+          const Icon = section.icon;
+          return (
+            <LanguageGuideAccordion
+              key={`${guideLanguage}-${section.number}`}
+              number={section.number}
+              title={section.title}
+              subtitle={section.subtitle}
+              icon={Icon}
+            >
+              {section.paragraphs.map((paragraph, idx) => (
+                <p key={idx} className="mb-4">{paragraph}</p>
+              ))}
+              <p className="font-bold text-slate-800 mb-2">{section.questionsTitle}</p>
+              <ul className="list-disc pl-5 space-y-2">
+                {section.questions.map((question, idx) => <li key={idx}>{question}</li>)}
+              </ul>
+            </LanguageGuideAccordion>
+          );
+        })}
+      </div>
+
+      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 md:p-6 mb-4 print:break-inside-avoid">
+        <div className="flex items-start">
+          <div className="p-2 rounded-lg bg-indigo-100 text-indigo-700 mr-4 flex-shrink-0">
+            <Target className="w-5 h-5" />
+          </div>
+          <div className="w-full">
+            <h3 className="font-bold text-slate-800 text-lg mb-3">{guide.beforeTitle}</h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-slate-700 list-disc pl-5 md:pl-0 md:list-none">
+              {guide.before.map((question, idx) => (
+                <li key={idx} className={idx === guide.before.length - 1 ? 'md:col-span-2' : ''}>{question}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-start bg-indigo-50 border-l-4 border-indigo-600 rounded-r-lg p-4 text-sm text-indigo-950 print:border print:border-indigo-200 print:rounded-lg">
+        <Info className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+        <p><strong>{guide.importantLabel}:</strong> {guide.important}</p>
+      </div>
+    </section>
+  );
+};
+
 const GuiasObservacion = () => {
   const [tipoGuia, setTipoGuia] = useState('contenido');
 
@@ -1070,17 +1563,7 @@ const GuiasObservacion = () => {
       {tipoGuia === 'contenido' ? (
         <ContentObservationGuide />
       ) : (
-        <div className="pt-1">
-          <VideoEmbed
-            title="Guía de Observación: Clases de Idiomas"
-            description="Material preparatorio para conocer los aspectos generales considerados durante la observación de clases de idiomas."
-            embedId="eDHtNsIa9wE"
-            colorTheme="indigo"
-          />
-          <div className="bg-indigo-50 border-l-4 border-indigo-600 rounded-r-lg p-4 text-sm text-indigo-950">
-            Esta guía es un material de orientación. Los criterios y niveles que determinan la valoración se encuentran exclusivamente en la rúbrica de idiomas publicada en la sección de Rúbricas de Evaluación.
-          </div>
-        </div>
+        <LanguageObservationGuide />
       )}
     </div>
   );
