@@ -281,35 +281,35 @@ const Introduccion = ({ setActiveTab }) => {
     { 
       id: 'inicio', 
       title: 'Modelo de Evaluación', 
-      desc: 'Conoce cómo se compone tu calificación final (Modelo 360°).', 
+      desc: 'Conoce los componentes que integran tu calificación final dentro del Modelo de Evaluación 360°.', 
       icon: LayoutDashboard, 
       bg: 'bg-blue-100', text: 'text-blue-700', hoverText: 'group-hover:text-blue-700' 
     },
     { 
       id: 'calendario', 
       title: 'Calendario y Fases', 
-      desc: 'Revisa las semanas clave del cuatrimestre y cuándo recibirás tu retroalimentación.', 
+      desc: 'Consulta las etapas y periodos establecidos para los diferentes componentes del proceso de evaluación docente.', 
       icon: CalendarDays, 
       bg: 'bg-indigo-100', text: 'text-indigo-700', hoverText: 'group-hover:text-indigo-700' 
     },
     { 
       id: 'rubricas', 
       title: 'Rúbricas de Evaluación', 
-      desc: 'Explora a detalle los criterios que se observan en tu clase, con la opción de descargar tu propio PDF.', 
+      desc: 'Consulta los criterios y descriptores utilizados durante la observación de clases de contenido y de idiomas.', 
       icon: CheckSquare, 
       bg: 'bg-emerald-100', text: 'text-emerald-700', hoverText: 'group-hover:text-emerald-700' 
     },
     { 
       id: 'marco', 
       title: 'Marco Teórico', 
-      desc: 'Descubre las bases pedagógicas y el "por qué" detrás de nuestra metodología.', 
+      desc: 'Conoce los fundamentos que sustentan el diseño, aplicación e interpretación de los instrumentos de observación.', 
       icon: BookOpen, 
       bg: 'bg-violet-100', text: 'text-violet-700', hoverText: 'group-hover:text-violet-700' 
     },
     { 
       id: 'faq', 
       title: 'FAQ y Contacto', 
-      desc: 'Resuelve tus dudas más comunes y comunícate directamente con la coordinación.', 
+      desc: 'Consulta respuestas a dudas frecuentes sobre la observación y comunícate directamente con la Coordinación de Evaluación Docente.', 
       icon: HelpCircle, 
       bg: 'bg-orange-100', text: 'text-orange-700', hoverText: 'group-hover:text-orange-700' 
     }
@@ -320,16 +320,16 @@ const Introduccion = ({ setActiveTab }) => {
       <div className="bg-gradient-to-r from-blue-800 to-indigo-900 rounded-2xl p-8 text-white shadow-lg">
         <h1 className="text-3xl font-bold mb-4">Bienvenido a la Plataforma de Evaluación Docente</h1>
         <p className="text-blue-100 text-lg leading-relaxed">
-          Hemos diseñado este espacio pensando en ti. Sabemos que la labor docente es desafiante, dinámica y requiere de una vocación inmensa. Nuestro objetivo principal no es auditarte desde una postura punitiva, sino acompañarte en tu crecimiento profesional.
+          Este espacio reúne la información, instrumentos y criterios utilizados en el proceso institucional de evaluación docente. Nuestro propósito es ofrecerte información clara sobre cómo se realiza la evaluación, qué aspectos se consideran durante la observación de clase y cómo se integran los distintos componentes del proceso.
         </p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card title="Crecimiento Conjunto" icon={ThumbsUp} borderColor="border-blue-500">
-          <p>Queremos transitar de una "inspección" tradicional hacia una cultura de práctica reflexiva. Las rúbricas y herramientas que encontrarás aquí están diseñadas para darte claridad, certeza y apoyo en tu labor diaria.</p>
+        <Card title="Evaluación basada en evidencia" icon={ClipboardList} borderColor="border-blue-500">
+          <p>La observación de clase se realiza a partir de evidencia observable registrada durante una sesión y de los descriptores establecidos en las rúbricas. Los instrumentos no establecen una única forma de impartir clase. La valoración considera las características de la asignatura, las actividades desarrolladas y las condiciones particulares de la sesión observada.</p>
         </Card>
-        <Card title="Transparencia Total" icon={Search} borderColor="border-green-500">
-          <p>Aquí no hay secretos. Tienes a tu disposición exactamente los mismos instrumentos y criterios que utilizamos los observadores. Queremos que conozcas las expectativas institucionales para que te sientas seguro frente al grupo.</p>
+        <Card title="Transparencia del proceso" icon={Search} borderColor="border-green-500">
+          <p>En esta plataforma puedes consultar los mismos instrumentos, criterios y lineamientos utilizados durante el proceso de observación. Conocerlos te permite identificar qué se observa, cómo se asignan los niveles de desempeño y cuáles son los alcances y límites de la evaluación.</p>
         </Card>
       </div>
 
@@ -338,7 +338,7 @@ const Introduccion = ({ setActiveTab }) => {
           <Menu className="w-6 h-6 mr-3 text-blue-600 flex-shrink-0" />
           <div>
             <h3 className="text-xl font-bold text-slate-800">¿Cómo navegar por la plataforma?</h3>
-            <p className="text-slate-500 text-sm mt-1">Haz clic en cualquier sección de esta tabla para dirigirte a ella de inmediato.</p>
+            <p className="text-slate-500 text-sm mt-1">Selecciona cualquiera de las siguientes secciones para consultar la información correspondiente.</p>
           </div>
         </div>
         <div className="divide-y divide-slate-100">
@@ -1214,7 +1214,7 @@ const Rubricas = () => {
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1">Rúbrica de observación</p>
               <h3 className="text-xl font-bold text-slate-900">Clases de Idiomas</h3>
-              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Inglés, francés, alemán y japonés.</p>
+              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Inglés, francés, alemán y otras lenguas.</p>
               <p className="text-sm font-bold text-indigo-700 mt-4">View rubric →</p>
             </div>
           </div>
