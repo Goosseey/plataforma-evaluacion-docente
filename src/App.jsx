@@ -1223,7 +1223,7 @@ const Rubricas = () => {
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1">Rúbrica de observación</p>
               <h3 className="text-xl font-bold text-slate-900">Clases de Idiomas</h3>
-              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Inglés, francés, alemán y otras lenguas.</p>
+              <p className="text-sm text-slate-600 mt-2 leading-relaxed">Inglés, francés, alemán y japonés.</p>
               <p className="text-sm font-bold text-indigo-700 mt-4">View rubric →</p>
             </div>
           </div>
